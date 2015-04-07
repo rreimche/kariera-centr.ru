@@ -17,11 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :content %><br>
-    <%= f.text_area :content %>
-  </div>
-  <div class="field">
-    <%= f.label :published %><br>
-    <%= f.datetime_select :published %>
+    <%= f.cktext_area :content, :ckeditor => {:language => 'ru'} %>
   </div>
   <div class="actions">
     <%= f.submit %>

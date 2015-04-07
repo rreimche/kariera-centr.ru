@@ -24,7 +24,7 @@ class PagesController < ApplicationController
   # POST /pages
   # POST /pages.json
   def create
-    @page = Page.new(page_params)
+    @page = Page.new({:title => page_params[:title], :content => page_params[:content], :published => DateTime.now})
 
     respond_to do |format|
       if @page.save
