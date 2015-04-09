@@ -1,14 +1,93 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-  <title>KarieraCentrRu</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= content_for?(:title) ? content_for(:title) : 'Учебный центр "Карьера", г. Таганрог' %></title>
+  <%= '<meta name="description" content="%{:description}">' if content_for? :description %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+<nav id="navbar top" class="navbar navbar-inverse navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/"><img id="logo_small" src="/images/logo_small.png" alt="<%= t :orgname_short %>"></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+	        <ul class="nav navbar-nav">
+	        	<li><a href="/aboutus">О центре</a></li>
+	        	<li><a href="/ourcourses">Курсы</a></li>
+	        	<li><a href="/feedback">Отзывы</a></li>
+	        	<li><a href="https://docs.google.com/spreadsheets/d/1J5_6oTqTjHn1plrxoeswgFpyzaee_-S3Zgv5MO6HsIc/edit?usp=sharing">Расписание занятий</a></li>
+	        	<li><a href="/contactus">Контакты</a></li>
+	        </ul>
+	        <ul class="nav navbar-nav navbar-right social">
+	        	<li><a href="https://vk.com/clubkaryera_centr" title="Мы в Вконтакте">&#xe003;</a></li>
+	        	<li style="display:none"><a href="#" title="Мы в Одноклассниках">&#xe00d;</a></li>
+	        	<li><a href="https://www.facebook.com/kariera.centr" title="Мы в Facebook">&#xe021;</a></li>
+	        </ul>
+	    </div>
+      </div>
+ </nav>
 
+
+
+
+<div class="container-fluid">
+	<div class="row">
+		<% if not 'homepage_controller' == controller_name %>
+			<main class="col-xs-6">
+				<%= yield %>
+			</main>
+			<aside class="col-xs-4 coll-xs-offset-2">
+				<%= render 'layouts/sidebar' %>
+		    </aside>
+		<% else %>
+			<main class="col-xs-12">
+				<%= yield %>
+			</main>
+		<% end %>
+	</div>
+</div>
+
+<hr>
+
+<footer class="text-muted container-fluid">
+	<div class="row">
+			<div class="col-xs-4 col-xs-offset-1">
+					В профессиональной сфере часто случается так, что личные или корпоративные клиенты заказывают, чтобы публикация была сделана и представлена еще тогда, когда фактическое содержание все еще не готово. Вспомните новостные блоги, где информация публикуется каждый час в живом порядке.
+			</div>
+			<div class="col-xs-4 col-xs-offset-2">
+					Они предпочитают сконцентрироваться на тексте, пренебрегая разметкой и ее элементами. К тому же, случайный текст подвергается риску быть неумышленно смешным или оскорбительным, что является неприемлемым риском в корпоративной среде. Lorem ipsum, а также ее многие варианты были использованы в работе начиная с 1960-ых, и очень даже похоже, что еще с 16-го века.
+			</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<div id="bottom_buttons" class="center-block">
+				<button id="linktop" type="button" class="btn btn-lg btn-link">
+					<a href="#top">
+						<small>
+						Наверх
+						</small>
+					</a>
+				</button>
+				|
+				<buttonn type="button" class="btn btn-lg btn-link">
+					<small><a href="#">Вход для администрации</a></small>
+				</buttonn>
+			</div>
+		</div>
+	</div>
+</footer>
 </body>
 </html>

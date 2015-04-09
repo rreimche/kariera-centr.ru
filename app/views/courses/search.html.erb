@@ -1,0 +1,33 @@
+
+      <h1>Курсы в Таганроге</h1>
+      <div class="row">
+        <div class="col-xs-12">
+          <%= "Вы искали: #{@searched}" if not @searched.nil? %>
+          <%= form_tag("/ourcourses", method: 'get') do %>
+            <%= label_tag :titlepart, 'Введите часть названия желаемого курса: ' %>
+            <%= text_field_tag :titlepart %>
+            <%= submit_tag 'Искать' %>
+          <% end %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-8">
+          <table id="courses" class="table table-condensed">
+            <thead>
+              <th class="course_title">Название курса</th>
+              <th class="course_start_date">Дата начала</th>
+            </thead>
+            <tbody>
+              <% @courses.each do |course| %>
+                <tr>
+                  <td class="course_title"><%= link_to course.title, course %></td>
+                  <td class="course_start_date"><%= l course.start_date, format: :middle %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+
+<% content_for :title, 'Курсы в Таганроге' %>
+
+

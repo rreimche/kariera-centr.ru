@@ -34,7 +34,9 @@ ru:
     formats:
       default: "%d.%m.%Y"
       long: "%-d %B %Y"
+      middle: "%-d %b %Y"
       short: "%-d %b"
+      only_date: "%d %b"
     month_names:
     - 
     - января
@@ -253,5 +255,11 @@ ru:
     formats:
       default: "%a, %d %b %Y, %H:%M:%S %z"
       long: "%d %B %Y, %H:%M"
+      middle: "%d %b %Y, %H:%M"
       short: "%d %b, %H:%M"
+      only_date: "%d %b"
     pm: вечера
+  orgname_short: УЦ Карьера
+  morning: утро
+  day: день
+  evening: вечер

@@ -1,0 +1,13 @@
+      <h1>Новости</h1>
+       <table id="news" class="table-condensed">
+          <tbody>
+            <% @news.each do |news| %>
+              <tr>
+                <td class="news_datetime"><%= l news.created_at, format: :middle %></td>
+                <td class="news_content"><%= news.content %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+
+

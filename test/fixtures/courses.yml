@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  short_descr: MyText
+  full_descr: MyText
+  start_date: 2015-04-08
+  full_price: 9.99
+  timegroup: 1
+
+two:
+  title: MyString
+  short_descr: MyText
+  full_descr: MyText
+  start_date: 2015-04-08
+  full_price: 9.99
+  timegroup: 1

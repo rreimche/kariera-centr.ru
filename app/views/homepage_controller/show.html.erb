@@ -1,2 +1,76 @@
-<h1>HomepageController#show</h1>
-<p>Find me in app/views/homepage_controller/show.html.erb</p>
+<div class="container-fluid">
+  <div class="row">
+    <div id="carousel-homepage" class="carousel slide col-xs-8 col-xs-offset-2" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-homepage" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-homepage" data-slide-to="1"></li>
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          Img1
+          <div class="carousel-caption">
+            First slide
+          </div>
+        </div>
+        <div class="item">
+          Img2
+          <div class="carousel-caption">
+            Second slide
+          </div>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <a class="left carousel-control" href="#carousel-homepage" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#carousel-homepage" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<div class="container-fluid">
+  <div class="row">
+    <div id="news" class="col-xs-4">
+      <h2>Новости</h2>
+      <ul class="list-group">
+          <% @news.each do | news | %>
+            <li class="list-group-item"><span><%= l news.created_at, format: :only_date %>:</span> <%= link_to truncate(news.content), news %> </li>
+          <% end %>
+      </ul>
+      <%= link_to 'Больше...', news_index_path, class: "pull-left" %>
+    </div>
+    <div id="nextcourses" class="col-xs-4">
+      <h2>Начинающиеся курсы</h2>
+      <div class="list-group">
+        <% @courses_next.each do |course| %>
+          <li class="list-group-item"><span><%= l course.start_date, format: :only_date %>:</span> <%= link_to course.title, course %></li>
+        <% end %>
+      </div>
+      <%= link_to 'Все курсы...', { controller: 'courses', action: 'search' },  class: "pull-left" %>
+    </div>
+    <div id="feedbackvids" class="col-xs-4">
+      <h2>Видео о нас</h2>
+      <iframe width="320" height="240" src="https://www.youtube.com/embed/h5gNHZBd99c?rel=0" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<div class="jumbotron">
+      <div class="container">
+        <h1>УЦ Карьера</h1>
+        <p>В профессиональной сфере часто случается так, что личные или корпоративные клиенты заказывают, чтобы публикация была сделана и представлена еще тогда, когда фактическое содержание все еще не готово. Вспомните новостные блоги, где информация публикуется каждый час в живом порядке.</p>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button">Читать дальше »</a></p>
+      </div>
+  </div>

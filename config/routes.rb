@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
+  resources :courses
+
+  resources :news
+
   resources :static_pages
 
   mount Ckeditor::Engine => '/ckeditor'
+
+  get '/ourcourses', to: 'courses#search'
 
   root 'homepage_controller#show'
 
