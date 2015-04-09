@@ -13,9 +13,9 @@
 
   <div class="field">
     <%= f.label :content %><br>
-    <%= f.text_area :content %>
+    <%= f.cktext_area :content %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit action_name == 'new' ?  'Создать новость' : 'Редактировать новость'%>
   </div>
 <% end %>

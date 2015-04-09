@@ -20,6 +20,6 @@
     <%= f.cktext_area :content, :ckeditor => {:language => 'ru'} %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit action_name == 'new' ?  'Создать страницу' : 'Редактировать страницу' %>
   </div>
 <% end %>
