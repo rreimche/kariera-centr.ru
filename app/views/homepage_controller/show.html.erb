@@ -41,25 +41,29 @@
 <div class="container-fluid">
   <div class="row">
     <div id="news" class="col-xs-4">
-      <h2>Новости</h2>
+      <h3>Новости</h3>
       <ul class="list-group">
           <% @news.each do | news | %>
             <li class="list-group-item"><span><%= l news.created_at, format: :only_date %>:</span> <%= link_to truncate(news.content), news %> </li>
           <% end %>
       </ul>
-      <%= link_to 'Больше...', news_index_path, class: "pull-left" %>
+      <button type="button" class="btn btn-xs btn-default center-block">
+        <%= link_to 'Все новости...', news_index_path %>
+      </button>
     </div>
     <div id="nextcourses" class="col-xs-4">
-      <h2>Начинающиеся курсы</h2>
+      <h3>Начинающиеся курсы</h3>
       <div class="list-group">
         <% @courses_next.each do |course| %>
           <li class="list-group-item"><span><%= l course.start_date, format: :only_date %>:</span> <%= link_to course.title, course %></li>
         <% end %>
       </div>
-      <%= link_to 'Все курсы...', { controller: 'courses', action: 'search' },  class: "pull-left" %>
+      <button type="button" class="btn btn-xs btn-default center-block">
+        <%= link_to 'Все курсы...', { controller: 'courses', action: 'search' } %>
+      </button>
     </div>
     <div id="feedbackvids" class="col-xs-4">
-      <h2>Видео о нас</h2>
+      <h3>Видео о нас</h3>
       <iframe width="320" height="240" src="https://www.youtube.com/embed/h5gNHZBd99c?rel=0" frameborder="0" allowfullscreen></iframe>
     </div>
   </div>
