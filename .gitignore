@@ -63,3 +63,5 @@ bower.json
 ### End github ignores
 =======
 >>>>>>> fe2dadffa255236b254b2e6740a7cd63a9f87d1c
+
+/config/application.yml

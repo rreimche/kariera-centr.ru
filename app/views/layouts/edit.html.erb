@@ -4,7 +4,19 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title><%= action_name == 'new' ? 'Создать' : 'Редактировать' %> <%= t controller_name.classify.downcase %></title>
+  <title>
+    <%=
+        if current_page? controller: 'control_panel', action: 'root'
+          'Управление УКЦ Карьера'
+        elsif current_page? controller: 'control_panel', action: 'list'
+          "Все #{@content_type}"
+        elsif action_name == 'new'
+          "Создать #{t controller_name.classify.downcase}"
+        else
+          "Редактировать #{t controller_name.classify.downcase}"
+        end
+    %>
+  </title>
   <%= '<meta name="description" content="%{:description}">' if content_for? :description %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>

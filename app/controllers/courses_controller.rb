@@ -1,5 +1,6 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
+  http_basic_authenticate_with name: ENV['CP_USER'], password: ENV['CP_PASSWORD'], except: ['index', 'search', 'show']
 
   # GET /courseslist
   # GET /courses.json
@@ -28,20 +29,23 @@ class CoursesController < ApplicationController
   # GET /courses/new
   def new
     @course = Course.new
+    @timegroups = Course.timegroups
   end
 
   # GET /courses/1/edit
   def edit
+    @timegroups = Course.timegroups
   end
 
   # POST /courses
   # POST /courses.json
   def create
     @course = Course.new(course_params)
+    @timegroups = Course.timegroups
 
     respond_to do |format|
       if @course.save
-        format.html { redirect_to @course, notice: 'Course was successfully created.' }
+        format.html { redirect_to redirect_url, notice: 'Курс создан.' }
         format.json { render :show, status: :created, location: @course }
       else
         format.html { render :new }
@@ -55,7 +59,7 @@ class CoursesController < ApplicationController
   def update
     respond_to do |format|
       if @course.update(course_params)
-        format.html { redirect_to @course, notice: 'Course was successfully updated.' }
+        format.html { redirect_to redirect_url, notice: 'Курс успешно обновлён.' }
         format.json { render :show, status: :ok, location: @course }
       else
         format.html { render :edit }
@@ -69,7 +73,7 @@ class CoursesController < ApplicationController
   def destroy
     @course.destroy
     respond_to do |format|
-      format.html { redirect_to courses_url, notice: 'Course was successfully destroyed.' }
+      format.html { redirect_to redirect_url, notice: 'Курсы был удалён.' }
       format.json { head :no_content }
     end
   end
@@ -86,6 +90,15 @@ class CoursesController < ApplicationController
         params.permit('titlepart')
       else
         params.require(:course).permit(:title, :short_descr, :full_descr, :start_date, :full_price, :timegroup)
+      end
+    end
+
+    def redirect_url
+      panel = params.permit(:panel)[:panel]
+      if panel == 'list'
+        "#{list_control_url}?content_type=courses"
+      else
+        root_control_url
       end
     end
 end

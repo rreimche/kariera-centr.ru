@@ -1,0 +1,27 @@
+<h1>Управление: <%= @content_type.capitalize %></h1>
+
+<%= raw("<h3 class=\"text-danger\">#{flash[:notice]}</h3>") if not flash[:notice].nil? %>
+
+<table class="table table-condensed control_root">
+            <thead>
+              <tr>
+                <th>Дата публикации</th>
+                <th>Заголовок/содержание</th>
+                <th>Управление</th>
+              </tr>
+            </thead>
+            <tbody>
+            	<% @data.each do |item| %>
+	              <tr>
+	                <td><%= l item.created_at, format: :short %></td>
+	                <td><%= link_to @content.call(item), item %></td>
+	                <td>
+	                	<%= link_to 'Редактировать', @edit_path.call(item), class: 'btn btn-xs btn-warning' %><br>
+	                	<%= link_to 'Удалить', "/#{@content_type}/#{item.id}?panel=list", method: :delete, data: { confirm: 'Уверены?' }, class: 'btn btn-xs btn-danger' %>
+	                </td>
+	              </tr>
+	            <% end %>
+            </tbody>
+</table>
+
+<%= link_to 'К общему управлению', root_control_path, class: "btn btn-lg btn-link" %>

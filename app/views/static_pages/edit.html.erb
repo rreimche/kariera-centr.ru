@@ -2,5 +2,6 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @static_page %> |
-<%= link_to 'Back', static_pages_path %>
+<%= link_to 'На страницу курса', @static_page %> |
+<%= link_to 'На главную управления', root_control_path %> |
+<%= link_to 'На управление курсами', "#{list_control_path}?content_type=static_pages" %>

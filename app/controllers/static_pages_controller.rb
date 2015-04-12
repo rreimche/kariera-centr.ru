@@ -1,5 +1,6 @@
 class StaticPagesController < ApplicationController
   before_action :set_static_page, only: [:show, :edit, :update, :destroy]
+  http_basic_authenticate_with name: ENV['CP_USER'], password: ENV['CP_PASSWORD'], except: ['index', 'show']
 
   # GET /static_pages
   # GET /static_pages.json
@@ -28,7 +29,7 @@ class StaticPagesController < ApplicationController
 
     respond_to do |format|
       if @static_page.save
-        format.html { redirect_to @static_page, notice: 'Static page was successfully created.' }
+        format.html { redirect_to redirect_url, notice: 'Страница была создана.' }
         format.json { render :show, status: :created, location: @static_page }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class StaticPagesController < ApplicationController
   def update
     respond_to do |format|
       if @static_page.update(static_page_params)
-        format.html { redirect_to @static_page, notice: 'Static page was successfully updated.' }
+        format.html { redirect_to redirect_url, notice: 'Страница была обновлена.' }
         format.json { render :show, status: :ok, location: @static_page }
       else
         format.html { render :edit }
@@ -56,7 +57,7 @@ class StaticPagesController < ApplicationController
   def destroy
     @static_page.destroy
     respond_to do |format|
-      format.html { redirect_to static_pages_url, notice: 'Static page was successfully destroyed.' }
+      format.html { redirect_to redirect_url, notice: 'Страница была удалена.' }
       format.json { head :no_content }
     end
   end
@@ -70,5 +71,13 @@ class StaticPagesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def static_page_params
       params.require(:static_page).permit(:title, :content, :published)
+    end
+    def redirect_url
+      panel = params.permit(:panel)[:panel]
+      if panel == 'list'
+        "#{list_control_url}?content_type=static_pages"
+      else
+        root_control_url
+      end
     end
 end

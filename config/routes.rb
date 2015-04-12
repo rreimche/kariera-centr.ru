@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+
+
+  resource 'control', controller: 'control_panel', only: ['root', 'list'] do
+    get '' => 'control_panel#root', as: 'root'
+    get 'list' => 'control_panel#list', as: 'list'
+  end
+
   resources :courses
 
   resources :news

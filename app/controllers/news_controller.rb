@@ -1,5 +1,6 @@
 class NewsController < ApplicationController
   before_action :set_news, only: [:show, :edit, :update, :destroy]
+  http_basic_authenticate_with name: ENV['CP_USER'], password: ENV['CP_PASSWORD'], except: ['index', 'show']
 
   # GET /news
   # GET /news.json
@@ -28,7 +29,7 @@ class NewsController < ApplicationController
 
     respond_to do |format|
       if @news.save
-        format.html { redirect_to @news, notice: 'News was successfully created.' }
+        format.html { redirect_to redirect_url, notice: 'Новость создана.' }
         format.json { render :show, status: :created, location: @news }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class NewsController < ApplicationController
   def update
     respond_to do |format|
       if @news.update(news_params)
-        format.html { redirect_to @news, notice: 'News was successfully updated.' }
+        format.html { redirect_to redirect_url, notice: 'Новость обновлена.' }
         format.json { render :show, status: :ok, location: @news }
       else
         format.html { render :edit }
@@ -56,7 +57,7 @@ class NewsController < ApplicationController
   def destroy
     @news.destroy
     respond_to do |format|
-      format.html { redirect_to news_index_url, notice: 'News was successfully destroyed.' }
+      format.html { redirect_to redirect_url, notice: 'Новость была удалена.' }
       format.json { head :no_content }
     end
   end
@@ -70,5 +71,14 @@ class NewsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def news_params
       params.require(:news).permit(:content, :published)
+    end
+
+    def redirect_url
+      panel = params.permit(:panel)[:panel]
+      if panel == 'list'
+        "#{list_control_url}?content_type=news"
+      else
+        root_control_url
+      end
     end
 end

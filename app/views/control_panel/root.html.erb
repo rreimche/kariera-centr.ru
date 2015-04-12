@@ -1,0 +1,84 @@
+<h1>Управление содержимым kariera-centr.ru</h1>
+
+<h3>Создать:
+	<%= link_to 'новость', new_news_path %>,
+	<%= link_to 'курс', new_course_path %>,
+	<%= link_to 'страницу', new_static_page_path %>
+</h3>
+
+<%= raw("<h3 class=\"text-danger\">#{flash[:notice]}</h3>") if not flash[:notice].nil? %>
+
+<div class="table-responsive">
+		<h2>Последние новости</h2>
+		<table class="table table-condensed control_root">
+            <thead>
+              <tr>
+                <th>Дата публикации</th>
+                <th>Содержание</th>
+                <th>Управление</th>
+              </tr>
+            </thead>
+            <tbody>
+            	<% @news.each do |news| %>
+	              <tr>
+	                <td><%= l news.created_at, format: :short %></td>
+	                <td><%= link_to news.content, news %></td>
+	                <td>
+	                	<%= link_to 'Редактировать', edit_news_path(news), class: 'btn btn-xs btn-warning' %><br>
+	                	<%= link_to 'Удалить', "/news/#{news.id}?panel=root", method: :delete, data: { confirm: 'Уверены?' }, class: 'btn btn-xs btn-danger' %>
+	                </td>
+	              </tr>
+	            <% end %>
+            </tbody>
+    </table>
+    <%= link_to 'Больше...', "#{list_control_path}?content_type=news", class: "btn btn-lg btn-link" %>
+
+		<h2>Последние курсы (по дате обновления)</h2>
+		<table class="table table-condensed control_root">
+            <thead>
+              <tr>
+                <th>Дата обновления</th>
+                <th>Название</th>
+                <th>Управление</th>
+              </tr>
+            </thead>
+            <tbody>
+            	<% @courses.each do |course| %>
+	              <tr>
+	                <td><%= l course.updated_at, format: :short %></td>
+	                <td><%= link_to course.title, course %></td>
+	                <td>
+	                	<%= link_to 'Редактировать', edit_course_path(course), class: 'btn btn-xs btn-warning' %><br>
+	                	<%= link_to 'Удалить', "/courses/#{course.id}?panel=root", method: :delete, data: { confirm: 'Уверены?' }, class: 'btn btn-xs btn-danger' %>
+	                </td>
+	              </tr>
+	            <% end %>
+            </tbody>
+    </table>
+    <%= link_to 'Больше...', "#{list_control_path}?content_type=courses", class: 'btn btn-lg btn-link' %>
+
+         <h2>Последние страницы (по дате обновления)</h2>
+		<table class="table table-condensed control_root">
+            <thead>
+              <tr>
+                <th>Дата обновления</th>
+                <th>Название</th>
+                <th>Управление</th>
+              </tr>
+            </thead>
+            <tbody>
+            	<% @pages.each do |page| %>
+	              <tr>
+	                <td><%= l page.updated_at, format: :short %></td>
+	                <td><%= link_to page.title, page %></td>
+	                <td>
+	                	<%= link_to 'Редактировать', edit_static_page_path(page), class: 'btn btn-xs btn-warning' %><br>
+	                	<%= link_to 'Удалить', "/static_pages/#{page.id}?panel=root", method: :delete, data: { confirm: 'Уверены?' }, class: 'btn btn-xs btn-danger' %>
+	                </td>
+	              </tr>
+	            <% end %>
+            </tbody>
+    </table>
+    <%= link_to 'Больше...', "#{list_control_path}?content_type=courses", class: 'btn btn-lg btn-link' %>
+
+</div>

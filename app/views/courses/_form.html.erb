@@ -33,7 +33,7 @@
   </p>
   <p class="field">
     <%= f.label "Группа (время занятий)" %><br>
-    <%= f.number_field :timegroup %>
+    <%= f.select :timegroup, options_for_select(@timegroups.collect { |s| [t(s[0]), s[0]] }, selected: @course.timegroup), {} , class: "form-control" %>
   </p>
   <p class="actions">
     <%= f.submit action_name == 'new' ?  'Создать курс' : 'Редактировать курс' %>

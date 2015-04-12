@@ -3,6 +3,10 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   layout Proc.new{
-  	['edit', 'new'].include?(action_name) ? 'edit' : 'application'
+  	if controller_name == "control_panel" or ['edit', 'new'].include?(action_name)
+  		'edit'
+  	else
+  		'application'
+  	end
   }
 end

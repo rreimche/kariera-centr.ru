@@ -2,5 +2,6 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @news %> |
-<%= link_to 'Back', news_index_path %>
+<%= link_to 'На страницу курса', @news %> |
+<%= link_to 'На главную управления', root_control_path %> |
+<%= link_to 'На управление курсами', "#{list_control_path}?content_type=news" %>

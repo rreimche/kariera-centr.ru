@@ -1,6 +1,7 @@
-<h1>Новый курс </h1>
+<h1>Редактировать курс </h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @course %> |
-<%= link_to 'Back', courses_path %>
+<%= link_to 'На страницу курса', @course %> |
+<%= link_to 'На главную управления', root_control_path %> |
+<%= link_to 'На управление курсами', "#{list_control_path}?content_type=courses" %>
