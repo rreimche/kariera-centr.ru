@@ -9,4 +9,27 @@
       <h1>Курс <%= @course.title %> в Таганроге</h1>
       <%= @course.full_descr %>
     </div>
+
+    <!-- Button trigger modal -->
+    <a href="<%= new_signup_path %>" data-remote="true">
+    <button type="button" class="btn btn-primary btn-lg signup_button" data-toggle="modal" data-target="#myModal">
+      Записаться!
+    </button>
+    </a>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Записаться на курс</h4>
+          </div>
+          <div id="container_signup" class="modal-body">
+          </div>
+        </div>
+      </div>
+    </div>
+
+
   </div>

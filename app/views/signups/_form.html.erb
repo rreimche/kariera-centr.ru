@@ -1,0 +1,35 @@
+<%= form_for @signup, url: {action: 'create'}, remote: true do |f| %>
+  <% if @signup.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@signup.errors.count, "ошибка") %> помешали отправке вашей заявки:</h2>
+
+      <ul>
+      <% @signup.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <% if flash[:error] -%>
+    <div class='alert alert-danger'><%=h flash[:error] %></div>
+  <% end -%>
+  <% if flash[:notice] -%>
+    <idv class='alert alert-info'><%=h flash[:notice] %></div>
+  <% end -%>
+
+  <p class="field">
+    Курс<br>
+    <%= f.text_field :course %>
+  </p>
+  <p class="field">
+    Как Вас называть:<br>
+    <%= f.text_field :name %>
+  </p>
+  <p class="field">
+    Ваш email-адрес:<br>
+    <%= f.text_field :email %>
+  </p>
+  <p class="actions">
+    <%= f.submit 'Записаться', class:"btn btn-primary" %>
+  </p>
+<% end %>

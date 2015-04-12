@@ -52,7 +52,7 @@
       </button>
     </div>
     <div id="nextcourses" class="col-xs-4">
-      <h3>Начинающиеся курсы</h3>
+      <h3>Ближайшие курсы</h3>
       <div class="list-group">
         <% @courses_next.each do |course| %>
           <li class="list-group-item"><span><%= l course.start_date, format: :only_date %>:</span> <%= link_to course.title, course %></li>

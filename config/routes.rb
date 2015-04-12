@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  #get '/signups', to: 'signups#create'
+  resources :signups, only:['new', 'create']
 
   resource 'control', controller: 'control_panel', only: ['root', 'list'] do
     get '' => 'control_panel#root', as: 'root'
