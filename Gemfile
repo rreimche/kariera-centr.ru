@@ -43,3 +43,7 @@ gem 'paperclip'
 gem 'bootstrap-sass', :git => 'https://github.com/twbs/bootstrap-sass.git', :branch => 'next'
 gem 'autoprefixer-rails'
 
+group :development do
+  gem 'capistrano-rails', '~> 1.1.1'
+end
+

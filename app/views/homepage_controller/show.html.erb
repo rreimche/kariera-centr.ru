@@ -5,20 +5,27 @@
       <ol class="carousel-indicators">
         <li data-target="#carousel-homepage" data-slide-to="0" class="active"></li>
         <li data-target="#carousel-homepage" data-slide-to="1"></li>
+        <li data-target="#carousel-homepage" data-slide-to="2"></li>
       </ol>
 
       <!-- Wrapper for slides -->
       <div class="carousel-inner" role="listbox">
         <div class="item active">
-          Img1
+          <a href="#" alt="Курс Парикмахер в Таганроге"><img src="/images/slider/par.jpg" alt="Курс Парикмахер в Таганроге"></a>
           <div class="carousel-caption">
-            First slide
+            Курс &laquo;Парикмахер&raquo; в Таганроге
           </div>
         </div>
         <div class="item">
-          Img2
+          <a href="#" alt="Курс Бухгалтер в Таганроге"><img src="/images/slider/buch.jpg" alt="Курс Бухгалтер в Таганроге"></a>
           <div class="carousel-caption">
-            Second slide
+            Курс &laquo;Бухгалтер&raquo; в Таганроге
+          </div>
+        </div>
+        <div class="item">
+          <a href="Курс Маникюр в Таганроге"><img src="/images/slider/man.jpg" alt="Курс Маникюр в Таганроге"></a>
+          <div class="carousel-caption">
+            Курс &laquo;Маникюр&raquo; в Таганроге
           </div>
         </div>
       </div>
@@ -36,12 +43,10 @@
   </div>
 </div>
 
-<hr>
-
 <div class="container-fluid">
   <div class="row">
     <div id="news" class="col-xs-4">
-      <h3>Новости</h3>
+      <h4>Новости</h4>
       <ul class="list-group">
           <% @news.each do | news | %>
             <li class="list-group-item"><span><%= l news.created_at, format: :only_date %>:</span> <%= link_to truncate(news.content), news %> </li>
@@ -52,7 +57,7 @@
       </button>
     </div>
     <div id="nextcourses" class="col-xs-4">
-      <h3>Ближайшие курсы</h3>
+      <h4>Ближайшие курсы</h4>
       <div class="list-group">
         <% @courses_next.each do |course| %>
           <li class="list-group-item"><span><%= l course.start_date, format: :only_date %>:</span> <%= link_to course.title, course %></li>
@@ -63,7 +68,7 @@
       </button>
     </div>
     <div id="feedbackvids" class="col-xs-4">
-      <h3>Видео о нас</h3>
+      <h4>Видео о нас</h4>
       <iframe width="320" height="240" src="https://www.youtube.com/embed/h5gNHZBd99c?rel=0" frameborder="0" allowfullscreen></iframe>
     </div>
   </div>
@@ -73,7 +78,7 @@
 
 <div class="jumbotron">
       <div class="container">
-        <h3>Профессиональное обучение и повышение квалификации в учебно-кадровом центре "Карьера" в г. Таганроге</h3>
+        <h2>Профессиональное обучение и повышение квалификации в учебно-кадровом центре "Карьера" в г. Таганроге</h2>
         <p><small>В учебно-кадровом центре "Карьера" Вы сможете получить <strong>профессиональное обучение</strong> или пройти <strong>курсы повышения квалификации</strong> в Таганроге, а также превратить свои увлечения в сферу профессиональной деятельности.</small></p>
         <p><small>В Таганроге <strong>только программы нашего учебного центра</strong> прошли процедуру Государственного лицензирования по многим из предлагаемых учебных направлений.</small></p>
         <p><a class="btn btn-primary btn-lg" href="#" role="button">Читать дальше »</a></p>

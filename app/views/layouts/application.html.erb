@@ -21,7 +21,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/"><img id="logo_small" src="/images/logo_small.png" alt="<%= t :orgname_short %>"></a>
+          <a class="navbar-brand" href="/"><img id="logo_small" src="/images/logo_top_2.png" alt="<%= t :orgname_short %>"></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
 	        <ul class="nav navbar-nav">
@@ -44,15 +44,12 @@
 
 
 <div class="container">
-	
+
 	<div class="row">
 		<% if not 'homepage_controller' == controller_name %>
-			<main class="col-xs-6">
+			<main class="col-xs-10 col-xs-offset-1">
 				<%= yield %>
 			</main>
-			<aside class="col-xs-4 coll-xs-offset-2">
-				<%= render 'layouts/sidebar' %>
-		    </aside>
 		<% else %>
 			<main class="col-xs-12">
 				<%= yield %>
@@ -91,7 +88,7 @@
 		<div class="row">
 			<div class="col-xs-12">
 				<div id="bottom_buttons" class="center-block">
-					<button id="linktop" type="button" class="btn btn-xs btn-link"><a href="/control">Наверх</small></small></a></button>
+					<button id="linktop" type="button" class="btn btn-xs btn-link"><a href="#top">Наверх</small></small></a></button>
 					|
 					<buttonn type="button" class="btn btn-xs btn-link"><a href="<%= root_control_path %>">Вход для администрации</a></buttonn>
 				</div>
