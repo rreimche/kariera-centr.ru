@@ -16,6 +16,7 @@ class SignupsController < ApplicationController
   # GET /signups/new
   def new
     @signup = Signup.new
+    @course = Course.find( params.permit(:course)[:course] )
     respond_to do |format|
       format.js
     end
@@ -32,8 +33,10 @@ class SignupsController < ApplicationController
   def create
     @signup = Signup.new(signup_params)
 
+    @course = Course.find(signup_params[:course])
+
     status = MailUtility.try_delivering_email do
-          SignupMailer.new_signup(signup_params[:course], signup_params[:name], signup_params[:email]).deliver
+          SignupMailer.new_signup(@course.title, signup_params[:name], signup_params[:email]).deliver
     end
 
     unless status

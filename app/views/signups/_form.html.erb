@@ -17,12 +17,10 @@
     <idv class='alert alert-info'><%=h flash[:notice] %></div>
   <% end -%>
 
+  <%= hidden_field_tag 'signup[course]', @course.id %>
+
   <p class="field">
-    Курс<br>
-    <%= f.text_field :course %>
-  </p>
-  <p class="field">
-    Как Вас называть:<br>
+    Ваше имя:<br>
     <%= f.text_field :name %>
   </p>
   <p class="field">

@@ -11,7 +11,7 @@
     </div>
 
     <!-- Button trigger modal -->
-    <a href="<%= new_signup_path %>" data-remote="true">
+    <a href="<%= new_signup_path course: @course.id %>" data-remote="true">
     <button type="button" class="btn btn-primary btn-lg signup_button" data-toggle="modal" data-target="#myModal">
       Записаться!
     </button>
@@ -23,7 +23,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">Записаться на курс</h4>
+            <h4 class="modal-title" id="myModalLabel">Записаться на курс <%= @course.title %></h4>
           </div>
           <div id="container_signup" class="modal-body">
           </div>
