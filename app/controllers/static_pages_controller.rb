@@ -30,10 +30,8 @@ class StaticPagesController < ApplicationController
     respond_to do |format|
       if @static_page.save
         format.html { redirect_to redirect_url, notice: 'Страница была создана.' }
-        format.json { render :show, status: :created, location: @static_page }
       else
         format.html { render :new }
-        format.json { render json: @static_page.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -44,10 +42,8 @@ class StaticPagesController < ApplicationController
     respond_to do |format|
       if @static_page.update(static_page_params)
         format.html { redirect_to redirect_url, notice: 'Страница была обновлена.' }
-        format.json { render :show, status: :ok, location: @static_page }
       else
         format.html { render :edit }
-        format.json { render json: @static_page.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -58,7 +54,6 @@ class StaticPagesController < ApplicationController
     @static_page.destroy
     respond_to do |format|
       format.html { redirect_to redirect_url, notice: 'Страница была удалена.' }
-      format.json { head :no_content }
     end
   end
 

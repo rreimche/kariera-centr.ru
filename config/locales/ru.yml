@@ -10,7 +10,7 @@ ru:
     - Пт
     - Сб
     abbr_month_names:
-    - 
+    -
     - янв.
     - февр.
     - марта
@@ -36,9 +36,11 @@ ru:
       long: "%-d %B %Y"
       middle: "%-d %b %Y"
       short: "%-d %b"
-      only_date: "%d %b"
+      only_day: "%d %b"
+      only_day_more: "%d %B"
+      simpledate: "%d %B %Y"
     month_names:
-    - 
+    -
     - января
     - февраля
     - марта
@@ -257,7 +259,9 @@ ru:
       long: "%d %B %Y, %H:%M"
       middle: "%d %b %Y, %H:%M"
       short: "%d %b, %H:%M"
-      only_date: "%d %b"
+      only_day: "%d %b"
+      only_day_more: "%d %B"
+      simpledate: "%d %B %Y"
     pm: вечера
   orgname_short: УЦ Карьера
   morning: утро

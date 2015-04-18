@@ -43,13 +43,13 @@
   </div>
 </div>
 
-<div class="container">
+<div class="container" id="threeblocks">
   <div class="row">
     <div id="news" class="col-xs-4">
       <h4>Новости</h4>
       <ul class="list-group">
           <% @news.each do | news | %>
-            <li class="list-group-item"><span><%= l news.created_at, format: :only_date %>:</span> <%= link_to truncate(news.content), news %> </li>
+            <li class="list-group-item"><%= link_to truncate(news.content, length: 75), news %><span><small><%= l news.created_at, format: :simpledate %></small></span></li>
           <% end %>
       </ul>
       <button type="button" class="btn btn-xs btn-default center-block">
@@ -60,7 +60,7 @@
       <h4>Ближайшие курсы</h4>
       <div class="list-group">
         <% @courses_next.each do |course| %>
-          <li class="list-group-item"><span><%= l course.start_date, format: :only_date %>:</span> <%= link_to course.title, course %></li>
+          <li class="list-group-item"><%= link_to course.title, course %><br><span class="text-muted"><small><%= l course.start_date, format: :simpledate %></small></span></li>
         <% end %>
       </div>
       <button type="button" class="btn btn-xs btn-default center-block">
@@ -69,7 +69,7 @@
     </div>
     <div id="feedbackvids" class="col-xs-4">
       <h4>Видео о нас</h4>
-      <iframe src="https://www.youtube.com/embed/h5gNHZBd99c?rel=0" frameborder="0" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/r_x9JZWr6hc?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
     </div>
   </div>
 </div>

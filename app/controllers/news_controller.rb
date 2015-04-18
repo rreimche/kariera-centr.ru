@@ -30,10 +30,8 @@ class NewsController < ApplicationController
     respond_to do |format|
       if @news.save
         format.html { redirect_to redirect_url, notice: 'Новость создана.' }
-        format.json { render :show, status: :created, location: @news }
       else
         format.html { render :new }
-        format.json { render json: @news.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -44,10 +42,8 @@ class NewsController < ApplicationController
     respond_to do |format|
       if @news.update(news_params)
         format.html { redirect_to redirect_url, notice: 'Новость обновлена.' }
-        format.json { render :show, status: :ok, location: @news }
       else
         format.html { render :edit }
-        format.json { render json: @news.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -58,7 +54,6 @@ class NewsController < ApplicationController
     @news.destroy
     respond_to do |format|
       format.html { redirect_to redirect_url, notice: 'Новость была удалена.' }
-      format.json { head :no_content }
     end
   end
 
