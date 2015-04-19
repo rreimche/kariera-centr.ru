@@ -6,7 +6,7 @@
 	<div class="row">
 		<main class="col-xs-8">
 			<h3>Новость опубликована <%= l @news.created_at, format: :long %></h3>
-			<%= @news.content %>
+			<%= raw @news.content %>
 		</main>
 		<aside class="col-xs-4">
 		</aside>

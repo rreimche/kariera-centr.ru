@@ -47,3 +47,6 @@ group :development do
   gem 'capistrano-rails', '~> 1.1.1'
 end
 
+group :prodution do
+  gem 'mysql2'
+end

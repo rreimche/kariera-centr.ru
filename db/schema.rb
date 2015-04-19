@@ -47,14 +47,6 @@ ActiveRecord::Schema.define(version: 20150418113817) do
     t.datetime "updated_at"
   end
 
-  create_table "pages", force: true do |t|
-    t.string   "title"
-    t.text     "content"
-    t.datetime "published"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "signups", force: true do |t|
     t.integer  "course",     limit: 255
     t.string   "name"

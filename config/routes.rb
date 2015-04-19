@@ -8,11 +8,11 @@ Rails.application.routes.draw do
     get 'list' => 'control_panel#list', as: 'list'
   end
 
-  resources :courses
+  resources :courses, except: ['index']
 
   resources :news
 
-  resources :static_pages
+  resources :static_pages, except: ['index']
 
   mount Ckeditor::Engine => '/ckeditor'
 

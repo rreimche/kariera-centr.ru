@@ -1,6 +1,0 @@
-<%= link_to 'Edit', edit_news_path(@news) %> |<%= link_to 'Back', news_index_path %>
-
-
-
-<%= link_to 'Edit', edit_course_path(@course) %> |
-<%= link_to 'Back', courses_path %>

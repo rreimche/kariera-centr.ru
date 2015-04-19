@@ -49,7 +49,7 @@
       <h4>Новости</h4>
       <ul class="list-group">
           <% @news.each do | news | %>
-            <li class="list-group-item"><%= link_to truncate(news.content, length: 75), news %><span><small><%= l news.created_at, format: :simpledate %></small></span></li>
+            <li class="list-group-item"><%= link_to truncate( strip_tags(news.content), length: 75), news %><span><small><%= l news.created_at, format: :simpledate %></small></span></li>
           <% end %>
       </ul>
       <button type="button" class="btn btn-xs btn-default center-block">

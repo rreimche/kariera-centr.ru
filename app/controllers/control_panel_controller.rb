@@ -24,7 +24,7 @@ class ControlPanelController < ApplicationController
   		@content = lambda{ |i| i.title }
   	when 'static_pages'
   		@data = StaticPage.order(:updated_at).reverse
-  		@edit_path = lambda{ |page| edit_static_page_path course }
+  		@edit_path = lambda{ |page| edit_static_page_path page }
   		@content = lambda{ |i| i.title }
   	else
   	end
