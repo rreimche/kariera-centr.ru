@@ -2,10 +2,23 @@
 
 <%= raw("<h3 class=\"text-danger\">#{flash[:notice]}</h3>") if not flash[:notice].nil? %>
 
+<h3>
+    <%= case @content_type
+            when 'courses'
+                link_to 'Создать курс', new_course_path
+            when 'pages'
+                link_to 'Создать страницу', new_page_path
+            when 'news'
+                link_to 'Создать новость', new_news_path
+            else
+       end
+    %>
+</h3>
+
 <table class="table table-condensed control_root">
             <thead>
               <tr>
-                <th>Дата публикации</th>
+                <th>Дата публикации/обновления</th>
                 <th>Заголовок/содержание</th>
                 <th>Управление</th>
               </tr>
@@ -13,7 +26,7 @@
             <tbody>
             	<% @data.each do |item| %>
 	              <tr>
-	                <td><%= l item.created_at, format: :short %></td>
+	                <td><%= l item.updated_at, format: :short %></td>
 	                <td><%= link_to strip_tags( @content.call(item) ), item %></td>
 	                <td>
 	                	<%= link_to 'Редактировать', @edit_path.call(item), class: 'btn btn-xs btn-warning' %><br>

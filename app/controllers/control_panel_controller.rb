@@ -14,19 +14,19 @@ class ControlPanelController < ApplicationController
   	redirect_to action: 'root' if @content_type.nil?
 
   	case @content_type
-  	when 'news'
-  		@data = News.order(:created_at).reverse
-  		@edit_path = lambda{ |news| edit_news_path news }
-  		@content = lambda{ |i| i.content }
-  	when 'courses'
-  		@data = Course.order(:updated_at).reverse
-  		@edit_path = lambda{ |course| edit_course_path course }
-  		@content = lambda{ |i| i.title }
-  	when 'static_pages'
-  		@data = StaticPage.order(:updated_at).reverse
-  		@edit_path = lambda{ |page| edit_static_page_path page }
-  		@content = lambda{ |i| i.title }
-  	else
+    	when 'news'
+    		@data = News.order(:created_at).reverse
+    		@edit_path = lambda{ |news| edit_news_path news }
+    		@content = lambda{ |i| i.content }
+    	when 'courses'
+    		@data = Course.order(:updated_at).reverse
+    		@edit_path = lambda{ |course| edit_course_path course }
+    		@content = lambda{ |i| i.title }
+    	when 'static_pages'
+    		@data = StaticPage.order(:updated_at).reverse
+    		@edit_path = lambda{ |page| edit_static_page_path page }
+    		@content = lambda{ |i| i.title }
+    	else
   	end
   end
 

@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get "/о-нас", to: "static_pages#show", defaults: { :id => '3' }
+  get "/контакты", to: "static_pages#show", defaults: { :id => '4' }
+
   #get '/signups', to: 'signups#create'
   resources :signups, only:['new', 'create']
 
@@ -8,6 +11,8 @@ Rails.application.routes.draw do
     get 'list' => 'control_panel#list', as: 'list'
   end
 
+  get '/courses', to: 'courses#search'
+
   resources :courses, except: ['index']
 
   resources :news
@@ -15,8 +20,6 @@ Rails.application.routes.draw do
   resources :static_pages, except: ['index']
 
   mount Ckeditor::Engine => '/ckeditor'
-
-  get '/ourcourses', to: 'courses#search'
 
   root 'homepage_controller#show'
 

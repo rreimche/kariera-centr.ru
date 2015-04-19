@@ -68,3 +68,6 @@ bower.json
 /config/database.yml
 /passenger*
 /public/assets/
+/public/goog*
+/public/yandex*
+/public/ckeditor_assets/

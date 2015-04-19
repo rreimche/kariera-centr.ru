@@ -1,15 +1,30 @@
 
-  <div class="row">
-    <div class="col-xs-12">
-      <p id="notice"><%= notice %></p>
-    </div>
+<div class="row">
+  <div class="col-xs-12">
+    <p id="notice"><%= notice %></p>
   </div>
-  <div class="row">
-    <div class="col-xs-12">
-      <h1>Курс <%= @course.title %> в Таганроге</h1>
-      <%= raw @course.full_descr %>
-    </div>
-
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <h2>Курс &laquo;<%= @course.title %>&raquo; в Таганроге</h2>
+    <%= raw @course.full_descr %>
+  </div>
+</div>
+<div class="row" style="display: none">
+  <div class="col-xs-12" style="text-align: center">
+    <h4><br>Начало занятий: <%= l @course.start_date, format: :simpledate %></h4>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12" style="text-align: center">
+    <h4><br>
+     <strong style="text-transform: uppercase;">Запишитесь прямо сейчас</strong>!<br> <br> Позвоните нам по этому телефону:<br><br>
+     <strong>8 (928) 622 50 50</strong><br><br>
+    </h4>
+  </div>
+</div>
+<div class="row" style="display:none">
+  <div class="col-xs-12" style="text-align: center">
     <!-- Button trigger modal -->
     <a href="<%= new_signup_path course: @course.id %>" data-remote="true">
     <button type="button" class="btn btn-primary btn-lg signup_button" data-toggle="modal" data-target="#myModal">
@@ -23,13 +38,15 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">Записаться на курс <%= @course.title %></h4>
+            <h4 class="modal-title" id="myModalLabel">Записаться на курс<br>&laquo;<%= @course.title %>&raquo;</h4>
           </div>
           <div id="container_signup" class="modal-body">
           </div>
         </div>
       </div>
     </div>
-
-
   </div>
+</div>
+
+
+
