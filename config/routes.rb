@@ -1,7 +1,31 @@
 Rails.application.routes.draw do
 
   get "/о-нас", to: "static_pages#show", defaults: { :id => '3' }
+  get "/aboutus", to: redirect('о-нас')
   get "/контакты", to: "static_pages#show", defaults: { :id => '4' }
+  get "/contactus", to: redirect( '/' + ERB::Util.url_encode("контакты") )
+  get "/content", to: redirect('/')
+  get "/content/*doesntmatter", to: redirect('/')
+  get "/vacancies", to: redirect('/')
+  get "/vacancies/*doesntmatter", to: redirect('/')
+  get "/resume", to: redirect('/')
+  get "/resume/*doesntmatter", to: redirect('/')
+  get "/articles", to: redirect('/')
+  get "/articles/*doesntmatter", to: redirect('/')
+  get "/employees", to: redirect('/')
+  get "/employees/*doesntmatter", to: redirect('/')
+  get "/node", to: redirect('/')
+  get "/node/*doesntmatter", to: redirect('/')
+  get "/viewkursi", to: redirect('/')
+  get "/viewkursi/*doesntmatter", to: redirect('/')
+  get "/obuchenie", to: redirect( '/' + ERB::Util.url_encode("о-нас") )
+  get "/trudoustroystvo", to: redirect('/')
+  get "/collective", to: redirect( '/' + ERB::Util.url_encode("о-нас") )
+  get "/collective/*doesntmatter", to: redirect( '/' + ERB::Util.url_encode("о-нас") )
+  get "/corporate-services", to: redirect( '/' + ERB::Util.url_encode("о-нас") )
+  get "/user", to: redirect('/')
+
+
 
   #get '/signups', to: 'signups#create'
   resources :signups, only:['new', 'create']

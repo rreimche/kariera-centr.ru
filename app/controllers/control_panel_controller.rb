@@ -3,6 +3,7 @@ class ControlPanelController < ApplicationController
 	http_basic_authenticate_with name: ENV['CP_USER'], password: ENV['CP_PASSWORD']
 
   def root
+    cookies[:is_admin] = { value: "true", expires: 6.months.from_now} if cookies[:is_admin].nil?
   	@news = News.order(created_at: :desc).limit(5)
   	@courses = Course.order(start_date: :desc).limit(5)
   	@pages = StaticPage.order(updated_at: :desc).limit(5)
