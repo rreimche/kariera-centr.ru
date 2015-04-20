@@ -26,7 +26,16 @@
             <tbody>
             	<% @data.each do |item| %>
 	              <tr>
-	                <td><%= l item.updated_at, format: :short %></td>
+	                <td>
+                        <%= if not item.start_date.nil?
+                                l item.start_date, format: :short
+                            elsif not item.updated_at.nil?
+                                l item.updated_at, format: :short
+                            else
+                                l item.created_at, format: :short
+                            end
+                        %>
+                    </td>
 	                <td><%= link_to strip_tags( @content.call(item) ), item %></td>
 	                <td>
 	                	<%= link_to 'Редактировать', @edit_path.call(item), class: 'btn btn-xs btn-warning' %><br>

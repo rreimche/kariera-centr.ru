@@ -9,7 +9,7 @@
 <%= raw("<h3 class=\"text-danger\">#{flash[:notice]}</h3>") if not flash[:notice].nil? %>
 
 <div class="table-responsive">
-		<h2>Последние новости</h2>
+		<h2>Последние новости (по дате публикации)</h2>
 		<table class="table table-condensed control_root">
             <thead>
               <tr>
@@ -33,11 +33,11 @@
     </table>
     <%= link_to 'Больше...', "#{list_control_path}?content_type=news", class: "btn btn-lg btn-link" %>
 
-		<h2>Последние курсы (по дате обновления)</h2>
+		<h2>Ближайшие курсы (по дате начала)</h2>
 		<table class="table table-condensed control_root">
             <thead>
               <tr>
-                <th>Дата обновления</th>
+                <th>Дата начала</th>
                 <th>Название</th>
                 <th>Управление</th>
               </tr>
@@ -45,7 +45,7 @@
             <tbody>
             	<% @courses.each do |course| %>
 	              <tr>
-	                <td><%= l course.updated_at, format: :short %></td>
+	                <td><%= l course.start_date, format: :short %></td>
 	                <td><%= link_to course.title, course %></td>
 	                <td>
 	                	<%= link_to 'Редактировать', edit_course_path(course), class: 'btn btn-xs btn-warning' %><br>

@@ -14,9 +14,9 @@ class CoursesController < ApplicationController
     @searched = parameters[:titlepart]
 
     unless @searched.nil?
-      @courses = Course.where("title LIKE ?", "%#{@searched}%" )
+      @courses = Course.order(start_date: :desc).where("title LIKE ?", "%#{@searched}%" )
     else
-      @courses = Course.all
+      @courses = Course.all.order(start_date: :desc)
     end
 
   end

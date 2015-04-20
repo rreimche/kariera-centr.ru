@@ -12,7 +12,7 @@
       </div>
       <div class="row">&nbsp;</div>
       <div class="row">
-        <div class="col-xs-8">
+        <div class="col-sm-8">
           <table id="courses" class="table table-condensed">
             <thead>
               <th class="course_title">Название курса</th>
@@ -22,7 +22,7 @@
               <% @courses.each do |course| %>
                 <tr>
                   <td class="course_title"><%= link_to course.title, course %></td>
-                  <td class="course_start_date"><%= l course.start_date, format: :middle %></td>
+                  <td class="course_start_date" style="white-space: nowrap"><%= l course.start_date, format: :middle %></td>
                 </tr>
               <% end %>
             </tbody>
