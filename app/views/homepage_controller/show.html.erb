@@ -1,5 +1,84 @@
 
+<style type="text/css">
+  .btn-default {
+    background-image: -webkit-linear-gradient(top,#fff 0,#e0e0e0 100%);
+    background-image: -o-linear-gradient(top,#fff 0,#e0e0e0 100%);
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#fff),to(#e0e0e0));
+    background-image: linear-gradient(to bottom,#fff 0,#e0e0e0 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe0e0e0', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+    background-repeat: repeat-x;
+    border-color: #dbdbdb;
+    border-color: #ccc;
+    color: #333;
+  }
+  .btn-default {
+    text-shadow: 0 -1px 0 rgba(0,0,0,.2);
+    -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.15),0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.15),0 1px 1px rgba(0,0,0,.075);
+  }
+
+  .btn-default:hover {
+    background-color: #eee;
+    background-image: none;
+  }
+</style>
+
+<div class="jumbotron" style="background-color: #F6EFC1; font-family: Helvetica, Arial, sans-serif;">
+      <div class="container">
+      	<div class="row">
+      		<div class="col-sm-8">
+		        <h2>Профессиональное обучение и повышение квалификации в учебно-кадровом центре "Карьера" в г. Таганроге</h2>
+		        <p><small>В учебно-кадровом центре "Карьера" Вы сможете получить <strong>профессиональное обучение</strong> или пройти <strong>курсы повышения квалификации</strong> в Таганроге, а также превратить свои увлечения в сферу профессиональной деятельности.</small></p>
+		        <p><small>Программы нашего учебного центра прошли процедуру Государственного лицензирования <strong>по&nbsp;всем</strong> предлагаемым учебным направлениям.</small></p>
+	       	</div>
+	        <a href="/images/regalii/license2.JPG" target="_blank"  style="display:block; text-align: center; width: 231px;" class="col-sm-4"><br><img src="/images/regalii/license2.JPG" style=" width: 231px;"><br><br></a>
+	        <p class="col-sm-12"><a class="btn btn-primary btn-lg" href="/о-нас" role="button" style="background-color: #A53B31; border-color: #A53B31;">Читать дальше »</a></p>
+	    </div>
+      </div>
+</div>
+
+
+<div class="row" id="threeblocks">
+  <div id="nextcourses" class="col-sm-6">
+    <h4>Ближайшие курсы</h4>
+    <div class="list-group">
+      <% @courses_next.each do |course| %>
+        <a href="<%= course_path(course) %>"class="list-group-item" style="overflow: hidden;">
+          <%= course.title %><br>
+          <small class="text-muted" style="float: right;"><%= l course.start_date, format: :simpledate %></small>
+        </a>
+      <% end %>
+    </div>
+    <button type="button" class="btn btn-xs btn-default center-block">
+      <%= link_to 'Все курсы...', { controller: 'courses', action: 'search' } %>
+    </button>
+  </div>
+  <div id="feedbackvids" class="col-sm-6" style="text-align:center">
+  	<div id="news" style="text-align: left;">
+	    <h4>Новости, акции и <em>скидки</em></h4>
+	    <div class="list-group">
+	        <% @news.each do | news | %>
+	          <a href="<%= news_path(news) %>"class="list-group-item" style="overflow: hidden;"><%= raw news.content %><br>
+              <small style="float: right;"><%= l news.created_at, format: :simpledate %></small></a>
+	        <% end %>
+	    </div>
+	    <button type="button" class="btn btn-xs btn-default center-block">
+	      <%= link_to 'Все новости...', news_index_path %>
+	    </button>
+  	</div>
+  	<hr>
+    <h4>Видео о нас</h4>
+    <iframe src="https://www.youtube.com/embed/r_x9JZWr6hc?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe><br><br>
+    <iframe src="https://www.youtube.com/embed/xMYWuXGE9n8?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe><br><br>
+    <iframe src="https://www.youtube.com/embed/hx7ekhqbn_k?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+  </div>
+</div>
+
+<hr>
+
 <div class="row">
+  <h4 style="text-align: center">Популярные курсы</h4>
   <div id="carousel-homepage" class="carousel slide col-sm-6 col-sm-offset-3" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
@@ -41,46 +120,3 @@
     </a>
   </div>
 </div>
-
-
-<div class="row" id="threeblocks">
-  <div id="news" class="col-sm-4">
-    <h4>Новости</h4>
-    <ul class="list-group">
-        <% @news.each do | news | %>
-          <li class="list-group-item"><%= link_to truncate( strip_tags(news.content), length: 75), news %><span><small><%= l news.created_at, format: :simpledate %></small></span></li>
-        <% end %>
-    </ul>
-    <button type="button" class="btn btn-xs btn-default center-block">
-      <%= link_to 'Все новости...', news_index_path %>
-    </button>
-  </div>
-  <div id="nextcourses" class="col-sm-4">
-    <h4>Ближайшие курсы</h4>
-    <div class="list-group">
-      <% @courses_next.each do |course| %>
-        <li class="list-group-item"><%= link_to course.title, course %><br><span class="text-muted"><small><%= l course.start_date, format: :simpledate %></small></span></li>
-      <% end %>
-    </div>
-    <button type="button" class="btn btn-xs btn-default center-block">
-      <%= link_to 'Все курсы...', { controller: 'courses', action: 'search' } %>
-    </button>
-  </div>
-  <div id="feedbackvids" class="col-sm-4" style="text-align:center">
-    <h4>Видео о нас</h4>
-    <iframe src="https://www.youtube.com/embed/r_x9JZWr6hc?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe><br><br>
-    <iframe src="https://www.youtube.com/embed/xMYWuXGE9n8?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe><br><br>
-    <iframe src="https://www.youtube.com/embed/hx7ekhqbn_k?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
-  </div>
-</div>
-
-<hr>
-
-<div class="jumbotron">
-      <div class="container">
-        <h2>Профессиональное обучение и повышение квалификации в учебно-кадровом центре "Карьера" в г. Таганроге</h2>
-        <p><small>В учебно-кадровом центре "Карьера" Вы сможете получить <strong>профессиональное обучение</strong> или пройти <strong>курсы повышения квалификации</strong> в Таганроге, а также превратить свои увлечения в сферу профессиональной деятельности.</small></p>
-        <p><small>В Таганроге <strong>только программы нашего учебного центра</strong> прошли процедуру Государственного лицензирования по многим из предлагаемых учебных направлений.</small></p>
-        <p><a class="btn btn-primary btn-lg" href="/о-нас" role="button">Читать дальше »</a></p>
-      </div>
-  </div>

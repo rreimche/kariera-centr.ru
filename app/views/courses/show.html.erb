@@ -10,11 +10,13 @@
     <%= raw @course.full_descr %>
   </div>
 </div>
-<div class="row" style="display: none">
-  <div class="col-xs-12" style="text-align: center">
-    <h4><br>Начало занятий: <%= l @course.start_date, format: :simpledate %></h4>
+<% if @course.start_date >= (Time.now.midnight - 7.days) %>
+  <div class="row">
+    <div class="col-xs-12" style="text-align: center">
+      <h4><br>Начало занятий (предположительно): <%= l @course.start_date, format: :simpledate %></h4>
+    </div>
   </div>
-</div>
+<% end %>
 <div class="row">
   <div class="col-xs-12" style="text-align: center">
     <h4><br>

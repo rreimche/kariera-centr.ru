@@ -5,8 +5,8 @@ class ControlPanelController < ApplicationController
   def root
     cookies[:is_admin] = { value: "true", expires: 6.months.from_now} if cookies[:is_admin].nil?
   	@news = News.order(created_at: :desc).limit(5)
-  	@courses = Course.order(start_date: :desc).limit(5)
-  	@pages = StaticPage.order(updated_at: :desc).limit(5)
+  	@courses = Course.where(start_date: (Time.now.midnight - 7.days)..(Time.now.midnight + 1.month)).order(:start_date)
+  	@pages = StaticPage.order(updated_at: :desc, created_at: :desc).limit(5)
   end
 
   def list
