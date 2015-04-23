@@ -1,7 +1,7 @@
 
       <h1>Курсы в Таганроге</h1>
       <div class="row">
-        <div class="col-xs-12">
+        <div class="col-sm-12">
           <h3><%= "Вы искали: #{@searched}" if not @searched.nil? %></h3>
           <%= form_tag("/courses", method: 'get') do %>
             <%= label_tag :titlepart, 'Введите часть названия желаемого курса: ' %>
@@ -12,7 +12,7 @@
       </div>
       <div class="row">&nbsp;</div>
       <div class="row">
-        <div class="col-sm-8">
+        <div class="col-sm-12">
           <table id="courses" class="table table-condensed">
             <thead>
               <th class="course_title">Название курса</th>

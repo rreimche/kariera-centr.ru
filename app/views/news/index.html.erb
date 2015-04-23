@@ -4,10 +4,12 @@
             <% @news.each do |news| %>
               <tr>
                 <td class="news_datetime"><%= l news.created_at, format: :middle %></td>
-                <td class="news_content"><%= strip_tags news.content %></td>
+                <td class="news_content"><%= raw news.content %></td>
               </tr>
             <% end %>
           </tbody>
         </table>
+
+<% content_for :title, "Новости" %>
 
 

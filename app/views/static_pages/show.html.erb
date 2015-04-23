@@ -1,5 +1,6 @@
 
 <h2><%= @static_page.title %></h2>
 <%= raw @static_page.content %>
+<% content_for :title, @static_page.title %>
 
 
