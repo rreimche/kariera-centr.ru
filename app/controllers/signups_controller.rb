@@ -35,13 +35,19 @@ class SignupsController < ApplicationController
 
     @course = Course.find(signup_params[:course])
 
+    SignupMailer.new_signup(@course.title, signup_params[:name], signup_params[:email]).deliver
+
+=begin
     status = MailUtility.try_delivering_email do
           SignupMailer.new_signup(@course.title, signup_params[:name], signup_params[:email]).deliver
     end
 
+
     unless status
           flash.now[:error] = "К сожалению, что-то пошло не так, попробуйте отправить заявку ещё раз или позвоните нам."
     end
+
+=end
 
 
     respond_to do |format|
