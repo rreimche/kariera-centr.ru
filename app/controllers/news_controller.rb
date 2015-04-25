@@ -5,7 +5,7 @@ class NewsController < ApplicationController
   # GET /news
   # GET /news.json
   def index
-    @news = News.all
+    @news = News.all.order(created_at: :desc)
   end
 
   # GET /news/1
@@ -55,6 +55,13 @@ class NewsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to redirect_url, notice: 'Новость была удалена.' }
     end
+  end
+
+  def feed
+  	@news = News.all
+  	respond_to do |format|
+  		format.rss { render :layout => false }
+  	end
   end
 
   private

@@ -25,8 +25,6 @@ Rails.application.routes.draw do
   get "/corporate-services", to: redirect( '/' + ERB::Util.url_encode("о-нас") )
   get "/user", to: redirect('/')
 
-
-
   #get '/signups', to: 'signups#create'
   resources :signups, only:['new', 'create']
 
@@ -39,6 +37,7 @@ Rails.application.routes.draw do
 
   resources :courses, except: ['index']
 
+  get '/news/feed' => 'news#feed'
   resources :news
 
   resources :static_pages, except: ['index']
