@@ -1,5 +1,4 @@
 class SignupMailer < ActionMailer::Base
-  default from: "donotreply@kariera-centr.ru"
 
   def new_signup(course, name, phone, email)
   	@course = course

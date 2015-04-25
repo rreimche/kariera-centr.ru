@@ -32,6 +32,6 @@
     <%= f.text_field :email %>
   </p>
   <p class="actions">
-    <%= f.submit 'Записаться', class:"btn btn-primary" %>
+    <%= f.submit 'Записаться', class:"btn btn-primary", data: { disable_with: 'Подождите...' } %>
   </p>
 <% end %>
