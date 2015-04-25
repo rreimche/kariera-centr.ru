@@ -35,7 +35,7 @@ class SignupsController < ApplicationController
 
     @course = Course.find(signup_params[:course])
 
-    SignupMailer.new_signup(@course.title, signup_params[:name], signup_params[:email]).deliver
+    SignupMailer.new_signup(@course.title, signup_params[:name], signup_params[:phone], signup_params[:email]).deliver
 
 =begin
     status = MailUtility.try_delivering_email do
@@ -92,6 +92,6 @@ class SignupsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def signup_params
-      params.require(:signup).permit(:course, :name, :email)
+      params.require(:signup).permit(:course, :name, :phone, :email)
     end
 end

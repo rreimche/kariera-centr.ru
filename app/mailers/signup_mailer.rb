@@ -1,9 +1,10 @@
 class SignupMailer < ActionMailer::Base
   default from: "donotreply@kariera-centr.ru"
 
-  def new_signup(course, name, email)
+  def new_signup(course, name, phone, email)
   	@course = course
   	@name = name
+    @phone = phone
   	@email = email
   	mail to: ENV['EMAIL_GENERAL'], subject: 'Новая заявка с kariera-centr.ru'
   end
@@ -11,6 +12,6 @@ class SignupMailer < ActionMailer::Base
   private
 
   def signup_mailer_params
-  	params.permit(:course, :name, :email)
+  	params.permit(:course, :name, :phone, :email)
   end
 end
