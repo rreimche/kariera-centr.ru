@@ -25,10 +25,11 @@ xml.rss :version => "2.0" do
         xml.link "http://kariera-centr.ru/news/" + news.id.to_s
         xml.guid news.id
 
+=begin  
         text = news.content
 		# if you like, do something with your content text here e.g. insert image tags.
 		# Optional. I'm doing this on my website.
-=begin        if news.image.exists?
+      if news.image.exists?
             image_url = news.image.url(:large)
             image_caption = news.image_caption
             image_align = ""
@@ -38,7 +39,7 @@ xml.rss :version => "2.0" do
             text = text.sub('{image}', image_tag)
         end
 =end
-        xml.description "<p>" + text + "</p>"
+        xml.description news.content
 
       end
     end
