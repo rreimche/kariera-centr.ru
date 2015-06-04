@@ -22,7 +22,7 @@
               <% @courses.each do |course| %>
                 <tr>
                   <td class="course_title"><%= link_to course.title, course %></td>
-                  <td class="course_start_date" style="white-space: nowrap"><%= l course.start_date, format: :middle %></td>
+                  <td class="course_start_date"><%= l course.start_date, format: :middle %></td>
                 </tr>
               <% end %>
             </tbody>
