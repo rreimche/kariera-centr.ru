@@ -1,0 +1,20 @@
+<div id="nextcourses">
+  <h4>Ближайшие курсы</h4>
+  <div class="list-group">
+    <% @courses_next.each do |course| %>
+      <a href="<%= course_path(course) %>"class="list-group-item">
+        <%= course.title %><br>
+        <small class="text-muted"><%= l course.start_date, format: :simpledate %></small>
+      </a>
+    <% end %>
+  </div>
+  <button type="button" class="btn btn-xs btn-default center-block">
+    <%= link_to 'Все курсы...', { controller: 'courses', action: 'search' } %>
+  </button>
+</div>
+
+<hr>
+<h4>Видео о нас</h4>
+<iframe src="https://www.youtube.com/embed/r_x9JZWr6hc?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe><br><br>
+<iframe src="https://www.youtube.com/embed/xMYWuXGE9n8?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe><br><br>
+<iframe src="https://www.youtube.com/embed/hx7ekhqbn_k?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
