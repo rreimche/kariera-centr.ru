@@ -17,4 +17,5 @@
 //= require_tree ./ckeditor
 //= require bootstrap-sprockets
 //= require_tree .
+//= require blueimp-gallery-all
 
