@@ -13,7 +13,7 @@
 <% if @course.start_date >= (Time.now.midnight - 7.days) %>
   <div class="row">
     <div class="col-xs-12 center_text">
-      <h4><br>Начало занятий (предположительно): <%= l @course.start_date, format: :simpledate %></h4>
+      <h4><br>Начало занятий: <%= l @course.start_date, format: :simpledate %></h4>
     </div>
   </div>
 <% end %>
@@ -30,7 +30,7 @@
     <!-- Button trigger modal -->
     <a href="<%= new_signup_path course: @course.id %>" data-remote="true">
     <button type="button" class="btn btn-primary btn-lg signup_button" data-toggle="modal" data-target="#myModal">
-      Записаться!
+	Отправить заявку!
     </button>
     </a>
 
@@ -40,7 +40,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">Записаться на курс<br>&laquo;<%= @course.title %>&raquo;</h4>
+            <h4 class="modal-title" id="myModalLabel">Отправить заявку на курс<br>&laquo;<%= @course.title %>&raquo;</h4>
           </div>
           <div id="container_signup" class="modal-body">
           </div>

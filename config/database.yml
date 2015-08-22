@@ -23,8 +23,8 @@ test:
 production:
   adapter: mysql2
   encoding: utf8
-  database: kariera-centr.ru
+  database: kariera
   pool: 5
-  username: kariera-centr.ru
-  password: Mad5ceuC7 
-  socket: /var/run/mysqld/mysqld.sock
+  username: kariera
+  password: Ghauj*iD}Ka&haL@r 
+  socket: /var/lib/mysql/mysql.sock
