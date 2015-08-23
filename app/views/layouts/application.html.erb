@@ -119,6 +119,25 @@
 </footer>
 <% end %>
 
+<div id="blueimp-gallery-carousel" class="blueimp-gallery blueimp-gallery-carousel">
+  <div class="slides"></div>
+  <h3 class="title"></h3>
+  <a class="prev">‹</a>
+  <a class="next">›</a>
+  <a class="play-pause"></a>
+  <ol class="indicator"></ol>
+</div>
+
+<script>
+blueimp.Gallery(
+  document.getElementById('links').getElementsByTagName('a'),
+  {
+    container: '#blueimp-gallery-carousel',
+    carousel: true
+  }
+);
+</script>
+
 <div itemscope="" itemtype="http://schema.org/LocalBusiness" style="display:none;">
     <span itemprop="name">Учебно-кадровый центр "Карьера"</span>,
     <span itemprop="url">kariera-centr.ru</span>
