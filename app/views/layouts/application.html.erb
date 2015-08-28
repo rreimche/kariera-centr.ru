@@ -65,12 +65,18 @@
 <div class="container">
 
 	<div class="row">
+		<% if controller_name == 'homepage_controller' %>
+			<main class="col-sm-12">
+				<%= yield %>
+			</main>
+		<% else %>
 			<main class="col-sm-9">
 				<%= yield %>
 			</main>
 			<aside class="col-sm-3">
 				<%= render "sidebar" %>
 			</aside>
+		<% end %>
 	</div>
 
 </div>
