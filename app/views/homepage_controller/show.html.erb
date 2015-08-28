@@ -1,27 +1,75 @@
-<div id="news">
-  <h4 class="center_text">Новости, акции и <em>скидки</em></h4>
+ <style>
+ @media only screen and (min-width: 350px){
+  #videos iframe{
+    margin-right: 43px;
+  }
+
+  #videos iframe.last{
+    margin-right: 0;
+  }
+
+  #videos {
+    text-align: center; 
+    margin-top: 40px;
+    text-align: center;
+  }
+}
+h1, h2{
+  font-weight: bold;
+  text-align: center;
+  font-family: Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+}
+</style>
+ <div class="row">
+  <div class="col-sm-12" id="videos">
+    <iframe  width="218" height="124" src="https://www.youtube.com/embed/r_x9JZWr6hc?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe> 
+    <iframe  width="218" height="124" src="https://www.youtube.com/embed/xMYWuXGE9n8?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe> 
+    <iframe  width="218" height="124" src="https://www.youtube.com/embed/hx7ekhqbn_k?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+  </div>
+</div>
+
+<div class="row" style="margin-top: 33px;">
+  <div id="news" class="col-sm-8">
+    <h2 class="center_text">Новости, акции,<br><em>скидки</em></h2>
+      <div class="list-group">
+        <% @news.each do | news | %>
+          <a href="<%= news_path(news) %>"class="list-group-item"><%= raw news.content %><br>
+             <small><%= l news.created_at, format: :simpledate %></small></a>
+        <% end %>
+      </div>
+      <button type="button" class="btn btn-xs btn-default center-block">
+        <%= link_to 'Все новости...', news_index_path %>
+      </button>
+  </div>
+  <div id="nextcourses" class="col-sm-4">
+    <h2>Ближайшие курсы</h2>
     <div class="list-group">
-      <% @news.each do | news | %>
-        <a href="<%= news_path(news) %>"class="list-group-item"><%= raw news.content %><br>
-           <small><%= l news.created_at, format: :simpledate %></small></a>
+      <% @courses_next.each do |course| %>
+        <a href="<%= course_path(course) %>"class="list-group-item">
+          <%= course.title %><br>
+          <small class="text-muted"><%= l course.start_date, format: :simpledate %></small>
+        </a>
       <% end %>
     </div>
     <button type="button" class="btn btn-xs btn-default center-block">
-      <%= link_to 'Все новости...', news_index_path %>
+      <%= link_to 'Все курсы...', { controller: 'courses', action: 'search' } %>
     </button>
+  </div>
 </div>
 
-<div class="row">
+
+<!--<div class="row">
   <h2 class="center_text">Популярные курсы</h2>
   <div id="carousel-homepage" class="carousel slide col-sm-10 col-sm-offset-1" data-ride="carousel">
-    <!-- Indicators -->
+    
     <ol class="carousel-indicators">
       <li data-target="#carousel-homepage" data-slide-to="0" class="active"></li>
       <li data-target="#carousel-homepage" data-slide-to="1"></li>
       <li data-target="#carousel-homepage" data-slide-to="2"></li>
     </ol>
 
-    <!-- Wrapper for slides -->
+     
     <div class="carousel-inner" role="listbox">
       <div class="item active">
         <a href="/courses/7" alt="Курс Парикмахер в Таганроге"><img src="/images/slider/par.jpg" alt="Курс Парикмахер в Таганроге"></a>
@@ -43,7 +91,7 @@
       </div>
     </div>
 
-    <!-- Controls -->
+     
     <a class="left carousel-control" href="#carousel-homepage" role="button" data-slide="prev">
       <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
       <span class="sr-only">Previous</span>
@@ -53,26 +101,26 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
-</div>
+</div>-->
 
 <div class="jumbotron" id="jumbohome">
       <div class="container">
-      	<div class="row">
-      		<h3 class="col-sm-12">Профессиональное обучение и повышение квалификации в учебно-кадровом центре "Карьера" в г. Таганроге</h3>
-      	</div>
-      	<div class="row">
-      		<div class="col-sm-8">
-		        <p>В учебно-кадровом центре "Карьера" Вы сможете получить <strong>профессиональное обучение</strong> или пройти <strong>курсы повышения квалификации</strong> в Таганроге, а также превратить свои увлечения в сферу профессиональной деятельности.</p>
-		        <p>Учебно-кадровый центр имеет различные <a href="/static_pages/6">признания</a> от общественных и социальных организаций г. Таганрога и Ростовской области.</p>
-		        <p>Программы нашего учебного центра прошли процедуру Государственного лицензирования <strong>по&nbsp;всем</strong> предлагаемым учебным направлениям.</p>
-	       	</div>
-	       	<div class="col-sm-4">
-	        	<a href="/images/regalii/license2.JPG" target="_blank"><img src="/images/regalii/license2.JPG" alt="Лицензия"></a>
-	        	<a href="/images/regalii/0012.JPG" target="_blank"><img src="/images/regalii/0012.JPG" alt="Благодарность службы занятости"></a>
-	        </div>
-	        <br>
-	        <p class="col-sm-12"><a class="btn btn-primary btn-md" href="/о-нас" role="button">Читать дальше »</a></p>
-	    </div>
+        <div class="row">
+          <h3 class="col-sm-12">Профессиональное обучение и повышение квалификации в учебно-кадровом центре "Карьера" в г. Таганроге</h3>
+        </div>
+        <div class="row">
+          <div class="col-sm-8">
+            <p>В учебно-кадровом центре "Карьера" Вы сможете получить <strong>профессиональное обучение</strong> или пройти <strong>курсы повышения квалификации</strong> в Таганроге, а также превратить свои увлечения в сферу профессиональной деятельности.</p>
+            <p>Учебно-кадровый центр имеет различные <a href="/static_pages/6">признания</a> от общественных и социальных организаций г. Таганрога и Ростовской области.</p>
+            <p>Программы нашего учебного центра прошли процедуру Государственного лицензирования <strong>по&nbsp;всем</strong> предлагаемым учебным направлениям.</p>
+          </div>
+          <div id="links" class="col-sm-4" style="text-align: center;">
+            <a href="/images/regalii/license2.JPG"><img src="/images/regalii/license2.JPG" alt="Лицензия"></a>
+            <a href="/images/regalii/0012.JPG"><img src="/images/regalii/0012.JPG" alt="Благодарность службы занятости"></a>
+          </div>
+          <br>
+          <p class="col-sm-12"><a class="btn btn-primary btn-md" href="/о-нас" role="button">Читать дальше »</a></p>
+      </div>
       </div>
 </div>
 
