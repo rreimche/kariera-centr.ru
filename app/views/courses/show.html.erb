@@ -21,12 +21,18 @@
 <div class="row">
   <div class="col-xs-12 center_text">
     <h4>
-     <% if @course.start_date >= (Time.now.midnight - 7.days) and @course.start_date < (Time.now.midnight + 5.days) %>     
-      <strong class="call_to_action" style="background-color: red; color: yellow">&nbsp;Вы ещё можете успеть!&nbsp;</strong><br><br>
+     <% if @course.start_date >= (Time.now.midnight - 7.days) and @course.start_date < (Time.now.midnight + 5.days) %>
+      <br>  
+      <strong class="call_to_action" style="background-color: red; color: yellow;padding: 7px 17px;border-radius: 26px;margin: 17px 0;">&nbsp;Вы ещё можете успеть!&nbsp;</strong><br><br><br>
+      <style>
+        .underlined {
+          text-decoration: underline;
+        }
+      </style>
      <% else %>
       <br>
     <% end %>
-     <strong class="call_to_action">Запишитесь прямо сейчас</strong>!<br><br>Воспользуйтесь кнопкой внизу<br>или позвоните нам по этому телефону:<br><br>
+     <strong class="call_to_action underlined">Запишитесь прямо сейчас</strong>!<br><br>Воспользуйтесь кнопкой внизу<br>или позвоните нам по этому телефону:<br><br>
      <strong>8 (928) 622 50 50</strong><br><br>
     </h4>
   </div>
