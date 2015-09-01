@@ -23,7 +23,7 @@
                 <tr>
                   <td class="course_title"><%= link_to course.title, course %></td>
                   <td class="course_start_date">
-                    <%= if course.start_date > Time.now.midnight - 7.days 
+                    <%= if course.start_date >= Time.now.midnight - 7.days 
                           l course.start_date, format: :middle
                         else
                           'идёт набор'

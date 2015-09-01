@@ -20,7 +20,12 @@
 <% end %>
 <div class="row">
   <div class="col-xs-12 center_text">
-    <h4><br>
+    <h4>
+     <% if @course.start_date >= (Time.now.midnight - 7.days) and @course.start_date < (Time.now.midnight + 5.days) %>     
+      <strong class="call_to_action" style="background-color: red; color: yellow">&nbsp;Вы ещё можете успеть!&nbsp;</strong><br><br>
+     <% else %>
+      <br>
+    <% end %>
      <strong class="call_to_action">Запишитесь прямо сейчас</strong>!<br><br>Воспользуйтесь кнопкой внизу<br>или позвоните нам по этому телефону:<br><br>
      <strong>8 (928) 622 50 50</strong><br><br>
     </h4>
