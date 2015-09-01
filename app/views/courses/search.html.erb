@@ -16,13 +16,19 @@
           <table id="courses" class="table table-condensed">
             <thead>
               <th class="course_title">Название курса</th>
-              <th class="course_start_date">Дата начала (предположительно)</th>
+              <th class="course_start_date">Дата начала</th>
             </thead>
             <tbody>
               <% @courses.each do |course| %>
                 <tr>
                   <td class="course_title"><%= link_to course.title, course %></td>
-                  <td class="course_start_date"><%= l course.start_date, format: :middle %></td>
+                  <td class="course_start_date">
+                    <%= if course.start_date > Time.now.midnight - 7.days 
+                          l course.start_date, format: :middle
+                        else
+                          'идёт набор'
+                        end  %>
+                  </td>
                 </tr>
               <% end %>
             </tbody>
