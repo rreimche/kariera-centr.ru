@@ -1,5 +1,12 @@
+<style>
+h3 {
+  text-align: center;
+  text-transform: uppercase;
+}
+</style>
+
 <div id="nextcourses">
-  <h4>Ближайшие курсы</h4>
+  <h3>Ближайшие курсы</h3>
   <div class="list-group">
     <% @courses_next.each do |course| %>
       <a href="<%= course_path(course) %>"class="list-group-item">
@@ -14,7 +21,7 @@
 </div>
 
 <hr>
-<h4>Видео о нас</h4>
+<h3>Видео о центре</h3>
 <iframe src="https://www.youtube.com/embed/r_x9JZWr6hc?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe><br><br>
 <iframe src="https://www.youtube.com/embed/xMYWuXGE9n8?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe><br><br>
 <iframe src="https://www.youtube.com/embed/hx7ekhqbn_k?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
