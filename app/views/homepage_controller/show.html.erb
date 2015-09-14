@@ -22,9 +22,9 @@
 					<div class="courselist_item__text pos-rel col-xs-9 col-sm-8 col-md-9">
 						<a class="courselist_item__text-title" href="<%= course_path(course) %>"><%= course.title %></a>	
 						<p><%= course.short_descr %><br></p>
-						<p>
-							<strong>Цена: 4500 руб./месяц<br>
-							Продолжительность: <%= course.duration.to_i %> <%= 'месяц'.pluralize(course.duration, locale: :ru) %></strong>
+						<p class="details">
+							<strong>Стоимость: 4500&nbsp;руб./мес.<br>
+							Продолжительность: <%= course.duration.to_i %> <%= 'мес.'.pluralize(course.duration, locale: :ru) %></strong>
 						</p>	
 							
 						<div class="btn-holder"><a class="btn courselist_item__btn color-fff no-dec" href="<%= course_path(course) %>">Подробнее...</a></div>
