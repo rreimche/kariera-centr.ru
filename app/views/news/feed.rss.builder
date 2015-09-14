@@ -19,7 +19,7 @@ xml.rss :version => "2.0" do
           xml.title ""
         end
 =end
-        xml.title ""
+        xml.title news.title
         xml.author "Учебно-кадровый центр Карьера"
         xml.pubDate news.created_at.to_s(:rfc822)
         xml.link "http://kariera-centr.ru/news/" + news.id.to_s

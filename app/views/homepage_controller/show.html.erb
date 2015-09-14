@@ -102,7 +102,7 @@
 				<% @news.each do |news| %>
 					<div class="newsblock_item">
 						<a class="newsblock_item__link text-uppercase" href="<%= news_path news %>"><%= l news.created_at, format: :simpledate %></a>
-						<p class="newsblock_item__text"><%= news.content %></p>
+						<p class="newsblock_item__text"><%= news.title %></p>
 					</div>
 				<% end %>
 
