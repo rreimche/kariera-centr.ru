@@ -115,7 +115,7 @@
 
 				<% @hot_offers.each do |offer| %>
 					<div class="newsblock_item">
-						<a class="newsblock_item__link text-uppercase" href="<%= hot_offer_path offer %>"><%= l offer.created_at, format: :simpledate %></a>
+						<a class="newsblock_item__link text-uppercase" href="javascript: void(0)"><%= l offer.created_at, format: :simpledate %></a>
 						<p class="newsblock_item__text"><%= offer.content %></p>
 					</div>
 				<% end %>
