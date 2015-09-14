@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :hot_offers
+
   get "/о-нас", to: "static_pages#show", defaults: { :id => '3' }
   get "/aboutus", to: redirect('о-нас')
   get "/контакты", to: "static_pages#show", defaults: { :id => '4' }

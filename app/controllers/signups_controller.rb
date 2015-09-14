@@ -1,5 +1,6 @@
 class SignupsController < ApplicationController
   before_action :set_signup, only: [:show, :edit, :update, :destroy]
+  http_basic_authenticate_with name: ENV['CP_USER'], password: ENV['CP_PASSWORD']
 =begin
   # GET /signups
   # GET /signups.json

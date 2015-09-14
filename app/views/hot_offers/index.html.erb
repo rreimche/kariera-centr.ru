@@ -1,0 +1,13 @@
+      <h1>Акции</h1>
+       <table id="news" class="table-condensed">
+          <tbody>
+            <% @hot_offers.each do |offer| %>
+              <tr>
+                <td class="news_datetime"><%= l offer.created_at, format: :middle %></td>
+                <td class="news_content"><%= raw offer.content %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+
+<% content_for :title, "Новости" %>

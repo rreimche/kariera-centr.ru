@@ -45,7 +45,7 @@ class CoursesController < ApplicationController
 
     respond_to do |format|
       if @course.save
-        format.html { redirect_to redirect_url, notice: 'Курс создан.' }
+        format.html { redirect_to edit_course_path(@course), notice: 'Курс создан.' }
       else
         format.html { render :new }
       end
@@ -58,7 +58,7 @@ class CoursesController < ApplicationController
     @timegroups = Course.timegroups
     respond_to do |format|
       if @course.update(course_params)
-        format.html { redirect_to redirect_url, notice: 'Курс успешно обновлён.' }
+        format.html { redirect_to edit_course_path(@course), notice: 'Курс успешно обновлён.' }
       else
         format.html { render :edit }
       end

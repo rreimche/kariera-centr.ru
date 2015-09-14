@@ -101,7 +101,7 @@
 				<h2>новости</h2>
 				<% @news.each do |news| %>
 					<div class="newsblock_item">
-						<a class="newsblock_item__link text-uppercase" href="#"><%= l news.created_at, format: :simpledate %></a>
+						<a class="newsblock_item__link text-uppercase" href="<%= news_path news %>"><%= l news.created_at, format: :simpledate %></a>
 						<p class="newsblock_item__text"><%= news.content %></p>
 					</div>
 				<% end %>
@@ -112,13 +112,16 @@
 			
 			<aside class="newsblock-right col-sm-5 col-sm-offset-1">
 				<h2>акции</h2>
-				
-				<div class="newsblock_item">
-					<a class="newsblock_item__link text-uppercase" href="#">12 ноября 2015</a>
-					<p class="newsblock_item__text">При обучении на курсе Мастер маникюра и педикюра на курс <span class="bold text-uppercase">Наращивание ногтей</span> <span class="bold color-ee4f3a">предоставляется скидка 15%</span></p>
-				</div>
-				
-				<a class="newsblock_readmore" href="#">Все акции</a>
+
+				<% @hot_offers.each do |offer| %>
+					<div class="newsblock_item">
+						<a class="newsblock_item__link text-uppercase" href="<%= hot_offer_path offer %>"><%= l offer.created_at, format: :simpledate %></a>
+						<p class="newsblock_item__text"><%= offer.content %></p>
+					</div>
+				<% end %>
+
+				<%= link_to 'Все акции', hot_offers_path, :class => 'newsblock_readmore' %>
+			
 			</aside>
 		</div>
 	</div>

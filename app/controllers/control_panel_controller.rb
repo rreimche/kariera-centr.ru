@@ -5,6 +5,7 @@ class ControlPanelController < ApplicationController
   def root
     cookies[:is_admin] = { value: "true", expires: 6.months.from_now} if cookies[:is_admin].nil?
   	@news = News.order(created_at: :desc).limit(5)
+    @hot_offers = HotOffer.order(created_at: :desc).limit(5)
   	@courses = Course.where(start_date: (Time.now.midnight - 7.days)..(Time.now.midnight + 1.month)).order(:start_date)
   	@pages = StaticPage.order(updated_at: :desc, created_at: :desc).limit(5)
   end
@@ -19,6 +20,10 @@ class ControlPanelController < ApplicationController
     		@data = News.order(created_at: :desc)
     		@edit_path = lambda{ |news| edit_news_path news }
     		@content = lambda{ |i| i.content }
+      when 'hot_offers'
+        @data = HotOffer.order(created_at: :desc)
+        @edit_path = lambda{ |offer| edit_hot_offer_path offer }
+        @content = lambda{ |i| i.content }
     	when 'courses'
     		@data = Course.order(start_date: :desc)
     		@edit_path = lambda{ |course| edit_course_path course }

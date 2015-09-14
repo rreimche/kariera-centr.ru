@@ -29,7 +29,7 @@ class StaticPagesController < ApplicationController
 
     respond_to do |format|
       if @static_page.save
-        format.html { redirect_to redirect_url, notice: 'Страница была создана.' }
+        format.html { redirect_to edit_static_page_path(@static_page), notice: 'Страница была создана.' }
       else
         format.html { render :new }
       end
@@ -41,7 +41,7 @@ class StaticPagesController < ApplicationController
   def update
     respond_to do |format|
       if @static_page.update(static_page_params)
-        format.html { redirect_to redirect_url, notice: 'Страница была обновлена.' }
+        format.html { redirect_to edit_static_page_path(@static_page), notice: 'Страница была обновлена.' }
       else
         format.html { render :edit }
       end

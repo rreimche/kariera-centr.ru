@@ -11,6 +11,8 @@
     </p>
   <% end %>
 
+  <%= raw("<h3 class=\"text-danger\">#{flash[:notice]}</h3>") if not flash[:notice].nil? %>
+
   <p class="field">
     <%= f.label "Название курса" %><br>
     <%= f.text_field :title %>
