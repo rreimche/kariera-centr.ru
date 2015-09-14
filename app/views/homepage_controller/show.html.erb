@@ -33,6 +33,15 @@
 			</div>
 		<% end %>
 	</div>
+	<div class="row">
+		<div class="col-xs-12 center_text">
+		    <a href="<%= courses_path %>">
+		    <button type="button" class="btn btn-primary btn-lg signup_button">
+			Все курсы
+		    </button>
+		    </a>
+		</div>
+	</div>
 </div>
 
 <!-- the list of features is running -->
@@ -48,7 +57,7 @@
 			
 			<ul class="featureslist_item courses-container list-unstyled col-md-4">
 				<li class="featureslist_item__title courses-icon pos-rel"><%= @num_courses %> курсов</li>
-				<li class="featureslist_item__text">сейчас доступно</li>
+				<li class="featureslist_item__text">доступно сегодня</li>
 			</ul>
 
 			<ul class="featureslist_item stud-container list-unstyled col-md-4">
