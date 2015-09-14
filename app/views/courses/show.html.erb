@@ -13,13 +13,13 @@
 </div>
 <% if @course.start_date >= (Time.now.midnight - 7.days) %>
   <div class="row">
-    <div class="col-xs-12 center_text">
+    <div class="col-xs-12 text-center">
       <h4><br>Начало занятий: <%= l @course.start_date, format: :simpledate %></h4>
     </div>
   </div>
 <% end %>
 <div class="row">
-  <div class="col-xs-12 center_text">
+  <div class="col-xs-12 text-center">
     <h4>
      <% if @course.start_date >= (Time.now.midnight - 7.days) and @course.start_date < (Time.now.midnight + 5.days) %>
       <br>  
@@ -38,7 +38,7 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-xs-12 center_text">
+  <div class="col-xs-12 text-center">
     <!-- Button trigger modal -->
     <a href="<%= new_signup_path course: @course.id %>" data-remote="true">
     <button type="button" class="btn btn-primary btn-lg signup_button" data-toggle="modal" data-target="#myModal">

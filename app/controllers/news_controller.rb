@@ -29,7 +29,7 @@ class NewsController < ApplicationController
 
     respond_to do |format|
       if @news.save
-        format.html { redirect_to redirect_url, notice: 'Новость создана.' }
+        format.html { redirect_to edit_news_path(@news), notice: 'Новость создана.' }
       else
         format.html { render :new }
       end
@@ -41,7 +41,7 @@ class NewsController < ApplicationController
   def update
     respond_to do |format|
       if @news.update(news_params)
-        format.html { redirect_to redirect_url, notice: 'Новость обновлена.' }
+        format.html { redirect_to edit_news_path(@news), notice: 'Новость обновлена.' }
       else
         format.html { render :edit }
       end
@@ -72,7 +72,7 @@ class NewsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def news_params
-      params.require(:news).permit(:content, :published)
+      params.require(:news).permit(:title, :content, :published)
     end
 
     def redirect_url

@@ -1,0 +1,2 @@
+module HotOffersHelper
+end

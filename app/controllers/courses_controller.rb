@@ -45,7 +45,7 @@ class CoursesController < ApplicationController
 
     respond_to do |format|
       if @course.save
-        format.html { redirect_to redirect_url, notice: 'Курс создан.' }
+        format.html { redirect_to edit_course_path(@course), notice: 'Курс создан.' }
       else
         format.html { render :new }
       end
@@ -55,9 +55,10 @@ class CoursesController < ApplicationController
   # PATCH/PUT /courses/1
   # PATCH/PUT /courses/1.json
   def update
+    @timegroups = Course.timegroups
     respond_to do |format|
       if @course.update(course_params)
-        format.html { redirect_to redirect_url, notice: 'Курс успешно обновлён.' }
+        format.html { redirect_to edit_course_path(@course), notice: 'Курс успешно обновлён.' }
       else
         format.html { render :edit }
       end
@@ -84,7 +85,7 @@ class CoursesController < ApplicationController
       if action_name == search
         params.permit('titlepart')
       else
-        params.require(:course).permit(:title, :short_descr, :full_descr, :start_date, :full_price, :timegroup)
+        params.require(:course).permit(:title, :featured_image, :short_descr, :full_descr, :start_date, :duration, :full_price, :timegroup)
       end
     end
 

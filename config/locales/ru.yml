@@ -11,18 +11,18 @@ ru:
     - Сб
     abbr_month_names:
     -
-    - янв.
-    - февр.
-    - марта
-    - апр.
+    - янв
+    - фев
+    - мар
+    - апр
     - мая
-    - июня
-    - июля
-    - авг.
-    - сент.
-    - окт.
-    - нояб.
-    - дек.
+    - июн
+    - июл
+    - авг
+    - сен
+    - окт
+    - ноя
+    - дек
     day_names:
     - воскресенье
     - понедельник
@@ -38,6 +38,8 @@ ru:
       short: "%-d %b"
       only_day: "%d %b"
       only_day_more: "%d %B"
+      day_of_month: "%d"
+      month_short: "%b"
       simpledate: "%d %B %Y"
     month_names:
     -
@@ -261,6 +263,8 @@ ru:
       short: "%d %b, %H:%M"
       only_day: "%d %b"
       only_day_more: "%d %B"
+      day_of_month: "%d"
+      month_short: "%b"
       simpledate: "%d %B %Y"
     pm: вечера
   orgname_short: УЦ Карьера

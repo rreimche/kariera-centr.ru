@@ -2,6 +2,7 @@
 
 <h3>Создать:
 	<%= link_to 'новость', new_news_path %>,
+    <%= link_to 'акцию', new_hot_offer_path %>,
 	<%= link_to 'курс', new_course_path %>,
 	<%= link_to 'страницу', new_static_page_path %>
 </h3>
@@ -32,6 +33,30 @@
             </tbody>
     </table>
     <%= link_to 'Больше...', "#{list_control_path}?content_type=news", class: "btn btn-lg btn-link" %>
+
+        <h2>Последние акции (по дате публикации)</h2>
+        <table class="table table-condensed control_root">
+            <thead>
+              <tr>
+                <th>Дата публикации</th>
+                <th>Содержание</th>
+                <th>Управление</th>
+              </tr>
+            </thead>
+            <tbody>
+                <% @hot_offers.each do |offer| %>
+                  <tr>
+                    <td><%= l offer.created_at, format: :short %></td>
+                    <td><%= link_to strip_tags(offer.content), offer %></td>
+                    <td>
+                        <%= link_to 'Редактировать', edit_hot_offer_path(offer), class: 'btn btn-xs btn-warning' %><br>
+                        <%= link_to 'Удалить', "/hot_offers/#{offer.id}?panel=root", method: :delete, data: { confirm: 'Уверены?' }, class: 'btn btn-xs btn-danger' %>
+                    </td>
+                  </tr>
+                <% end %>
+            </tbody>
+        </table>
+        <%= link_to 'Больше...', "#{list_control_path}?content_type=hot_offers", class: "btn btn-lg btn-link" %>
 
 		<h2>Ближайшие курсы (по дате начала)</h2>
 		<table class="table table-condensed control_root">

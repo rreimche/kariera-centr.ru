@@ -1,0 +1,31 @@
+<%= form_for(@hot_offer) do |f| %>
+  <% if @hot_offer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@hot_offer.errors.count, "error") %> prohibited this hot_offer from being saved:</h2>
+
+      <ul>
+      <% @hot_offer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= raw("<h3 class=\"text-danger\">#{flash[:notice]}</h3>") if not flash[:notice].nil? %>
+
+  <p class="field">
+    <%= f.label :content %><br>
+    <%= f.cktext_area :content %>
+  </p>
+  <p class="field">
+    <%= f.label "Дата начала акции" %><br>
+    <%= f.date_select :start_date %>
+  </p>
+  <p class="field">
+    <%= f.label "Дата окончания акции" %><br>
+    <%= f.date_select :end_date %>
+  </p>
+  <p class="actions">
+    <%= f.submit action_name == 'new' ?  'Создать акцию' : 'Редактировать акцию'%>
+  </p>
+<% end %>

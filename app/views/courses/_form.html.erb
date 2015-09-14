@@ -11,13 +11,19 @@
     </p>
   <% end %>
 
+  <%= raw("<h3 class=\"text-danger\">#{flash[:notice]}</h3>") if not flash[:notice].nil? %>
+
   <p class="field">
     <%= f.label "Название курса" %><br>
     <%= f.text_field :title %>
   </p>
   <p class="field">
+    <%= f.label "Изображение курса" %>
+    <%= f.file_field :featured_image %>
+  </p>
+  <p class="field">
     <%= f.label "Краткое описание" %><br>
-    <%= f.cktext_area :short_descr %>
+    <%= f.text_area :short_descr %>
   </p>
   <p class="field">
     <%= f.label "Полное описание" %><br>
@@ -26,6 +32,10 @@
   <p class="field">
     <%= f.label "Дата начала" %><br>
     <%= f.date_select :start_date %>
+  </p>
+  <p class="field">
+    <%= f.label "Продолжительность курса, месяцев" %><br>
+    <%= f.select :duration, 1.step(by: 0.5, to: 12).to_a.collect!{|i| [i, i]}  %>
   </p>
   <p class="field">
     <%= f.label "Полная цена курса, рублей" %><br>
