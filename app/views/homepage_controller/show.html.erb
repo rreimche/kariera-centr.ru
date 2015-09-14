@@ -9,7 +9,7 @@
 		<% @courses_next.each do |course| %>
 			<!-- a course -->
 			<div class="courselist_item col-sm-4">
-				<a href="#"><img class="courselist_item__img img-responsive" src="content/pic1.jpg" alt="" /></a>
+				<a href="#"><%= image_tag course.featured_image.url(:homepage), :class => "courselist_item__img img-responsive", :alt => course.title %></a>
 					
 				<div class="row">
 					<div class="col-xs-3 col-sm-4 col-md-3">
