@@ -32,6 +32,10 @@
     <%= f.date_select :start_date %>
   </p>
   <p class="field">
+    <%= f.label "Продолжительность курса, месяцев" %><br>
+    <%= f.select :duration, 1.step(by: 0.5, to: 12).to_a.collect!{|i| [i, i]}  %>
+  </p>
+  <p class="field">
     <%= f.label "Полная цена курса, рублей" %><br>
     <%= f.number_field :full_price %>
   </p>
