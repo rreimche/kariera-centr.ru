@@ -16,76 +16,853 @@
  *= require news
  *= require homepage_controller
  *= require courses 
+ *= require control_panel
  */
 
 @import "bootstrap-sprockets"
 @import "bootstrap"
 
+/* common styles
 
-#logo_small
-	position: relative
-	top: -9px
-	height: 41px
+body
+  font-family: "Open Sans",Helvetica,Arial,sans-serif
+  line-height: 1
+  color: #444
 
-//.navbar-brand
-//	height: 85px
+a
+  color: #4680e3
+  &:hover
+    color: #4680e3
 
-.social
-	a
-		font-family: 'Grands'
-		font-size: 135%
+.pos-rel
+  position: relative
 
-#bottom_buttons
-	text-align: center
+.pos-abs
+  position: absolute
 
-#contacts_small
-	list-style-type: none
-	padding-left: 1em
+.no-dec
+  text-decoration: none
+  &:hover
+    text-decoration: none
 
-table.control_root
-	th
-		text-align: center
-	tr
-		td:first-of-type
-			text-align: center
-		td:last-of-type
-			text-align: center
-			line-height: 2.3em
+.color-fff
+  color: #fff
+  &:hover, &:focus
+    color: #fff
 
-.signup_button a
-	color: #fff
+.color-ef4e3a
+  color: #ef4e3a
+  &:hover, &:focus
+    color: #ef4e3a
 
-#carousel-homepage
-	padding-left: 0
-	padding-right: 0
-	margin-bottom: 1.8em
+.color-ee4f3a
+  color: #ee4f3a
+  &:hover, &:focus
+    color: #ee4f3a
 
-.carousel-caption
-	font-size: 123%
+.bold
+  font-weight: 700 !important
 
-#threeblocks
-	a
-		color: black
+/* the top of header
 
-*[type=button]
-	a:hover
-		text-decoration: none
+.header_top
+  margin: 0 0 35px
+  padding: 14px 0 13px
+  background: #444
 
-#nextcourses, #news
-	li
-		span
-			display: block
-			text-align: right
-			width: 100%
+.header_top__conacts
+  margin-bottom: 0
+
+.header_top__conacts-item
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif
+  font-weight: 700
+  padding: 0 0 0 25px
+  display: inline-block
+  vertical-align: top
+  &.mail-icon
+    padding-left: 30px
+    margin-right: 0
+  &:before
+    content: ''
+    position: absolute
+    /* left: 0;
+     *top: -5px;
+     *background-image: image-url("sprite.png");
+     *background-repeat: no-repeat;
+
+/* .place-icon:before {	
+ *	padding: 25px 0 0 20px;
+ *	background-position: -130px -105px;
+ *	}
+ *	
+ *.phone-icon:before {	
+ *	padding: 25px 0 0 22px;
+ *	background-position: -150px -105px;
+ *	}
+ *	
+ *.mail-icon:before {	
+ *	top: -2px;
+ *	padding: 21px 0 0 25px;
+ *	background-position: -130px -130px;
+ *	}
+
+.header_top__sicons-link
+  margin: 0 20px 0 0
+  padding: 10px 0 0 15px
+  display: inline-block
+  vertical-align: top
+  &.od-icon
+    margin-right: 0
+  &:before
+    content: ''
+    position: absolute
+    left: 0
+    /* background-image: image-url("sprite.png");
+     *background-repeat: no-repeat;
+
+/* .vk-icon:before {	
+ *	top: -2px;
+ *	padding: 19px 0 0 15px;
+ *	background-position: -172px 0;
+ *	}
+ *	
+ *.fb-icon:before {	
+ *	top: -5px;
+ *	padding: 24px 0 0 15px;
+ *	background-position: -172px -19px;
+ *	}
+ *	
+ *.od-icon:before {	
+ *	top: -7px;
+ *	padding: 30px 0 0 15px;
+ *	background-position: -172px -42px;
+ *	}
+
+/* top menu
+
+.header_bottom__logoholder-logo
+  margin: -20px 0 0
+  padding: 59px 0 0 172px
+  display: inline-block
+  vertical-align: top
+  &:before
+    content: ''
+    position: absolute
+    left: 0
+    top: 0
+    /* padding: 59px 0 0 172px;
+     *background: image-url("sprite.png") no-repeat scroll 0 -47px rgba(0,0,0,0);
+
+.header_bottom__menu
+  margin-bottom: 0
+
+.header_bottom__menu___item-item
+  padding: 0 0 11px
+  display: block
+  color: #444
+  font-size: 18px
+  text-decoration: none
+  border-bottom: 2px solid #444
+  &:hover
+    padding: 0 0 11px
+    display: block
+    color: #444
+    font-size: 18px
+    text-decoration: none
+    border-bottom: 2px solid #444
+
+.dropdown
+  .header_bottom__menu___item-item:before
+    content: ''
+    position: absolute
+    bottom: -7px
+    left: 50%
+    margin-left: -7px
+    border-style: solid
+    border-width: 7px 7px 0
+    border-color: #444 rgba(0, 0, 0, 0) rgba(0, 0, 0, 0)
+  &:hover .header_bottom__menu___item-item
+    border-color: #4680e3
+    color: #4680e3
+
+.header_bottom__menu___item-item:hover
+  border-color: #4680e3
+  color: #4680e3
+
+.dropdown
+  &:hover .header_bottom__menu___item-item:before, .header_bottom__menu___item-item:hover:before
+    bottom: -2px
+    border-width: 0 7px 7px
+    border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #4680e3
+
+.dropdown_menu
+  display: none
+
+.dropdown:hover .dropdown_menu
+  display: block
+
+.dropdown_menu__item
+  margin: 0 0 10px
+  padding: 0 0 7px
+  border-bottom: 1px solid #979797
+  &:last-child
+    margin-bottom: 0
+    padding-bottom: 0
+    border-bottom: 0
+
+.dropdown_menu__item-link
+  color: #444
+  text-decoration: none
+  &:hover
+    color: #4680e3
+    text-decoration: none
+
+/* titleholder
+
+.titleholder
+  padding: 0 0 395px
+  margin: 0 0 50px
+  box-shadow: 0 -5px 4px 0 rgba(0, 0, 0, 0.2) inset
+  background: image-url("titleholder.jpg") no-repeat scroll center bottom rgba(0, 0, 0, 0)
+  h1
+    color: #454545
+    text-transform: uppercase
+    font-weight: 600
+
+/* courselist
+
+.courselist_item
+  margin: 0 0 45px
+
+.courselist_item__img
+  margin: 0 0 12px
+
+.courselist_item__date
+  padding: 12px 0
+  border: 5px solid #65cc33
+  &.red-border
+    border-color: #ef4e3a
+
+.courselist_item__date-day
+  color: #65cc33
+  font-size: 36px
+  line-height: 36px
+  font-weight: 600
+
+.courselist_item__date-month
+  color: #65cc33
+  font-size: 22px
+  line-height: 22px
+  font-weight: 600
+
+.courselist_item__date.red-border
+  .courselist_item__date-day, .courselist_item__date-month
+    color: #ef4e3a
+
+.courselist_item__text-title
+  margin: 0 0 15px
+  display: block
+  overflow: hidden
+  text-overflow: ellipsis
+  font-size: 20px
+  line-height: 26px
+  font-weight: 600
+  color: #444
+  &:hover
+    margin: 0 0 15px
+    display: block
+    overflow: hidden
+    text-overflow: ellipsis
+    font-size: 20px
+    line-height: 26px
+    font-weight: 600
+    color: #444
+
+.courselist_item p
+  line-height: 18px
+  display: block
+  overflow: hidden
+  text-overflow: ellipsis
+
+.courselist_item__btn
+  font-size: 15px
+  font-weight: 600
+  background: #ef4e3a
+
+.courselist_item__text.col-lg-12 .btn
+  padding-right: 30px
+  padding-left: 30px
+  background: #4a88ef
+
+/* features
+
+.featureslist
+  margin: 0 0 50px
+  padding: 75px 0
+  background: image-url("class.jpg") no-repeat scroll center bottom rgba(0, 0, 0, 0)
+  background-size: cover
+
+.featureslist .section-title.text-center h2
+  color: #4a88ef
+  font-weight: 600
+  text-decoration: none
+  border: none
+  margin-bottom: -30px
+  position: relative
+  top: -23px
 
 
-.center_text
-	text-align: center
+.featureslist_item__title, .featureslist_item__text
+  font-size: 36px
+  font-weight: 600
 
-footer
-	background-color: #f8f8f8
-	border-top: 1px solid #e7e7e7
-	padding-top: 0.8em
-	margin-top: 1em
+.featureslist_item__title
+  color: #4a88ef
+  display: inline-block
+  vertical-align: top
+  &:before
+    content: ''
+    position: absolute
+    /* background-image: image-url("sprite.png");
+     *background-repeat: no-repeat;
 
+/* .stud-icon:before {
+ *	padding: 47px 0 0 72px;
+ *	background-position: 0 0;
+ *	}
+ *	
+ *.courses-icon:before {
+ *	padding: 47px 0 0 50px;
+ *	background-position: -123px 0;
+ *	}
+ *	
+ *.years-icon:before {
+ *	padding: 47px 0 0 50px;
+ *	background-position: -74px 0;
+ *	}
 
+/* comments
+
+.section-title
+  margin: 0 0 25px
+  h2
+    margin: 0
+    padding: 0 0 5px
+    font-size: 36px
+    font-weight: 600
+    text-transform: uppercase
+    display: inline-block
+    vertical-align: top
+    border-bottom: 5px solid #65cc33
+
+.comments_item
+  margin-bottom: 65px
+  h3
+    margin: 0 0 10px
+    font-size: 24px
+    line-height: 24px
+    color: #4a88ed
+    font-weight: 600
+  h4
+    margin: 0 0 15px
+    font-size: 14px
+    line-height: 14px
+    color: #f1b844
+    font-weight: 600
+  p
+    margin: 0 0 20px
+    font-size: 16px
+    line-height: 22px
+  a
+    font-weight: 600
+    &:hover
+      font-weight: 600
+
+/* newsblock
+
+.newsblock
+  padding: 35px 0 20px
+  background: #f3efee
+  h2
+    margin: 0 0 20px
+    padding: 0 0 5px
+    font-size: 36px
+    font-weight: 600
+    text-transform: uppercase
+    display: inline-block
+    vertical-align: top
+
+.newsblock-left h2
+  border-bottom: 5px solid #65cc33
+
+.newsblock-right h2
+  border-bottom: 5px solid #ef4e3a
+
+.newsblock_item
+  margin: 0 0 15px
+
+.newsblock_item__link
+  margin: 0 0 5px
+  font-size: 12px
+  font-weight: 600
+  color: #9c9a9d
+  display: block
+  &:hover
+    margin: 0 0 5px
+    font-size: 12px
+    font-weight: 600
+    color: #9c9a9d
+    display: block
+
+.newsblock_item__text
+  font-weight: 600
+  font-size: 18px
+  line-height: 22px
+
+.newsblock_readmore
+  margin: 23px 0 0
+  font-size: 14px
+  font-weight: 600
+  display: block
+  &:hover
+    margin: 23px 0 0
+    font-size: 14px
+    font-weight: 600
+    display: block
+
+/* subsblock
+
+.subsblock
+  margin: 0 0 35px
+  padding: 35px 0
+  background: #4a88ef
+
+.subsblock_title
+  margin: 0 0 10px
+  font-size: 36px
+  font-weight: 600
+
+.subsblock_subtitle
+  font-size: 24px
+  font-weight: 600
+
+.subsblock_form__item-submit
+  border: 1px solid #437506
+  background: #65cc33
+
+/* partners
+
+.partners
+  margin-bottom: 50px
+
+.partners_item__img
+  border: 1px solid #979797
+
+/* footer
+
+.footer
+  padding: 45px 0 30px
+  background: #444
+
+.footer_logo
+  margin: -13px 0 10px
+  padding: 46px 0 0 130px
+  display: inline-block
+  vertical-align: top
+  &:hover
+    margin: -13px 0 10px
+    padding: 46px 0 0 130px
+    display: inline-block
+    vertical-align: top
+  &:before
+    content: ''
+    position: absolute
+    top: 0
+    left: 0
+    /* padding: 46px 0 0 130px;
+     *background: image-url("sprite.png") no-repeat scroll 0 -105px rgba(0,0,0,0);
+
+.footer-left p
+  font-size: 13px
+  line-height: 16px
+  font-weight: 600
+
+.footer_menu
+  margin: 0 0 40px
+
+.footer_menu__item
+  margin: 0 30px 0 0
+  &:last-child
+    margin-right: 0
+
+.footer_menu__item-link
+  color: #fff
+  font-size: 16px
+  font-weight: 600
+
+.login
+  font-size: 13px
+  padding: 0 0 0 25px
+  &:hover
+    font-size: 13px
+    padding: 0 0 0 25px
+  &:before
+    content: ''
+    position: absolute
+    /* top: -3px;
+     *left: 0;
+     *padding: 25px 0 0 15px;
+     *background: image-url("sprite.png") no-repeat scroll -172px -71px rgba(0,0,0,0);
+
+/* icons
+
+/* @media (-webkit-min-device-pixel-ratio: 2) {
+ *
+ *}
+
+.place-icon:before
+  left: 2px
+  top: -3px
+  padding: 20px 0 0 15px
+  background: image-url("place.svg") repeat scroll 0 0 rgba(0, 0, 0, 0)
+
+.phone-icon:before
+  left: 3px
+  top: -3px
+  padding: 20px 0 0 15px
+  background: image-url("phone.svg") repeat scroll 0 0 rgba(0, 0, 0, 0)
+
+.mail-icon:before
+  left: 2px
+  top: -1px
+  padding: 17px 0 0 22px
+  background: image-url("mail.svg") repeat scroll 0 0 rgba(0, 0, 0, 0)
+
+.stud-icon:before
+  padding: 45px 0 0 72px
+  background: image-url("hat.svg") repeat scroll 0 0 rgba(0, 0, 0, 0)
+
+.courses-icon:before
+  padding: 40px 0 0 45px
+  background: image-url("case.svg") repeat scroll 0 0 rgba(0, 0, 0, 0)
+
+.years-icon:before
+  padding: 45px 0 0 45px
+  background: image-url("clock.svg") repeat scroll 0 0 rgba(0, 0, 0, 0)
+
+.vk-icon:before
+  top: -1px
+  padding: 16px 0 0 13px
+  background: image-url("vk.svg") repeat scroll 0 0 rgba(0, 0, 0, 0)
+
+.fb-icon:before
+  top: -3px
+  padding: 19px 0 0 9px
+  background: image-url("fb.svg") repeat scroll 0 0 rgba(0, 0, 0, 0)
+
+.od-icon:before
+  top: -5px
+  padding: 22px 0 0 14px
+  background: image-url("ok.svg") repeat scroll 0 0 rgba(0, 0, 0, 0)
+
+.header_bottom__logoholder-logo:before
+  padding: 56px 0 0 162px
+  background: image-url("logo_top.svg") repeat scroll 0 0 rgba(0, 0, 0, 0)
+
+.footer_logo:before
+  padding: 44px 0 0 128px
+  background: image-url("logo_bottom.svg") repeat scroll 0 0 rgba(0, 0, 0, 0)
+
+.login:before
+  top: 0
+  left: 0
+  padding: 19px 0 0 12px
+  background: image-url("lock.svg") repeat scroll 0 0 rgba(0, 0, 0, 0)
+
+/* desktop
+
+@media (min-width: 1200px)
+  .container
+    padding-right: 0 !important
+    padding-left: 0 !important
+  header
+    margin: 0 0 80px
+  .header_top__conacts-item
+    margin: 0 40px 0 0
+  .header_top__sicons
+    text-align: right
+  .navbar-collapse.col-lg-8
+    width: 66.6667%
+  .header_bottom__menu
+    text-align: right
+  .header_bottom__menu___item
+    margin: 0 50px 0 0
+    display: inline-block
+    vertical-align: top
+    &:last-child
+      margin-right: 0
+  .dropdown_menu
+    position: absolute
+    top: 29px
+    min-width: 195px
+    padding: 25px 12px
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.2)
+    border-top: 2px solid #4680e3
+    background: #fff
+    z-index: 2
+    text-align: left
+  .courselist_item__text
+    height: 215px
+    padding-bottom: 60px
+    overflow: hidden
+    text-overflow: ellipsis
+  .courselist_item__text-title
+    max-height: 80px
+    &:hover
+      max-height: 80px
+  .courselist_item p
+    max-height: 75px
+  .courselist_item__text
+    &.col-xs-9
+      padding-left: 0
+      .btn-holder
+        position: absolute
+        bottom: 0
+        right: 15px
+    &.col-lg-12 .btn-holder
+      text-align: center
+      position: relative
+      bottom: -48px
+  .featureslist_item
+    margin: 0 0 20px
+  .featureslist_item__title
+    &:before
+      left: 0
+      top: -5px
+    &.stud-icon
+      padding: 0 0 0 75px
+    &.courses-icon, &.years-icon
+      padding: 0 0 0 50px
+  .subsblock-left
+    margin-bottom: 0
+  .footer_menu
+    text-align: right
+  .footer_menu__item
+    display: inline-block
+    vertical-align: top
+
+/* pads
+
+@media (min-width: 992px) and (max-width: 1199px)
+  header
+    margin: 0 0 50px
+  .header_top__conacts-item
+    margin: 0 40px 0 0
+  .header_top__sicons
+    text-align: right
+  .navbar-collapse.col-md-9
+    width: 75%
+  .header_bottom__menu
+    text-align: right
+  .header_bottom__menu___item
+    margin: 0 50px 0 0
+    display: inline-block
+    vertical-align: top
+    &:last-child
+      margin-right: 0
+  .dropdown_menu
+    position: absolute
+    top: 29px
+    min-width: 195px
+    padding: 25px 12px
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.2)
+    border-top: 2px solid #4680e3
+    background: #fff
+    z-index: 2
+    text-align: left
+  .courselist_item__text
+    height: 215px
+    padding-bottom: 60px
+    overflow: hidden
+    &.col-xs-9
+      padding-left: 0
+      .btn-holder
+        position: absolute
+        bottom: 0
+        right: 15px
+    &.col-lg-12 .btn-holder
+      text-align: center
+      position: relative
+      bottom: -26px
+  .courselist_item__text-title
+    max-height: 80px
+    &:hover
+      max-height: 80px
+  .courselist_item p
+    max-height: 75px
+  .featureslist_item
+    margin: 0 0 35px
+  .featureslist_item__title
+    &:before
+      left: 0
+      top: -5px
+    &.stud-icon
+      padding: 0 0 0 75px
+    &.courses-icon, &.years-icon
+      padding: 0 0 0 50px
+  .subsblock-left
+    margin-bottom: 25px
+  .footer_menu
+    text-align: right
+  .footer_menu__item
+    display: inline-block
+    vertical-align: top
+
+@media (min-width: 768px) and (max-width: 991px)
+  header
+    margin: 0 0 30px
+  .header_top__conacts
+    margin: 0 0 25px
+  .header_top__conacts-item
+    margin: 0 40px 0 0
+  .header_bottom__logoholder
+    margin: 0 0 25px
+    text-align: center
+  .header_top__sicons, .header_bottom__menu
+    text-align: center
+  .header_bottom__menu___item
+    margin: 0 50px 0 0
+    display: inline-block
+    vertical-align: top
+    &:last-child
+      margin-right: 0
+  .dropdown_menu
+    position: absolute
+    top: 29px
+    min-width: 195px
+    padding: 25px 12px
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.2)
+    border-top: 2px solid #4680e3
+    background: #fff
+    z-index: 2
+    text-align: left
+  .courselist_item__text.col-xs-9
+    padding-left: 0
+  .courselist_item__text-title
+    height: 80px
+    &:hover
+      height: 80px
+  .courselist_item p
+    height: 75px
+  .btn-holder
+    text-align: center
+  .featureslist_item
+    margin: 0 0 35px
+  .featureslist_item__title:before
+    top: 0
+    left: 50%
+    margin-left: -25px
+  .stud-icon:before
+    margin-left: -36px
+  .featureslist_item__title
+    padding: 55px 0 0
+  .subsblock-left
+    margin-bottom: 25px
+  .footer
+    .text-right
+      text-align: center
+    text-align: center
+  .footer-left
+    margin-bottom: 25px
+  .footer_menu
+    text-align: center
+  .footer_menu__item
+    display: inline-block
+    vertical-align: top
+
+/* mobile
+
+@media (max-width: 767px)
+  header
+    margin: 0 0 35px
+  .header_top
+    margin: 0 0 20px
+  .header_top__conacts
+    margin: 0 0 15px
+    text-align: center
+  .header_top__conacts-item
+    margin: 0 25px 15px 0
+  .header_top__sicons
+    text-align: center
+  .header_bottom__logoholder
+    overflow: hidden
+  .header_bottom__logoholder-logo
+    margin-top: 0
+    float: left
+  .navbar-toggle
+    border-color: #444
+  .icon-bar
+    background: #444
+  .navbar-collapse.collapse
+    margin-top: 25px
+  .header_bottom__menu
+    text-align: center
+  .header_bottom__menu___item.dropdown
+    padding-bottom: 20px
+  .dropdown_menu__item
+    padding: 0
+    margin: 0
+  .dropdown_menu__item-link
+    padding: 10px
+    display: block
+    &:hover
+      padding: 10px
+      display: block
+  .partners_item__img, .courselist_item__img
+    width: 100%
+  .courselist_item__text-title
+    text-align: center
+  .courselist_item p
+    margin: 0 0 25px
+  .btn-holder
+    text-align: center
+  .featureslist_item
+    margin: 0 0 35px
+  .featureslist_item__title:before
+    top: 0
+    left: 50%
+    margin-left: -25px
+  .newsblock-left
+    margin: 0 0 20px
+  .stud-icon:before
+    margin-left: -36px
+  .featureslist_item__title
+    padding: 55px 0 0
+  .subsblock-left
+    margin-bottom: 25px
+  .subsblock_title
+    font-size: 30px
+    text-align: center
+  .subsblock_subtitle
+    text-align: center
+  .subsblock_form__item
+    &.col-sm-7
+      margin-bottom: 20px
+    text-align: center
+  .partners_item
+    margin-bottom: 20px
+  .footer
+    .text-right
+      text-align: center
+    text-align: center
+  .footer-left
+    margin-bottom: 25px
+  .footer_menu__item
+    margin: 0 0 15px
+    display: block
+
+@media (max-width: 331px)
+  .courselist_item__date-day
+    font-size: 26px
+  .courselist_item__date-month
+    font-size: 15px

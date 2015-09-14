@@ -1,0 +1,91 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *  lala= require_tree .
+ *	lala= require_self
+ *= require grands
+ *= require news
+ *= require homepage_controller
+ *= require courses 
+ */
+
+@import "bootstrap-sprockets"
+@import "bootstrap"
+
+
+#logo_small
+	position: relative
+	top: -9px
+	height: 41px
+
+//.navbar-brand
+//	height: 85px
+
+.social
+	a
+		font-family: 'Grands'
+		font-size: 135%
+
+#bottom_buttons
+	text-align: center
+
+#contacts_small
+	list-style-type: none
+	padding-left: 1em
+
+table.control_root
+	th
+		text-align: center
+	tr
+		td:first-of-type
+			text-align: center
+		td:last-of-type
+			text-align: center
+			line-height: 2.3em
+
+.signup_button a
+	color: #fff
+
+#carousel-homepage
+	padding-left: 0
+	padding-right: 0
+	margin-bottom: 1.8em
+
+.carousel-caption
+	font-size: 123%
+
+#threeblocks
+	a
+		color: black
+
+*[type=button]
+	a:hover
+		text-decoration: none
+
+#nextcourses, #news
+	li
+		span
+			display: block
+			text-align: right
+			width: 100%
+
+
+.center_text
+	text-align: center
+
+footer
+	background-color: #f8f8f8
+	border-top: 1px solid #e7e7e7
+	padding-top: 0.8em
+	margin-top: 1em
+
+

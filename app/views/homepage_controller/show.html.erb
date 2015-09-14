@@ -1,127 +1,178 @@
- <style>
- @media only screen and (min-width: 350px){
-  #videos iframe{
-    margin-right: 43px;
-  }
+<section class="titleholder text-center">
+	<h1>начни новую жизнь уже сегодня!</h1>
+</section>
 
-  #videos iframe.last{
-    margin-right: 0;
-  }
-
-  #videos {
-    text-align: center; 
-    margin-top: 40px;
-    text-align: center;
-  }
-}
-  h2 {
-  font-weight: bold;
-  text-align: center;
-  font-family: Helvetica, Arial, sans-serif;
-  text-transform: uppercase;
-  margin-bottom: 38px;
-}
-</style>
- <div class="row">
-  <div class="col-sm-12" id="videos">
-    <iframe  width="230" height="124" src="https://www.youtube.com/embed/r_x9JZWr6hc?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe> 
-    <iframe  width="230" height="124" src="https://www.youtube.com/embed/xMYWuXGE9n8?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe> 
-    <iframe  width="230" height="124" src="https://www.youtube.com/embed/hx7ekhqbn_k?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
-  </div>
+<!-- the list of courses is running -->
+<div class="courselist container">
+	<div class="section-title text-center"><h2>Актуальные курсы</h2></div>
+	<div class="row">
+		<% @courses_next.each do |course| %>
+			<!-- a course -->
+			<div class="courselist_item col-sm-4">
+				<a href="#"><img class="courselist_item__img img-responsive" src="content/pic1.jpg" alt="" /></a>
+					
+				<div class="row">
+					<div class="col-xs-3 col-sm-4 col-md-3">
+						<ul class="courselist_item__date text-center list-unstyled">
+							<li class="courselist_item__date-day"><%= l course.start_date, format: :day_of_month %></li>
+							<li class="courselist_item__date-month"><%= l course.start_date, format: :month_short %></li>
+						</ul>
+					</div>
+							
+					<div class="courselist_item__text pos-rel col-xs-9 col-sm-8 col-md-9">
+						<a class="courselist_item__text-title" href="<%= course_path(course) %>"><%= course.title %></a>	
+						<p><%= course.short_descr %><br></p>
+						<p>
+							<strong>Цена: 4500 руб./мес<br>
+							Продолжительность:</strong>
+						</p>	
+							
+						<div class="btn-holder"><a class="btn courselist_item__btn color-fff no-dec" href="<%= course_path(course) %>">Подробнее...</a></div>
+					</div>
+				</div>
+			</div>
+		<% end %>
+	</div>
 </div>
 
-<div class="row" style="margin-top: 33px;">
-  <div id="news" class="col-sm-8">
-    <h2 class="center_text">Новости, акции,<br><em>скидки</em></h2>
-      <div class="list-group">
-        <% @news.each do | news | %>
-          <a href="<%= news_path(news) %>"class="list-group-item"><%= raw news.content %><br>
-             <small><%= l news.created_at, format: :simpledate %></small></a>
-        <% end %>
-      </div>
-      <button type="button" class="btn btn-xs btn-default center-block">
-        <%= link_to 'Все новости...', news_index_path %>
-      </button>
-  </div>
-  <div id="nextcourses" class="col-sm-4">
-    <h2>Ближайшие<br>курсы</h2>
-    <div class="list-group">
-      <% @courses_next.each do |course| %>
-        <a href="<%= course_path(course) %>"class="list-group-item">
-          <%= course.title %><br>
-          <small class="text-muted"><%= l course.start_date, format: :simpledate %></small>
-        </a>
-      <% end %>
-    </div>
-    <button type="button" class="btn btn-xs btn-default center-block">
-      <%= link_to 'Все курсы...', { controller: 'courses', action: 'search' } %>
-    </button>
-  </div>
+<!-- the list of features is running -->
+<div class="featureslist text-center">
+	<!--<div class="section-title text-center"><h2>Карьера – это:</h2></div>-->
+	<div class="container">
+		<div class="row">
+			<ul class="featureslist_item list-unstyled col-md-4">
+				<li class="featureslist_item__title stud-icon pos-rel">30 000</li>
+				<li class="featureslist_item__text">выпускников</li>
+			</ul>
+			
+			<ul class="featureslist_item list-unstyled col-md-4">
+				<li class="featureslist_item__title courses-icon pos-rel"><%= @num_courses %> курсов</li>
+				<li class="featureslist_item__text">сейчас доступно</li>
+			</ul>
+			
+			<ul class="featureslist_item list-unstyled col-md-4">
+				<li class="featureslist_item__title years-icon pos-rel">25 лет</li>
+				<li class="featureslist_item__text">на рынке</li>
+			</ul>
+		</div>
+	</div>
 </div>
 
+<!-- the section of comments is running -->
+<section class="comments container">
+	<div class="section-title text-center">
+		<h2>Выпускники о центре</h2>
+	</div>
+	
+	<div class="row">
+		<article class="comments_item col-sm-5">
+			<h3>Светлана</h3>
+			<h4>сметчик</h4>
+			<p>РС-20. Проходила обучение по профессии сметчик. Большое спасибо Танской Ольге Васильевне за интересные и познавательные лекции. Побольше таких замечательных преподавателей. Спасибо Вам за ваши уроки, которые мне очень помогли в моей работе. Желаю Вам здоровья, прилежных учеников и успехов в вашей деятельности.</p> 
+		</article>
+			
+		<article class="comments_item col-sm-5 col-sm-offset-1">
+			<h3>Марина К.</h3>
+			<h4>менеджмент персонала</h4>
+			<p>Прошла обучение по курсу "Менеджмент персонала" в 2009 году по направлению центра занятости. 3 месяца пролетели очень быстро, жалко было расставаться. Очень благодарна преподавателям Карьеры: Наталье Петровне, ее практические советы сейчас применяю у себя на предприятии; Раисе Николаевне, знания на кадрам помогли успешно пройти проверку труд инспекции на моем предприятии. Спасибо преподавателю по компьютеру, жалко что раньше не преподавали 1С Кадры. Желаю сотрудникам Карьеры процветания и открытия новых горизонтов!</p> 
+		</article>
+	</div>
+		
+	<div class="row">
+		<article class="comments_item col-sm-5">
+			<h3>Татьяна</h3>
+			<h4>трудоустройство</h4>
+			<p>Мне ваш центр помог найти работу секретаря в 2012 году. Работаю на этом месте уже год, и всегда с благодарностью вспоминаю менеджера по персоналу Викторию. Спасибо ей и всему коллективу вашей организации.</p>
+		</article>
+			
+		<article class="comments_item col-sm-5 col-sm-offset-1">
+			<h3>Наталья</h3>
+			<h4>сметчик</h4>
+			<p>РС-19. Прохожу обучение по профессии сметчик. Насколько интересно, настолько познавательно. Ольга Васильевна действительно ас в своем деле. Интересно, доступно. Пожелать хочу Вам здоровья, удачи и побольше учеников! Сотрудники Карьеры очень добродушные и внимательные. Успехов и процветания в Вашем деле!</p> 
+		</article>
+	</div>
+</section>
 
-<!--<div class="row">
-  <h2 class="center_text">Популярные курсы</h2>
-  <div id="carousel-homepage" class="carousel slide col-sm-10 col-sm-offset-1" data-ride="carousel">
-    
-    <ol class="carousel-indicators">
-      <li data-target="#carousel-homepage" data-slide-to="0" class="active"></li>
-      <li data-target="#carousel-homepage" data-slide-to="1"></li>
-      <li data-target="#carousel-homepage" data-slide-to="2"></li>
-    </ol>
+<!-- news & actions -->
+<div class="newsblock">		
+	<div class="container">
+		<div class="row">
+			<aside class="newsblock-left col-sm-5">
+				<h2>новости</h2>
+				<% @news.each do |news| %>
+					<div class="newsblock_item">
+						<a class="newsblock_item__link text-uppercase" href="#"><%= l news.created_at, format: :simpledate %></a>
+						<p class="newsblock_item__text"><%= news.content %></p>
+					</div>
+				<% end %>
 
-     
-    <div class="carousel-inner" role="listbox">
-      <div class="item active">
-        <a href="/courses/7" alt="Курс Парикмахер в Таганроге"><img src="/images/slider/par.jpg" alt="Курс Парикмахер в Таганроге"></a>
-        <div class="carousel-caption">
-          <h1>Парикмахер<br>3-5 разряд</h1>
-        </div>
-      </div>
-      <div class="item">
-        <a href="/courses/6" alt="Курс Бухгалтер в Таганроге"><img src="/images/slider/buch.jpg" alt="Курс Бухгалтер в Таганроге"></a>
-        <div class="carousel-caption">
-          <h1>Бухгалтер</h1>
-        </div>
-      </div>
-      <div class="item">
-        <a href="/courses/26" title="Курс Маникюр в Таганроге"><img src="/images/slider/man.jpg" alt="Курс Маникюр в Таганроге"></a>
-        <div class="carousel-caption">
-          <h1>Мастер маникюра и педикюра</h1>
-        </div>
-      </div>
-    </div>
+				<%= link_to 'Все новости', news_index_path, :class => 'newsblock_readmore' %>
 
-     
-    <a class="left carousel-control" href="#carousel-homepage" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#carousel-homepage" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
+			</aside>
+			
+			<aside class="newsblock-right col-sm-5 col-sm-offset-1">
+				<h2>акции</h2>
+				
+				<div class="newsblock_item">
+					<a class="newsblock_item__link text-uppercase" href="#">12 ноября 2015</a>
+					<p class="newsblock_item__text">При обучении на курсе Мастер маникюра и педикюра на курс <span class="bold text-uppercase">Наращивание ногтей</span> <span class="bold color-ee4f3a">предоставляется скидка 15%</span></p>
+				</div>
+				
+				<a class="newsblock_readmore" href="#">Все акции</a>
+			</aside>
+		</div>
+	</div>
+</div>
+
+<!-- news & actions -->
+<!--
+<div class="subsblock">		
+	<div class="container">
+		<div class="row">
+			<ul class="subsblock-left col-md-7 list-unstyled">
+				<li class="subsblock_title color-fff text-uppercase">подпишитесь на новости!</li>
+				<li class="subsblock_subtitle color-fff">И получайте информацию об актуальных акциях</li>
+			</ul>
+			
+			<div class="subsblock-left col-md-5">
+				<form action="#">
+					<ul class="subsblock_form list-unstyled row">
+						<li class="subsblock_form__item col-sm-7"><input class="subsblock_form__item-input form-control" type="text" value="" required="required" /></li>
+						<li class="subsblock_form__item col-sm-5"><input class="subsblock_form__item-submit btn color-fff bold" type="submit" value="Подписаться" /></li>
+					</ul>
+				</form>
+			</div>
+		</div>
+	</div>
 </div>-->
 
-<div class="jumbotron" id="jumbohome">
-      <div class="container">
-        <div class="row">
-          <h3 class="col-sm-12">Профессиональное обучение и повышение квалификации в учебно-кадровом центре "Карьера" в г. Таганроге</h3>
-        </div>
-        <div class="row">
-          <div class="col-sm-8">
-            <p>В учебно-кадровом центре "Карьера" Вы сможете получить <strong>профессиональное обучение</strong> или пройти <strong>курсы повышения квалификации</strong> в Таганроге, а также превратить свои увлечения в сферу профессиональной деятельности.</p>
-            <p>Учебно-кадровый центр имеет различные <a href="/static_pages/6">признания</a> от общественных и социальных организаций г. Таганрога и Ростовской области.</p>
-            <p>Программы нашего учебного центра прошли процедуру Государственного лицензирования <strong>по&nbsp;всем</strong> предлагаемым учебным направлениям.</p>
-          </div>
-          <div id="links" class="col-sm-4" style="text-align: center;">
-            <a href="/images/regalii/license2.JPG"><img src="/images/regalii/license2.JPG" alt="Лицензия"></a>
-            <a href="/images/regalii/0012.JPG"><img src="/images/regalii/0012.JPG" alt="Благодарность службы занятости"></a>
-          </div>
-          <br>
-          <p class="col-sm-12"><a class="btn btn-primary btn-md" href="/о-нас" role="button">Читать дальше »</a></p>
-      </div>
-      </div>
-</div>
-
+<!-- the section of partners is running -->
+<!--<section class="partners container">	
+	<div class="section-title text-center"><h2>наши партнеры</h2></div>
+	
+	<div class="row">
+		<div class="partners_item col-sm-2">
+			<img class="partners_item__img img-responsive" src="content/pic1.jpg" alt="" />
+		</div>
+			
+		<div class="partners_item col-sm-2">
+			<img class="partners_item__img img-responsive" src="content/pic2.jpg" alt="" />
+		</div>
+			
+		<div class="partners_item col-sm-2">
+			<img class="partners_item__img img-responsive" src="content/pic3.jpg" alt="" />
+		</div>
+			
+		<div class="partners_item col-sm-2">
+			<img class="partners_item__img img-responsive" src="content/nopic.jpg" alt="" />
+		</div>
+			
+		<div class="partners_item col-sm-2">
+			<img class="partners_item__img img-responsive" src="content/pic1.jpg" alt="" />
+		</div>
+			
+		<div class="partners_item col-sm-2">
+			<img class="partners_item__img img-responsive" src="content/pic2.jpg" alt="" />
+		</div>
+	</div>
+</section>-->
