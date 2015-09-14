@@ -140,6 +140,25 @@
     </div>
   </footer>
 
+  <!-- structured data about company -->
+
+  <div itemscope="" itemtype="http://schema.org/LocalBusiness" style="display:none;">
+    <span itemprop="name">Учебно-кадровый центр "Карьера"</span>,
+    <span itemprop="url">kariera-centr.ru</span>
+    <time itemprop="openingHours" datetime="Mo-Fr 09:00−17:00">Пн-Пт с 9:00 до 17:00</time>
+    Контакты:
+    <div itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress">
+      Адрес:
+      <span itemprop="streetAddress">Греческая, 107</span>,
+      <span itemprop="addressLocality">Таганрог</span>,
+     <span itemprop="addressRegion">Ростовская область</span>
+    </div>
+    Телефон: <span itemprop="telephone">+7 928 622 50 50</span>,
+    Электронная почта: <span itemprop="email">info@karyera-centr.ru</span>
+  </div>
+
+  <!-- scripts -->
+
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <% if cookies[:is_admin] != "true" %>
     <!-- Yandex.Metrika counter -->
