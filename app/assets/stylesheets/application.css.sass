@@ -311,6 +311,8 @@ a
   position: relative
   top: -23px
 
+ul.featureslist_item.courses-container
+  top: 18px
 
 .featureslist_item__title, .featureslist_item__text
   font-size: 36px
@@ -638,11 +640,14 @@ a
   .featureslist_item__title
     &:before
       left: 0
-      top: -5px
+      top: 18px
     &.stud-icon
       padding: 0 0 0 75px
     &.courses-icon, &.years-icon
       padding: 0 0 0 50px
+  .featureslist_item__title.courses-icon
+    &:before
+      top: -5px
   .subsblock-left
     margin-bottom: 0
   .footer_menu
@@ -705,11 +710,14 @@ a
   .featureslist_item__title
     &:before
       left: 0
-      top: -5px
+      top: 18px
     &.stud-icon
       padding: 0 0 0 75px
     &.courses-icon, &.years-icon
       padding: 0 0 0 50px
+  .featureslist_item__title.courses-icon
+    &:before
+      top: -5px
   .subsblock-left
     margin-bottom: 25px
   .footer_menu
@@ -828,6 +836,8 @@ a
     text-align: center
   .featureslist_item
     margin: 0 0 35px
+  ul.featureslist_item.courses-container
+    top: auto
   .featureslist_item__title:before
     top: 0
     left: 50%
