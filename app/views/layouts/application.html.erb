@@ -70,11 +70,6 @@
 				<%= yield %>
 			</main>
 		<% else %>
-			<style>
-				h2{
-					text-align: center;
-				}
-			</style>
 			<main class="col-sm-9">
 				<%= yield %>
 			</main>
@@ -129,6 +124,15 @@
 	</div>
 </footer>
 <% end %> 
+
+<div id="blueimp-gallery-carousel" class="blueimp-gallery blueimp-gallery-carousel">
+  <div class="slides"></div>
+  <h3 class="title"></h3>
+  <a class="prev">‹</a>
+  <a class="next">›</a>
+  <a class="play-pause"></a>
+  <ol class="indicator"></ol>
+</div>
 
 <script>
 blueimp.Gallery(
