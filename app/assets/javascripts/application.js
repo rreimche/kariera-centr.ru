@@ -16,5 +16,6 @@
 //= require ckeditor/init
 //= require_tree ./ckeditor
 //= require bootstrap-sprockets
+//= require homepage_controller
 //= require_tree . 
 

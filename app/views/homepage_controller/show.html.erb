@@ -2,7 +2,7 @@
 	<h1>начни новую жизнь уже сегодня!</h1>
 </section>
 
-<!-- the list of courses is running -->
+<!-- Courses -->
 <div class="courselist container">
 	<div class="section-title text-center"><h2>Актуальные курсы</h2></div>
 	<div class="row">
@@ -21,13 +21,14 @@
 							
 					<div class="courselist_item__text pos-rel col-xs-9 col-sm-8 col-md-9">
 						<a class="courselist_item__text-title" href="<%= course_path(course) %>"><%= course.title %></a>	
-						<p><%= course.short_descr %><br></p>
+						<p><%= truncate course.short_descr, length: 144 %><br></p>
 						<p class="details">
 							<strong>Стоимость: 4500&nbsp;руб./мес.<br>
 							Продолжительность: <%= course.duration.to_i %> <%= 'мес.'.pluralize(course.duration, locale: :ru) %></strong>
-						</p>	
-							
-						<div class="btn-holder"><a class="btn courselist_item__btn color-fff no-dec" href="<%= course_path(course) %>">Подробнее...</a></div>
+						</p>	 
+						<div class="btn-holder">
+							<a class="btn courselist_item__btn color-fff no-dec" href="<%= new_signup_path course: course.id %>" data-remote="true" data-toggle="modal" data-target="#myModal">Отправить заявку</a>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -44,7 +45,7 @@
 	</div>
 </div>
 
-<!-- the list of features is running -->
+<!-- Advantages -->
 <div class="featureslist text-center">
 	<!--<div class="section-title text-center"><h2>Карьера – это:</h2></div>-->
 	<div class="container">
@@ -70,7 +71,7 @@
 	</div>
 </div>
 
-<!-- the section of comments is running -->
+<!-- comments -->
 <section class="comments container">
 	<div class="section-title text-center">
 		<h2>Выпускники о центре</h2>
@@ -169,7 +170,6 @@
 </div>
 
 
-
 <!-- the section of partners is running -->
 <section class="partners container">	
 	<div class="section-title text-center"><h2>наши партнеры</h2></div>
@@ -197,3 +197,5 @@
 		</div>  
 	</div>
 </section>
+
+<%= render "application/modal_signup" %>

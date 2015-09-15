@@ -6,4 +6,5 @@ class Course < ActiveRecord::Base
 		size: { in: 0..3.megabytes }
 	#validates_content_type :featured_image, content_type: /\Aimage\/.*\Z/
 	#validates_presence :true
+	#validates :short_descr, length: { maximum: 144 }
 end

@@ -23,12 +23,7 @@
     <h4>
      <% if @course.start_date >= (Time.now.midnight - 7.days) and @course.start_date < (Time.now.midnight + 5.days) %>
       <br>  
-      <strong class="call_to_action" style="background-color: red; color: yellow;padding: 7px 17px;border-radius: 26px;margin: 17px 0;">&nbsp;Вы ещё можете успеть!&nbsp;</strong><br><br><br>
-      <style>
-        .underlined {
-          text-decoration: underline;
-        }
-      </style>
+      <strong class="call_to_action hot">&nbsp;Вы ещё можете успеть!&nbsp;</strong><br><br><br>
      <% else %>
       <br>
     <% end %>
@@ -46,19 +41,7 @@
     </button>
     </a>
 
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">Отправить заявку на курс<br>&laquo;<%= @course.title %>&raquo;</h4>
-          </div>
-          <div id="container_signup" class="modal-body">
-          </div>
-        </div>
-      </div>
-    </div>
+    <%= render "application/modal_signup" %>
   </div>
 </div>
 
