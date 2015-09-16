@@ -14,8 +14,8 @@
   <%= raw("<h3 class=\"text-danger\">#{flash[:notice]}</h3>") if not flash[:notice].nil? %>
 
   <p class="field">
-    <%= f.label "Название курса (максимум 70 символов)" %><br>
-    <%= f.text_field :title, maxlength: 70 %>
+    <%= f.label "Название курса (на главной отобразятся только первые 50 символов)" %><br>
+    <%= f.text_field :title %>
   </p>
   <p class="field">
     <%= f.label "Изображение курса" %>
