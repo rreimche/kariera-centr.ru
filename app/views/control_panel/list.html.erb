@@ -29,7 +29,7 @@
             	<% @data.each do |item| %>
 	              <tr>
 	                <td>
-                        <%= if not item.start_date.nil?
+                        <%= if not @content_type.in? ['news', 'pages'] and not item.start_date.nil?
                                 l item.start_date, format: :short
                             elsif not item.updated_at.nil?
                                 l item.updated_at, format: :short
