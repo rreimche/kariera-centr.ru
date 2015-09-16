@@ -6,8 +6,8 @@
     <%= case @content_type
             when 'courses'
                 link_to 'Создать курс', new_course_path
-            when 'pages'
-                link_to 'Создать страницу', new_page_path
+            when 'static_pages'
+                link_to 'Создать страницу', new_static_page_path
             when 'news'
                 link_to 'Создать новость', new_news_path
             when 'hot_offers'
@@ -29,7 +29,7 @@
             	<% @data.each do |item| %>
 	              <tr>
 	                <td>
-                        <%= if not @content_type.in? ['news', 'pages'] and not item.start_date.nil?
+                        <%= if not @content_type.in? ['news', 'static_pages'] and not item.start_date.nil?
                                 l item.start_date, format: :short
                             elsif not item.updated_at.nil?
                                 l item.updated_at, format: :short
