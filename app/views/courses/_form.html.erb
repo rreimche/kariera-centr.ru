@@ -17,8 +17,12 @@
     <%= f.label "Название курса (на главной отобразятся только первые 50 символов)" %><br>
     <%= f.text_field :title %>
   </p>
-  <p class="field">
+
+   <p class="field">
     <%= f.label "Изображение курса" %>
+    <% if not @course.featured_image.url.nil? %><br>
+    <img src="<%= @course.featured_image.url %>" /><br><br>
+  <% end %>
     <%= f.file_field :featured_image %>
   </p>
   <p class="field">
