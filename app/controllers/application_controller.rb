@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_filter :prepare_sidebar
   layout Proc.new{
-  	if controller_name == "control_panel" or ['edit', 'new'].include?(action_name)
+  	if controller_name == "control_panel" or ['edit', 'new', 'create'].include?(action_name)
   		'edit'
   	else
   		'application'
