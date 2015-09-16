@@ -10,7 +10,7 @@ class HomepageControllerController < ApplicationController
   	@courses_next = Course.where(start_date: (Time.now.midnight - 7.days)..(Time.now.midnight+1.month)).order(:start_date).limit(6)
   	@courses_next.each { |course| already_selected.push course.id }
   	#select 6-@courses_next.count more courses which do have featured images
- 	Course.where.not(id: already_selected, featured_image_file_name: nil).order("RANDOM()").limit(6-@courses_next.count).each {|course| @courses_next.push course}
+ 	Course.where.not(id: already_selected, featured_image_file_name: nil).limit(6-@courses_next.count).each {|course| @courses_next.push course}
 
 =begin 
   	while @courses_next.count < 6
