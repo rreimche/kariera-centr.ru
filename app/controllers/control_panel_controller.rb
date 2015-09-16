@@ -19,7 +19,7 @@ class ControlPanelController < ApplicationController
     	when 'news'
     		@data = News.order(created_at: :desc)
     		@edit_path = lambda{ |news| edit_news_path news }
-    		@content = lambda{ |i| i.content }
+    		@content = lambda{ |i| i.title }
       when 'hot_offers'
         @data = HotOffer.order(created_at: :desc)
         @edit_path = lambda{ |offer| edit_hot_offer_path offer }

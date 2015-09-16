@@ -20,8 +20,8 @@
 <table class="table table-condensed control_root">
             <thead>
               <tr>
-                <th>Дата публикации/обновления</th>
-                <th>Заголовок/содержание</th>
+                <th>Дата <%= @content_type == 'courses' ? "начала курса" : "публикации/обновления" %></th>
+                <th><%= @content_type == 'hot_offers' ? "Содержание" : "Заголовок" %></th>
                 <th>Управление</th>
               </tr>
             </thead>
@@ -40,7 +40,7 @@
                     </td>
 	                <td><%= link_to strip_tags( @content.call(item) ), item %></td>
 	                <td>
-	                	<%= link_to 'Редактировать', @edit_path.call(item), class: 'btn btn-xs btn-warning' %><br>
+	                	<%= link_to 'Редактировать', @edit_path.call(item), class: 'btn btn-xs btn-warning', style: 'margin-bottom: 7px' %><br>
 	                	<%= link_to 'Удалить', "/#{@content_type}/#{item.id}?panel=list", method: :delete, data: { confirm: 'Уверены?' }, class: 'btn btn-xs btn-danger' %>
 	                </td>
 	              </tr>
