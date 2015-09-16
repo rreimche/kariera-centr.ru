@@ -115,7 +115,7 @@
 				<% @news.each do |news| %>
 					<div class="newsblock_item">
 						<a class="newsblock_item__link text-uppercase" href="<%= news_path news %>"><%= l news.created_at, format: :simpledate %></a>
-						<p class="newsblock_item__text"><%= news.title %></p>
+						<div class="newsblock_item__text"><%= news.title %></div>
 					</div>
 				<% end %>
 
@@ -129,7 +129,7 @@
 				<% @hot_offers.each do |offer| %>
 					<div class="newsblock_item">
 						<a class="newsblock_item__link text-uppercase" href="javascript: void(0)"><%= l offer.created_at, format: :simpledate %></a>
-						<p class="newsblock_item__text"><%= raw offer.content %></p>
+						<div class="newsblock_item__text"><%= raw offer.content %></div>
 					</div>
 				<% end %>
 
