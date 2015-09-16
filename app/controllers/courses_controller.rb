@@ -85,7 +85,7 @@ class CoursesController < ApplicationController
       if action_name == search
         params.permit('titlepart')
       else
-        params.require(:course).permit(:title, :featured_image, :short_descr, :full_descr, :start_date, :duration, :full_price, :timegroup)
+        params.require(:course).permit(:title, :featured_image, :short_descr, :full_descr, :start_date, :duration, :full_price, :advance_payment, :monthly_payment, :timegroup)
       end
     end
 
