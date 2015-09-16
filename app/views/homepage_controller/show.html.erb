@@ -14,8 +14,12 @@
 				<div class="row">
 					<div class="col-xs-3 col-sm-4 col-md-3">
 						<ul class="courselist_item__date text-center list-unstyled">
-							<li class="courselist_item__date-day"><%= l course.start_date, format: :day_of_month %></li>
-							<li class="courselist_item__date-month"><%= l course.start_date, format: :month_short %></li>
+							<% if course.start_date.between? (Time.now.midnight - 7.days), (Time.now.midnight+1.month) %>
+									<li class="courselist_item__date-day"><%= l course.start_date, format: :day_of_month %></li>
+									<li class="courselist_item__date-month"><%= l course.start_date, format: :month_short %></li>
+							<% else %>
+									<li class="courselist_item__date-enroll">идёт набор</li>
+							<% end %>
 						</ul>
 					</div>
 							
