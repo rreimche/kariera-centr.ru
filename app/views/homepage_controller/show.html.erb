@@ -27,7 +27,7 @@
 						<a class="courselist_item__text-title" href="<%= course_path(course) %>"><%= truncate course.title, length: 50 %></a>	
 						<p><%= truncate course.short_descr, length: 144 %><br></p>
 						<p class="details">
-							<strong>Стоимость:<br><%= course.monthly_payment %>&nbsp;руб./мес.&nbsp;(+п/опл.&nbsp;<%= course.advance_payment %>&nbsp;руб.)<br>
+							<strong>Стоимость:<br><%= course.monthly_payment %>&nbsp;руб./мес. (+п/опл.&nbsp;<%= course.advance_payment %>&nbsp;руб.)<br>
 							Продолжительность: <%= course.duration.to_i %> <%= 'мес.'.pluralize(course.duration, locale: :ru) %></strong>
 						</p>	 
 						<div class="btn-holder">
