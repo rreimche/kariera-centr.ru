@@ -31,8 +31,8 @@
 	              </tr>
 	            <% end %>
             </tbody>
-    </table>
-    <%= link_to 'Больше...', "#{list_control_path}?content_type=news", class: "btn btn-lg btn-link" %>
+        </table>
+        <%= link_to 'Больше...', "#{list_control_path}?content_type=news", class: "btn btn-lg btn-link" %>
 
         <h2>Последние акции (по дате публикации)</h2>
         <table class="table table-condensed control_root">
@@ -79,10 +79,10 @@
 	              </tr>
 	            <% end %>
             </tbody>
-    </table>
-    <%= link_to 'Больше...', "#{list_control_path}?content_type=courses", class: 'btn btn-lg btn-link' %>
+        </table>
+        <%= link_to 'Больше...', "#{list_control_path}?content_type=courses", class: 'btn btn-lg btn-link' %>
 
-         <h2>Последние страницы (по дате обновления)</h2>
+        <h2>Последние страницы (по дате обновления)</h2>
 		<table class="table table-condensed control_root">
             <thead>
               <tr>
@@ -103,7 +103,31 @@
 	              </tr>
 	            <% end %>
             </tbody>
-    </table>
-    <%= link_to 'Больше...', "#{list_control_path}?content_type=static_pages", class: 'btn btn-lg btn-link' %>
+        </table>
+        <%= link_to 'Больше...', "#{list_control_path}?content_type=static_pages", class: 'btn btn-lg btn-link' %>
 
+
+        <h2>Последние отзывы (по дате написание/обновления)</h2>
+        <table class="table table-condensed control_root">
+            <thead>
+              <tr>
+                <th>Дата обновления</th>
+                <th>Автор</th>
+                <th>Управление</th>
+              </tr>
+            </thead>
+            <tbody>
+                <% @feedbacks.each do |feedback| %>
+                  <tr>
+                    <td><%= l feedback.updated_at, format: :short %></td>
+                    <td><%= link_to feedback.name, feedback %></td>
+                    <td>
+                        <%= link_to 'Редактировать', edit_feedback_path(feedback), class: 'btn btn-xs btn-warning', style: 'margin-bottom: 7px' %><br>
+                        <%= link_to 'Удалить', "/feedbacks/#{feedback.id}?panel=root", method: :delete, data: { confirm: 'Уверены?' }, class: 'btn btn-xs btn-danger' %>
+                    </td>
+                  </tr>
+                <% end %>
+            </tbody>
+        </table>
+        <%= link_to 'Больше...', "#{list_control_path}?content_type=feedbacks", class: 'btn btn-lg btn-link' %>
 </div>

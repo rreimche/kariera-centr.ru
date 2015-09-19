@@ -13,18 +13,23 @@
 
 
   <div class="field">
+    <br>
     <%= f.label controller_name == 'control_panel' ? 'Имя автора отзыва' : 'Ваши имя и фамилия' %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, size: 50 %>
   </div>
   <div class="field">
+    <br>
     <%= f.label 'Отзыв (обязательно)' %><br>
     <%= f.text_area :content %>
   </div>
   <div class="field">
+    <br>
     <%= f.label 'Курс или услуга (обязательно)' %><br>
     <%= f.select :course_id, [['Выберите',''],['Трудоустройство', 'hr']].concat( @courses.collect { |course| [course.title, course.id] } ) %>
   </div>
   <div class="actions">
+    <br>
     <%= f.submit "Отправить" %>
   </div>
 <% end %>
+<br>

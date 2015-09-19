@@ -1,5 +1,7 @@
 class FeedbacksController < ApplicationController
   before_action :set_feedback, only: [:show, :edit, :update, :destroy]
+  http_basic_authenticate_with name: ENV['CP_USER'], password: ENV['CP_PASSWORD'], except: ['new', 'create', 'show']
+
 
   # GET /feedbacks
   # GET /feedbacks.json
@@ -30,8 +32,7 @@ class FeedbacksController < ApplicationController
     @courses = Course.all
     respond_to do |format|
       if @feedback.save
-        format.html { redirect_to @feedback, notice: 'Feedback was successfully created.' }
-        format.json { render :show, status: :created, location: @feedback }
+        format.html { redirect_to @feedback, notice: '' }
       else
         format.html { render :new } 
       end
@@ -43,8 +44,7 @@ class FeedbacksController < ApplicationController
   def update 
     respond_to do |format|
       if @feedback.update(feedback_params)
-        format.html { redirect_to @feedback, notice: 'Feedback was successfully updated.' }
-        format.json { render :show, status: :ok, location: @feedback }
+        format.html { redirect_to edit_feedback_path(@feedback), notice: 'Отзыв отредактирован.' }
       else
         format.html { render :edit } 
       end
@@ -56,7 +56,7 @@ class FeedbacksController < ApplicationController
   def destroy
     @feedback.destroy
     respond_to do |format|
-      format.html { redirect_to feedbacks_url, notice: 'Feedback was successfully destroyed.' } 
+      format.html { redirect_to root_control_url, notice: 'Отзыв удалён.' } 
     end
   end
 
