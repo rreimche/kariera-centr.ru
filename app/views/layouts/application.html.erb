@@ -5,7 +5,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><%= content_for?(:title) ? "#{content_for(:title)} | Учебно-кадровый центр \"Карьера\", г. Таганрог. Профессиональное обучение и курсы повышения квалификации." : 'Учебно-кадровый центр "Карьера", г. Таганрог. Профессиональное обучение и курсы повышения квалификации.' %></title>
-  <%= '<meta name="description" content="%{:description}">' if content_for? :description %>
+  <% if content_for? :description %>
+    <meta name="description" content="<%= content_for(:description) %>">
+  <% else %>
+    <meta name="description" content="Профессиональное обучение и курсы повышения квалификации в г. Таганроге">
+  <% end %>
+  <meta name='yandex-verification' content='4bb0be26392f9c04' />
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <link rel="shortcut icon" href="http://kariera-centr.ru/favicon.ico" />
@@ -156,6 +162,22 @@
     Телефон: <span itemprop="telephone">+7 928 622 50 50</span>,
     Электронная почта: <span itemprop="email">info@karyera-centr.ru</span>
   </div>
+
+  <% if controller_name == 'homepage_controller' and action_name == 'show' %>
+    <!-- google sitelinks search -->
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "WebSite",
+        "url": "http://kariera-centr.ru/courses",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "http://kariera-centr.ru/courses/courses?utf8=✓&titlepart={search_term_string}&commit=Искать",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    </script>
+  <% end %>
 
   <!-- scripts -->
 
