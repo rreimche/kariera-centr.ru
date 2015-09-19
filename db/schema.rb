@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150916151912) do
+ActiveRecord::Schema.define(version: 20150918205406) do
 
   create_table "ckeditor_assets", force: true do |t|
     t.string   "data_file_name",               null: false
@@ -46,6 +46,17 @@ ActiveRecord::Schema.define(version: 20150916151912) do
     t.integer  "advance_payment"
     t.integer  "monthly_payment"
   end
+
+  create_table "feedbacks", force: true do |t|
+    t.string   "name"
+    t.text     "content"
+    t.integer  "course_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "is_for_hr_services"
+  end
+
+  add_index "feedbacks", ["course_id"], name: "index_feedbacks_on_course_id"
 
   create_table "hot_offers", force: true do |t|
     t.text     "content",    limit: 255

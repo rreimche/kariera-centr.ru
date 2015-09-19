@@ -8,6 +8,7 @@ class ControlPanelController < ApplicationController
     @hot_offers = HotOffer.order(created_at: :desc).limit(5)
   	@courses = Course.where(start_date: (Time.now.midnight - 7.days)..(Time.now.midnight + 1.month)).order(:start_date)
   	@pages = StaticPage.order(updated_at: :desc, created_at: :desc).limit(5)
+    @feedbacks = Feedback.order(updated_at: :desc, created_at: :desc).limit(5)
   end
 
   def list
@@ -32,6 +33,10 @@ class ControlPanelController < ApplicationController
     		@data = StaticPage.order(updated_at: :desc)
     		@edit_path = lambda{ |page| edit_static_page_path page }
     		@content = lambda{ |i| i.title }
+      when 'feedbacks'
+        @data = Feedback.order(updated_at: :desc)
+        @edit_path = lambda{ |feedback| edit_feedback_path feedback }
+        @content = lambda{ |i| i.name }
     	else
   	end
   end
