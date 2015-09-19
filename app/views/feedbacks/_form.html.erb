@@ -1,0 +1,30 @@
+<%= form_for(@feedback) do |f| %>
+  <% if @feedback.errors.any? %>
+    <div id="error_explanation">
+      <h2>Нужно исправить ошибки:</h2>
+
+      <ul>
+      <% @feedback.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="field">
+    <%= f.label controller_name == 'control_panel' ? 'Имя автора отзыва' : 'Ваши имя и фамилия' %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label 'Отзыв (обязательно)' %><br>
+    <%= f.text_area :content %>
+  </div>
+  <div class="field">
+    <%= f.label 'Курс или услуга (обязательно)' %><br>
+    <%= f.select :course_id, [['Выберите',''],['Трудоустройство', 'hr']].concat( @courses.collect { |course| [course.title, course.id] } ) %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Отправить" %>
+  </div>
+<% end %>

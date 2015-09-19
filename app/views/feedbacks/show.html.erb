@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+ 
+<p>
+  <strong>Name:</strong>
+  <%= @feedback.name %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @feedback.content %>
+</p>
+
+<p>
+  <strong>Course:</strong>
+  <%= @feedback.course %>
+</p>
+
+<p>
+  <strong>Is for HR services:</strong>
+  <%= @feedback.is_for_hr_services %>
+</p>
+
+<%= link_to 'Edit', edit_feedback_path(@feedback) %> |
+<%= link_to 'Back', feedbacks_path %>
