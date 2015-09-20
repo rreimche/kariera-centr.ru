@@ -99,9 +99,24 @@
   
 
     <div class="row">
-      <% if controller_name == 'homepage_controller' %>
+      <% case controller_name %>
+      <%  when 'homepage_controller' %>
           <%= yield %>
-      <% else %>
+      <%  when 'static_pages' %>
+        <div class="container">
+          <style>
+            h2{
+              text-align: center;
+            }
+          </style>
+          <aside class="col-sm-3">
+            <%= render "sidebar" %>
+          </aside>
+          <main class="col-sm-8 col-sm-offset-1">
+            <%= yield %>
+          </main>
+        </div>
+      <%  else %>
         <div class="container">
           <style>
             h2{
