@@ -16,14 +16,19 @@
     <div class="col-xs-12 text-center">
       <h5>Стоимость курса: <%= @course.monthly_payment %>&nbsp;руб./мес. (+п/опл.&nbsp;<%= @course.advance_payment %>&nbsp;руб.)</h5>
       <h5>Продолжительность курса: <%= @course.duration.to_i %> <%= 'мес.'.pluralize(@course.duration, locale: :ru) %></h5>
-      <h4><br>Начало занятий: <%= l @course.start_date, format: :simpledate %></h4>
+      <h4><br>Начало занятий: 
+        <% if @course.start_date >= (Time.now.midnight - 7.days) %>
+          <%= l @course.start_date, format: :simpledate %></h4>
+        <% else %>
+          идёт набор
+        <% end %>
     </div>
   </div>
 <% end %>
 <div class="row">
   <div class="col-xs-12 text-center">
     <h4>
-     <% if @course.start_date >= (Time.now.midnight - 7.days) and @course.start_date < (Time.now.midnight + 5.days) %>
+     <% if @course.start_date.between? (Time.now.midnight - 7.days), (Time.now.midnight + 5.days) %>
       <br>  
       <strong class="call_to_action hot">&nbsp;Вы ещё можете успеть!&nbsp;</strong><br><br><br>
      <% else %>
