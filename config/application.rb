@@ -23,5 +23,10 @@ module KarieraCentrRu
     config.i18n.default_locale = :ru
     #Paperclip.options[:command_path] = "/usr/local/bin/"
     config.autoload_paths << Rails.root.join('lib')
+    config.action_dispatch.default_headers = {
+      #'X-Frame-Options' => 'SAMEORIGIN', TODO: uncomment, if server does not provide the same. clickjacking security flaw.
+      'X-XSS-Protection' => '1; mode=block',
+      'X-Content-Type-Options' => 'nosniff'
+    }
   end
 end
