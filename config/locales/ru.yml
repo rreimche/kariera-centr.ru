@@ -40,6 +40,7 @@ ru:
       only_day_more: "%d %B"
       day_of_month: "%d"
       month_short: "%b"
+      month_number: "%m"
       simpledate: "%d %B %Y"
     month_names:
     -
@@ -265,6 +266,7 @@ ru:
       only_day_more: "%d %B"
       day_of_month: "%d"
       month_short: "%b"
+      month_number: "%m"
       simpledate: "%d %B %Y"
     pm: вечера
   orgname_short: УЦ Карьера

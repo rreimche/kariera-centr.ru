@@ -1,20 +1,65 @@
-<div id="nextcourses">
-  <h3>Ближайшие курсы</h3>
-  <div class="list-group">
-    <% @courses_next.each do |course| %>
-      <a href="<%= course_path(course) %>"class="list-group-item">
-        <%= course.title %><br>
-        <small class="text-muted"><%= l course.start_date, format: :simpledate %></small>
-      </a>
-    <% end %>
+<div id="courses_and_feedbacks" class="switchable">
+  <h3 class="yellow">
+    <span class="active" data-switch="nextcourses">Актуальные курсы</span>
+    <span class="" data-switch="feedbacks">Отзывы</span>
+  </h3>
+  <div id="nextcourses">
+    <div class="list-group">
+      <% @courses_next.each do |course| %>
+            <!-- a course -->
+            <div class="courselist_item">              
+              <div class="row">
+                <div class="col-xs-4 col-sm-4 col-md-4">
+                  <ul class="courselist_item__date text-center list-unstyled">
+                    <% if course.start_date >= (Time.now.midnight - 7.days) %>
+                        <li class="courselist_item__date-day"><%= l course.start_date, format: :day_of_month %>.<%= l course.start_date, format: :month_number %></li>
+                    <% else %>
+                        <li class="courselist_item__date-enroll">идёт набор</li>
+                    <% end %>
+                  </ul>
+                </div>
+                    
+                <div class="courselist_item__text pos-rel col-xs-8 col-sm-8 col-md-8">
+                  <a class="courselist_item__text-title" href="<%= course_path(course) %>"><%= truncate course.title, length: 50 %></a> 
+                  <p><%= truncate course.short_descr, length: 144 %><br></p>
+                </div>
+              </div>
+            </div>
+          <% end %>
+    </div> 
+    <%= link_to 'Все курсы', { controller: 'courses', action: 'search' }, :class => "pull-right" %> 
   </div>
-  <button type="button" class="btn btn-xs btn-default center-block">
-    <%= link_to 'Все курсы...', { controller: 'courses', action: 'search' } %>
-  </button>
+  <div id="feedbacks">
+    <iframe class="video" src="https://www.youtube.com/embed/r_x9JZWr6hc?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe><br><br>
+    <iframe class="video" src="https://www.youtube.com/embed/xMYWuXGE9n8?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe><br><br>
+    <iframe class="video" src="https://www.youtube.com/embed/hx7ekhqbn_k?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+  </div>
 </div>
 
-<hr>
-<h3>Видео о центре</h3>
-<iframe class="video" src="https://www.youtube.com/embed/r_x9JZWr6hc?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe><br><br>
-<iframe class="video" src="https://www.youtube.com/embed/xMYWuXGE9n8?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe><br><br>
-<iframe class="video" src="https://www.youtube.com/embed/hx7ekhqbn_k?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+<div id="actions_and_news" class="switchable">
+  <h3 class="green">
+    <span class="active">Акции</span>
+    <span class="">Новости</span>
+  </h3>
+    <div id="actions">
+      <% @news.each do |news| %>
+        <div class="newsblock_item">
+        <div class="newsblock_item__text"><a href="<%= news_path news %>"><%= news.title %></a></div>
+        </div>
+      <% end %>
+
+      <%= link_to 'Все новости', news_index_path, :class => 'newsblock_readmore pull-right' %>
+    </div>
+    <div id="news">
+      <% @hot_offers.each do |offer| %>
+        <div class="newsblock_item">
+          <span class="newsblock_item__link text-uppercase"><%= l offer.created_at, format: :simpledate %></span>
+          <div class="newsblock_item__text"><%= raw offer.content %></div>
+        </div>
+      <% end %>
+
+      <%= link_to 'Все акции', hot_offers_path, :class => 'newsblock_readmore pull-right' %>
+    </div>
+</div>
+
+

@@ -5,14 +5,12 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-xs-12">
-    <h2>Курс &laquo;<%= @course.title %>&raquo; в&nbsp;Таганроге</h2>
-    <hr>
+  <div class="col-xs-12"> 
     <%= raw @course.full_descr %>
   </div>
 </div>
 <% if @course.start_date >= (Time.now.midnight - 7.days) %>
-  <div class="row">
+  <div class="row simple">
     <div class="col-xs-12 text-center">
       <h5>Стоимость курса: <%= @course.monthly_payment %>&nbsp;руб./мес. (+п/опл.&nbsp;<%= @course.advance_payment %>&nbsp;руб.)</h5>
       <h5>Продолжительность курса: <%= @course.duration.to_i %> <%= 'мес.'.pluralize(@course.duration, locale: :ru) %></h5>
@@ -25,7 +23,7 @@
     </div>
   </div>
 <% end %>
-<div class="row">
+<div class="row simple">
   <div class="col-xs-12 text-center">
     <h4>
      <% if @course.start_date.between? (Time.now.midnight - 7.days), (Time.now.midnight + 5.days) %>
@@ -39,7 +37,7 @@
     </h4>
   </div>
 </div>
-<div class="row">
+<div class="row simple">
   <div class="col-xs-12 text-center">
     <!-- Button trigger modal -->
     <a href="<%= new_signup_path course: @course.id %>" data-remote="true">

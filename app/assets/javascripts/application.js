@@ -17,5 +17,6 @@
 //= require_tree ./ckeditor
 //= require bootstrap-sprockets
 //= require homepage_controller
+//= require sidebar
 //= require_tree . 
 

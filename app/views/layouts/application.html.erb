@@ -100,43 +100,34 @@
   </header>
 
   
-
-    <div class="row">
+ 
       <% case controller_name %>
       <%  when 'homepage_controller' %>
+         <div class="row">
           <%= yield %>
-      <%  when 'static_pages' %>
-        <div class="container">
-          <style>
-            h2{
-              text-align: center;
-            }
-          </style>
-          <aside class="col-sm-3">
-            <%= render "sidebar" %>
-          </aside>
-          <main class="col-sm-8 col-sm-offset-1">
-            <%= yield %>
-          </main>
-        </div>
+         </div>
       <%  else %>
+        <h1 class="page_title image<%= rand(4) %>">
+          <span id="title"><%= content_for :title %></span>
+          <% if content_for? :subtitle %>
+            <br><span id="subtitle"><%= content_for :subtitle %></span>
+          <% end %>
+          <% if controller_name == "courses" %>
+            <br><span id="subtitle"><%= @course.short_descr %></span>
+          <% end %>
+        </h1>
         <div class="container">
-          <style>
-            h2{
-              text-align: center;
-            }
-          </style>
-          <main class="col-sm-8 col-sm-offset-1">
-            <%= yield %>
-          </main>
-          <aside class="col-sm-3">
-            <%= render "sidebar" %>
-          </aside>
+          <div class="row">
+            <main class="col-sm-8">
+              <%= yield %>
+            </main>
+            <aside class="col-sm-4 sidebar">
+              <%= render "sidebar" %>
+            </aside>
+          </div>
         </div>
       <% end %>
-   
-
-  </div>
+     
 
   <footer class="footer">
     <div class="container">
@@ -144,7 +135,7 @@
         <div class="footer-left col-lg-6 col-md-4">
           <a class="footer_logo pos-rel" href="/"></a>
           
-          <p class="color-fff">Учебно-кадровый центр "Карьера"<br />Профессиональное обучение и курсы повышения квалификации в г. Таганроге</p>
+          <p class="color-fff">Учебно-кадровый центр "Карьера"<br>Профессиональное обучение и курсы повышения квалификации в г. Таганроге</p>
         </div>
         
         <div class="footer-right col-lg-6 col-md-8">

@@ -25,7 +25,7 @@ class StaticPagesController < ApplicationController
   # POST /static_pages
   # POST /static_pages.json
   def create
-    @static_page = StaticPage.new({:title => static_page_params[:title], :content => static_page_params[:content], :published => DateTime.now})
+    @static_page = StaticPage.new({:title => static_page_params[:title], :subtitle => static_page_params[:subtitle], :content => static_page_params[:content], :published => DateTime.now})
 
     respond_to do |format|
       if @static_page.save
@@ -65,7 +65,7 @@ class StaticPagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def static_page_params
-      params.require(:static_page).permit(:title, :content, :published)
+      params.require(:static_page).permit(:title, :subtitle, :content, :published)
     end
     def redirect_url
       panel = params.permit(:panel)[:panel]

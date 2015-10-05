@@ -1,6 +1,54 @@
 aside .video
   width: 100%
 
-h3
-  text-align: center
-  text-transform: uppercase
+aside  
+  margin-top: -17px
+  h3
+    overflow: hidden
+    border-bottom: 5px solid black
+    
+    span
+      padding: 10px
+      cursor: pointer
+      float: left
+      &.active
+        color: white
+        cursor: default
+  h3.yellow
+    border-color: #f0b841
+
+    span.active
+      background-color: #f0b841
+
+  h3.green
+    border-color: #65cc33
+
+    span.active
+      background-color: #65cc33
+
+
+
+
+
+.switchable > div
+  display: none
+  overflow: hidden
+
+.switchable > div:first-of-type      
+  display: block   
+
+/* courselist
+
+.sidebar 
+  .courselist_item
+    margin: 0 0 30px
+
+  .courselist_item__text
+    height: 110px
+  .courselist_item__date
+    border-color: #4a87ef
+    padding: 10px
+    *
+      color: #4a87ef
+      font-size: 18px
+

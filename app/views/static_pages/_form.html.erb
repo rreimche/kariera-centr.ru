@@ -18,6 +18,9 @@
     <%= f.text_field :title %>
   </p>
   <p class="field">
+    <%= f.label "Подзаголовок" %><br>
+    <%= f.text_field :subtitle %>
+  <p class="field">
     <%= f.label "Содержание" %><br>
     <%= f.cktext_area :content, :ckeditor => {:language => 'ru'} %>
   </p>
