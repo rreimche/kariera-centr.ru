@@ -36,7 +36,7 @@ class ControlPanelController < ApplicationController
       when 'feedbacks'
         @data = Feedback.order(updated_at: :desc)
         @edit_path = lambda{ |feedback| edit_feedback_path feedback }
-        @content = lambda{ |i| i.name }
+        @content = lambda{ |i| "#{i.name}: #{i.course.title}" }
     	else
   	end
   end
