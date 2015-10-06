@@ -1,0 +1,5 @@
+<h3>Отзывы выпускников:</h3>
+<% feedbacks.each do |feedback| %> 
+	<h5><%= feedback.name %> – <span><%= l feedback.created_at, format: :simpledate %></span></h5>
+	<p><%= feedback.content %></p>
+<% end %>
