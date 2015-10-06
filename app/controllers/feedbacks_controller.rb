@@ -17,7 +17,7 @@ class FeedbacksController < ApplicationController
   # GET /feedbacks/new
   def new
     @feedback = Feedback.new
-    @courses = Course.all
+    @courses = Course.all.order(title: :asc)
   end
 
   # GET /feedbacks/1/edit
