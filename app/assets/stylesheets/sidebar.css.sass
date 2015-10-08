@@ -59,12 +59,13 @@ aside
     height: auto
     font-size: 14px
     line-height: 19px
-    padding: 0 
+    padding-bottom: 0 
   .courselist_item__text-title
     font-weight: 600
     font-size: 18px
     line-height: 24px
     height: auto
+    text-align: left
     &:hover
       font-weight: 600
       font-size: 18px
@@ -88,3 +89,16 @@ aside
     line-height: 24px
   .more-link
     font-size: 15px
+
+/* pads
+
+@media (max-width: 991px) and (min-width: 768px)
+  aside .courselist_item__text.col-xs-9 
+    padding-left: 15px
+
+/* mobile
+
+@media (max-width: 767px)
+  .sidebar
+    .courselist_item__text-title
+      text-align: left

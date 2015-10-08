@@ -9,7 +9,7 @@
             <!-- a course -->
             <div class="courselist_item">              
               <div class="row">
-                <div class="col-xs-4 col-sm-4 col-md-4">
+                <div class="col-xs-3 col-sm-12 col-md-4">
                   <ul class="courselist_item__date text-center list-unstyled">
                     <% if course.start_date >= (Time.now.midnight - 7.days) %>
                         <li class="courselist_item__date-day"><%= l course.start_date, format: :day_of_month %>.<%= l course.start_date, format: :month_number %></li>
@@ -19,7 +19,7 @@
                   </ul>
                 </div>
                     
-                <div class="courselist_item__text pos-rel col-xs-8 col-sm-8 col-md-8">
+                <div class="courselist_item__text pos-rel col-xs-9 col-sm-12 col-md-8">
                   <a class="courselist_item__text-title" href="<%= course_path(course) %>"><%= truncate course.title, length: 50 %></a> 
                 </div>                
               </div>
@@ -48,9 +48,7 @@
         <div class="newsblock_item">
         <div class="newsblock_item__text"><a href="<%= news_path news %>"><%= news.title %></a></div>
         </div>
-      <% end %>
-
-      <%= link_to 'Все акции', hot_offers_path, :class => 'pull-right more-link' %>
+      <% end %> 
     </div>
     <div id="news">
       <% @hot_offers.each do |offer| %>
