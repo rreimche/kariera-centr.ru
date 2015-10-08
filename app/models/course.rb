@@ -5,8 +5,9 @@ class Course < ActiveRecord::Base
 	#validates_content_type :featured_image, content_type: /\Aimage\/.*\Z/
 	#validates_presence :true
 	#validates :short_descr, length: { maximum: 144 }
-	validates :advance_payment, presence: :true
-	validates :monthly_payment, presence: :true
+	#validates :advance_payment, presence: :true
+	#validates :monthly_payment, presence: :true
+	validates :full_price, presence: true
 	validates_attachment :featured_image, presence: true, 
 		content_type: { content_type: /\Aimage\/.*\Z/ },
 		size: { in: 0..3.megabytes }

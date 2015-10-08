@@ -110,9 +110,9 @@
         <h1 class="page_title image<%= rand(0).to_i %>">
           <span id="title"><%= content_for :title %></span>
           <% if content_for? :subtitle %>
-            <br><span id="subtitle"><%= content_for :subtitle %></span>
+            <br><span id="subtitle" class="col-md-5 col-md-offset-3"><%= content_for :subtitle %></span>
           <% end %>
-          <% if controller_name == "courses" %>
+          <% if controller_name == "courses" and action_name == "show" %>
             <br><span id="subtitle"><%= @course.short_descr %></span>
           <% end %>
         </h1>

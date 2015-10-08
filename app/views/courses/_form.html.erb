@@ -41,15 +41,15 @@
     <%= f.label "Продолжительность курса, месяцев" %><br>
     <%= f.select :duration, 1.step(by: 0.5, to: 12).to_a.collect!{|i| [i, i]}  %>
   </p>
-  <p class="field" style="display:none">
+  <p class="field">
     <%= f.label "Полная цена курса, рублей" %><br>
     <%= f.number_field :full_price %>
   </p>
-  <p class="field">
+  <p class="field" style="display:none">
     <%= f.label "Предоплата, руб." %><br>
     <%= f.number_field :advance_payment %>
   </p>
-  <p class="field">
+  <p class="field" style="display:none">
     <%= f.label "Помесячная оплата, руб." %><br>
     <%= f.number_field :monthly_payment %>
   </p>

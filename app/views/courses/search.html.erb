@@ -1,10 +1,10 @@
 
-      <h1>Курсы в Таганроге</h1>
+
       <div class="row">
-        <div class="col-sm-12">
-          <h3><%= "Вы искали: #{@searched}" if not @searched.nil? %></h3>
+        <div class="col-sm-12 text-center">
+          <h3 class="text-center search_results_notice"><%= "Вы искали: #{@searched}" if not @searched.nil? %></h3>
           <%= form_tag("/courses", method: 'get') do %>
-            <%= label_tag :titlepart, 'Введите часть названия желаемого курса: ' %>
+            <%= label_tag :titlepart, 'Поиск по курсам: ' %>
             <%= text_field_tag :titlepart %>
             <%= submit_tag 'Искать' %>
           <% end %>
@@ -37,5 +37,6 @@
       </div>
 
 <% content_for :title, 'Курсы в Таганроге' %>
+<% content_for :subtitle, 'наши образовательные программы' %>
 
 
