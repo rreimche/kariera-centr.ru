@@ -81,17 +81,19 @@
 		<h2>Выпускники о центре</h2>
 	</div>
 	
-	<div class="row">
+	
 		<% counter = 0 %>
 		<% @feedbacks.each do |feedback| %>
+			<%= '<div class="row">'.html_safe if counter % 2 == 0 %>
 			<article class="comments_item col-sm-5 <%= 'col-sm-offset-1' if counter % 2 != 0 %>">
 				<h3><%= feedback.name %></h3>
 				<h4><%= feedback.course != nil ? feedback.course.title : 'трудоустройство' %></h4>
 				<p><%= feedback.content %></p> 
 			</article>
+			<%= '</div>'.html_safe if counter % 2 != 0 %>
 			<% counter += 1 %>
 		<% end %>
-	</div>
+	
 </section>
 
 <!-- news & actions -->
