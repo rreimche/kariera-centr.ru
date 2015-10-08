@@ -6,8 +6,10 @@ aside
   h3
     overflow: hidden
     border-bottom: 5px solid black
-    
+    margin-bottom: 20px    
     span
+      font-weight: 600 
+      font-size: 24px
       padding: 10px
       cursor: pointer
       float: left
@@ -16,19 +18,26 @@ aside
         cursor: default
   h3.yellow
     border-color: #f0b841
-
     span.active
       background-color: #f0b841
 
   h3.green
     border-color: #65cc33
-
     span.active
       background-color: #65cc33
 
+  h3.magenta
+    border-color: #8A6DE9
+    span.active
+      background-color: #8A6DE9
 
 
+#social > div 
+  text-align: center
 
+#vk_groups
+  margin-left: auto
+  margin-right: auto
 
 .switchable > div
   display: none
@@ -40,15 +49,42 @@ aside
 /* courselist
 
 .sidebar 
+  margin-bottom: 20px
   .courselist_item
-    margin: 0 0 30px
-
+    margin: 0 0 20px
+    p
+      height: auto
+      margin-bottom: 0
   .courselist_item__text
-    height: 110px
+    height: auto
+    font-size: 14px
+    line-height: 19px
+    padding: 0 
+  .courselist_item__text-title
+    font-weight: 600
+    font-size: 18px
+    line-height: 24px
+    height: auto
+    &:hover
+      font-weight: 600
+      font-size: 18px
+      line-height: 24px
+      height: auto
   .courselist_item__date
     border-color: #4a87ef
-    padding: 10px
+    padding: 4px
+    width: 91px
     *
       color: #4a87ef
-      font-size: 18px
-
+      font-weight: 600
+      font-size: 24px
+  .newsblock_item
+    margin-bottom: 20px
+    span
+      margin-bottom: 0
+  .newsblock_item__text a
+    font-size: 18px
+    font-weight: 600
+    line-height: 24px
+  .more-link
+    font-size: 15px

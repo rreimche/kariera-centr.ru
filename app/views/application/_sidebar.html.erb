@@ -1,7 +1,7 @@
 <div id="courses_and_feedbacks" class="switchable">
   <h3 class="yellow">
-    <span class="active" data-switch="nextcourses">Актуальные курсы</span>
-    <span class="" data-switch="feedbacks">Отзывы</span>
+    <span class="active switchme" data-switch="nextcourses">Актуальные курсы</span>
+    <span class="switchme" data-switch="feedbacks">Отзывы</span>
   </h3>
   <div id="nextcourses">
     <div class="list-group">
@@ -21,13 +21,15 @@
                     
                 <div class="courselist_item__text pos-rel col-xs-8 col-sm-8 col-md-8">
                   <a class="courselist_item__text-title" href="<%= course_path(course) %>"><%= truncate course.title, length: 50 %></a> 
-                  <p><%= truncate course.short_descr, length: 144 %><br></p>
-                </div>
+                </div>                
+              </div>
+              <div class="row">
+                <p class="col-xs-12"><%= truncate course.short_descr, length: 144 %><br></p>
               </div>
             </div>
           <% end %>
     </div> 
-    <%= link_to 'Все курсы', { controller: 'courses', action: 'search' }, :class => "pull-right" %> 
+    <%= link_to 'Все курсы', { controller: 'courses', action: 'search' }, :class => "pull-right more-link" %> 
   </div>
   <div id="feedbacks">
     <iframe class="video" src="https://www.youtube.com/embed/r_x9JZWr6hc?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe><br><br>
@@ -38,8 +40,8 @@
 
 <div id="actions_and_news" class="switchable">
   <h3 class="green">
-    <span class="active">Акции</span>
-    <span class="">Новости</span>
+    <span class="active switchme" data-switch="actions">Акции</span>
+    <span class="switchme" data-switch="news">Новости</span>
   </h3>
     <div id="actions">
       <% @news.each do |news| %>
@@ -48,7 +50,7 @@
         </div>
       <% end %>
 
-      <%= link_to 'Все новости', news_index_path, :class => 'newsblock_readmore pull-right' %>
+      <%= link_to 'Все акции', hot_offers_path, :class => 'pull-right more-link' %>
     </div>
     <div id="news">
       <% @hot_offers.each do |offer| %>
@@ -58,8 +60,55 @@
         </div>
       <% end %>
 
-      <%= link_to 'Все акции', hot_offers_path, :class => 'newsblock_readmore pull-right' %>
+      <%= link_to 'Все новости', news_index_path, :class => 'pull-right more-link' %>
     </div>
+</div>
+
+<div id="social" class="switchable">
+  <h3 class="magenta">
+    <span class="active switchme" data-switch="vk">ВК</span>
+    <span class="switchme" data-switch="fb">FB</span>
+    <span class="switchme" data-switch="ok">ОК</span>
+  </h3>
+  <div id="vk">
+    <script type="text/javascript" src="//vk.com/js/api/openapi.js?117"></script>
+
+    <!-- VK Widget -->
+    <div id="vk_groups"></div>
+    <script type="text/javascript">
+    VK.Widgets.Group("vk_groups", {mode: 0, width: "220", height: "400", color1: 'FFFFFF', color2: '2B587A', color3: '5B7FA6'}, 31856016);
+    </script>
+  </div>  
+  <div id="fb">
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.5&appId=515621045166553";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    <div class="fb-page" data-href="https://www.facebook.com/kariera.centr" data-width="220" data-height="400" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/kariera.centr"><a href="https://www.facebook.com/kariera.centr">Учебный центр &quot;Карьера&quot;</a></blockquote></div></div>
+  </div>
+  <div id="ok">
+    <div id="ok_group_widget"></div>
+    <script>
+    !function (d, id, did, st) {
+      var js = d.createElement("script");
+      js.src = "https://connect.ok.ru/connect.js";
+      js.onload = js.onreadystatechange = function () {
+      if (!this.readyState || this.readyState == "loaded" || this.readyState == "complete") {
+        if (!this.executed) {
+          this.executed = true;
+          setTimeout(function () {
+            OK.CONNECT.insertGroupWidget(id,did,st);
+          }, 0);
+        }
+      }}
+      d.documentElement.appendChild(js);
+    }(document,"ok_group_widget","52205747699889","{width:220,height:400}");
+    </script>
+  </div>
 </div>
 
 

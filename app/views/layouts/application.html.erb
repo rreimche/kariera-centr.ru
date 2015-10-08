@@ -107,7 +107,7 @@
           <%= yield %>
          </div>
       <%  else %>
-        <h1 class="page_title image<%= rand(4) %>">
+        <h1 class="page_title image<%= rand(0).to_i %>">
           <span id="title"><%= content_for :title %></span>
           <% if content_for? :subtitle %>
             <br><span id="subtitle"><%= content_for :subtitle %></span>

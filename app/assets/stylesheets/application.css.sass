@@ -71,22 +71,32 @@ h1.page_title
   *padding-bottom: 173px
   text-align: center 
   color: white
-  background: darkgray
-  background-position: left top
-  background-repeat: no-repeat
+  background: url('/images/content/titles/mask_h1.png')
   margin-bottom: 36px
+  position: relative
   span
     display: inline-block
+    position: relative
+    z-index: 20
   #title
+    font: 600 36px "Open Sans", sans-serif
     border-bottom: 5px solid #65cc33
-  .image1
-    background-image: url('/content/titles/1.png')
-  .image2
-    background-image: url('/content/titles/2.png')
-  .image3
-    background-image: url('/content/titles/3.png')
-  .image4
-    background-image: url('/content/titles/4.png')
+  #subtitle
+    font: 16px "Open Sans", sans-serif
+  &:before
+    opacity: 0.43
+    position: absolute
+    top: 0
+    left: 0
+    z-index: 19
+  &.image0:before
+    content: url('/images/content/titles/0.jpg')
+  &.image1:before
+    content: url('/images/content/titles/1.jpg')
+  &.image2:before
+    content: url('/images/content/titles/2.jpg')
+  &.image3:before
+    content: url('/images/content/titles/3.jpg')
 
 
 h2
