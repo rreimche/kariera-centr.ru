@@ -86,7 +86,7 @@
 		<% @feedbacks.each do |feedback| %>
 			<article class="comments_item col-sm-5 <%= 'col-sm-offset-1' if counter % 2 != 0 %>">
 				<h3><%= feedback.name %></h3>
-				<h4><%= feedback.course.title if feedback.course != nil%></h4>
+				<h4><%= feedback.course != nil ? 'трудоустройство' : feedback.course.title %></h4>
 				<p><%= feedback.content %></p> 
 			</article>
 			<% counter += 1 %>
