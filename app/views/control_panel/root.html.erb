@@ -112,7 +112,7 @@
             <thead>
               <tr>
                 <th>Дата обновления</th>
-                <th>Автор: Курс</th>
+                <th>Автор: Курс/услуга</th>
                 <th>Управление</th>
               </tr>
             </thead>
@@ -120,7 +120,7 @@
                 <% @feedbacks.each do |feedback| %>
                   <tr>
                     <td><%= l feedback.updated_at, format: :short %></td>
-                    <td><%= link_to "#{feedback.name}: #{feedback.course.title}", feedback %></td>
+                    <td><%= feedback.course != nil ? link_to("#{feedback.name}: #{feedback.course.title}", feedback) : "#{feedback.name}: трудоустройство" %></td>
                     <td>
                         <%= link_to 'Редактировать', edit_feedback_path(feedback), class: 'btn btn-xs btn-warning', style: 'margin-bottom: 7px' %><br>
                         <%= link_to 'Удалить', "/feedbacks/#{feedback.id}?panel=root", method: :delete, data: { confirm: 'Уверены?' }, class: 'btn btn-xs btn-danger' %>
