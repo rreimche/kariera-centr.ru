@@ -1,4 +1,4 @@
-<h3 class="feedbacks">Отзывы выпускников:</h3>
+<h3 class="feedbacks">Отзывы выпускников</h3>
 <% feedbacks.each do |feedback| %> 
 	<h4 class="feedbacks"><%= feedback.name %><span> – <%= l feedback.created_at, format: :simpledate %></span></h4>
 	<p class="feedbacks"><%= feedback.content %></p>

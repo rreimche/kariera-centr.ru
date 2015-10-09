@@ -44,20 +44,19 @@
     <span class="switchme" data-switch="news">Новости</span>
   </h3>
     <div id="actions">
+      <% @hot_offers.each do |offer| %>
+        <div class="newsblock_item">          
+          <div class="newsblock_item__text"><%= raw offer.content %></div>
+        </div>
+      <% end %>      
+    </div>
+    <div id="news">
       <% @news.each do |news| %>
         <div class="newsblock_item">
+        <span class="newsblock_item__link text-uppercase"><%= l news.created_at, format: :simpledate %></span>
         <div class="newsblock_item__text"><a href="<%= news_path news %>"><%= news.title %></a></div>
         </div>
       <% end %> 
-    </div>
-    <div id="news">
-      <% @hot_offers.each do |offer| %>
-        <div class="newsblock_item">
-          <span class="newsblock_item__link text-uppercase"><%= l offer.created_at, format: :simpledate %></span>
-          <div class="newsblock_item__text"><%= raw offer.content %></div>
-        </div>
-      <% end %>
-
       <%= link_to 'Все новости', news_index_path, :class => 'pull-right more-link' %>
     </div>
 </div>
@@ -69,43 +68,15 @@
     <span class="switchme" data-switch="ok">ОК</span>
   </h3>
   <div id="vk">
-    <script type="text/javascript" src="//vk.com/js/api/openapi.js?117"></script>
-
     <!-- VK Widget -->
-    <div id="vk_groups"></div>
-    <script type="text/javascript">
-    VK.Widgets.Group("vk_groups", {mode: 0, width: "220", height: "400", color1: 'FFFFFF', color2: '2B587A', color3: '5B7FA6'}, 31856016);
-    </script>
+    <div id="vk_groups"></div>    
   </div>  
   <div id="fb">
-    <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.5&appId=515621045166553";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
+    <div id="fb-root"></div>    
     <div class="fb-page" data-href="https://www.facebook.com/kariera.centr" data-width="220" data-height="400" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/kariera.centr"><a href="https://www.facebook.com/kariera.centr">Учебный центр &quot;Карьера&quot;</a></blockquote></div></div>
   </div>
   <div id="ok">
     <div id="ok_group_widget"></div>
-    <script>
-    !function (d, id, did, st) {
-      var js = d.createElement("script");
-      js.src = "https://connect.ok.ru/connect.js";
-      js.onload = js.onreadystatechange = function () {
-      if (!this.readyState || this.readyState == "loaded" || this.readyState == "complete") {
-        if (!this.executed) {
-          this.executed = true;
-          setTimeout(function () {
-            OK.CONNECT.insertGroupWidget(id,did,st);
-          }, 0);
-        }
-      }}
-      d.documentElement.appendChild(js);
-    }(document,"ok_group_widget","52205747699889","{width:220,height:400}");
-    </script>
   </div>
 </div>
 
