@@ -50,8 +50,8 @@
         </div>
       <% end %>      
     </div>
-    <div id="news">
-      <% @news.each do |news| %>
+    <div id="news"> 
+      <% @newslist.each do |news| %>
         <div class="newsblock_item">
         <span class="newsblock_item__link text-uppercase"><%= l news.created_at, format: :simpledate %></span>
         <div class="newsblock_item__text"><a href="<%= news_path news %>"><%= news.title %></a></div>

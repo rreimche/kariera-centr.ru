@@ -1,3 +1,4 @@
+
 class ApplicationController < ActionController::Base
   #  http_basic_authenticate_with name: ENV['CP_USER'], password: ENV['CP_PASSWORD']
 
@@ -17,8 +18,8 @@ class ApplicationController < ActionController::Base
   	end
   } 
 
-  def prepare_sidebar
-    @news = News.order(created_at: :desc).limit(7)
+  def prepare_sidebar 
+    @newslist = News.order(created_at: :desc).limit(7)
     @hot_offers = HotOffer.order(created_at: :desc).limit(7)
     @courses_next = Course.where(start_date: (Time.now.midnight - 7.days)..(Time.now.midnight+1.month)).order(:start_date)
   end
