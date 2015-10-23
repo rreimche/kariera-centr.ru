@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	$('.signup_button').click(function(){
+	$('#container_signup input[type=submit]').click(function(){
 		yaCounter24396481.reachGoal('yaSignup');
 	})
 });
