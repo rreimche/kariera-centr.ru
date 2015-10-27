@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151001182931) do
+ActiveRecord::Schema.define(version: 20151027151705) do
 
   create_table "ckeditor_assets", force: true do |t|
     t.string   "data_file_name",               null: false
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20151001182931) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "is_for_hr_services"
+    t.boolean  "published"
   end
 
   add_index "feedbacks", ["course_id"], name: "index_feedbacks_on_course_id"

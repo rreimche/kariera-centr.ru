@@ -1,12 +1,12 @@
 class FeedbacksController < ApplicationController
-  before_action :set_feedback, only: [:show, :edit, :update, :destroy]
-  http_basic_authenticate_with name: ENV['CP_USER'], password: ENV['CP_PASSWORD'], except: ['new', 'create', 'show']
+  before_action :set_feedback, only: [:show, :edit, :update, :destroy, :publish, :unpublish]
+  http_basic_authenticate_with name: ENV['CP_USER'], password: ENV['CP_PASSWORD'], except: ['new', 'create', 'show', 'index']
 
 
   # GET /feedbacks
   # GET /feedbacks.json
   def index
-    @feedbacks = Feedback.all
+    @feedbacks = Feedback.where(published: true).reverse
   end
 
   # GET /feedbacks/1
@@ -51,6 +51,26 @@ class FeedbacksController < ApplicationController
     end
   end
 
+  def publish
+    respond_to do |format|
+      if @feedback.update(published: true)
+        format.html { redirect_to redirect_url, notice: 'Отзыв опубликован.' }
+      else
+        format.html { render :edit } 
+      end
+    end
+  end
+
+  def unpublish
+    respond_to do |format|
+      if @feedback.update(published: false)
+        format.html { redirect_to redirect_url, notice: 'Отзыв снят с публикации.' }
+      else
+        format.html { render :edit } 
+      end
+    end
+  end
+
   # DELETE /feedbacks/1
   # DELETE /feedbacks/1.json
   def destroy
@@ -77,5 +97,14 @@ class FeedbacksController < ApplicationController
       end
       # Never trust parameters from the scary internet, only allow the white list through.
       params.require(:feedback).permit(:name, :content, :course_id, :is_for_hr_services)
+    end
+
+    def redirect_url
+      panel = params.permit(:panel)[:panel]
+      if panel == 'list'
+        "#{list_control_url}?content_type=feedbacks"
+      else
+        root_control_url
+      end
     end
 end

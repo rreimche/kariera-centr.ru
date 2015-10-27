@@ -13,7 +13,7 @@ class HomepageControllerController < ApplicationController
  	  Course.where.not(id: already_selected, featured_image_file_name: nil).limit(6-@courses_next.count).each {|course| @courses_next.push course}
 
     #select 4 feedbacks
-    @feedbacks = Feedback.order(Rails.env.development? ? "RANDOM()" : "RAND()" ).limit(4)
+    @feedbacks = Feedback.where(published: true).order(Rails.env.development? ? "RANDOM()" : "RAND()" ).limit(4)
 
 =begin 
   	while @courses_next.count < 6

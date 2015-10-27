@@ -25,7 +25,7 @@
 	                <td><%= l news.created_at, format: :short %></td>
 	                <td><%= link_to strip_tags(news.content), news %></td>
 	                <td>
-	                	<%= link_to 'Редактировать', edit_news_path(news), class: 'btn btn-xs btn-warning', style: 'margin-bottom: 7px' %><br>
+	                	<%= link_to 'Редактировать', edit_news_path(news), class: 'btn btn-xs btn-primary', style: 'margin-bottom: 7px' %><br>
 	                	<%= link_to 'Удалить', "/news/#{news.id}?panel=root", method: :delete, data: { confirm: 'Уверены?' }, class: 'btn btn-xs btn-danger' %>
 	                </td>
 	              </tr>
@@ -49,7 +49,7 @@
                     <td><%= l offer.created_at, format: :short %></td>
                     <td><%= link_to strip_tags(offer.content), offer %></td>
                     <td>
-                        <%= link_to 'Редактировать', edit_hot_offer_path(offer), class: 'btn btn-xs btn-warning', style: 'margin-bottom: 7px' %><br>
+                        <%= link_to 'Редактировать', edit_hot_offer_path(offer), class: 'btn btn-xs btn-primary', style: 'margin-bottom: 7px' %><br>
                         <%= link_to 'Удалить', "/hot_offers/#{offer.id}?panel=root", method: :delete, data: { confirm: 'Уверены?' }, class: 'btn btn-xs btn-danger' %>
                     </td>
                   </tr>
@@ -73,7 +73,7 @@
 	                <td><%= l course.start_date, format: :short %></td>
 	                <td><%= link_to course.title, course %></td>
 	                <td>
-	                	<%= link_to 'Редактировать', edit_course_path(course), class: 'btn btn-xs btn-warning', style: 'margin-bottom: 7px' %><br>
+	                	<%= link_to 'Редактировать', edit_course_path(course), class: 'btn btn-xs btn-primary', style: 'margin-bottom: 7px' %><br>
 	                	<%= link_to 'Удалить', "/courses/#{course.id}?panel=root", method: :delete, data: { confirm: 'Уверены?' }, class: 'btn btn-xs btn-danger' %>
 	                </td>
 	              </tr>
@@ -97,7 +97,7 @@
 	                <td><%= l page.updated_at, format: :short %></td>
 	                <td><%= link_to page.title, page %></td>
 	                <td>
-	                	<%= link_to 'Редактировать', edit_static_page_path(page), class: 'btn btn-xs btn-warning', style: 'margin-bottom: 7px' %><br>
+	                	<%= link_to 'Редактировать', edit_static_page_path(page), class: 'btn btn-xs btn-primary', style: 'margin-bottom: 7px' %><br>
 	                	<%= link_to 'Удалить', "/static_pages/#{page.id}?panel=root", method: :delete, data: { confirm: 'Уверены?' }, class: 'btn btn-xs btn-danger' %>
 	                </td>
 	              </tr>
@@ -122,8 +122,10 @@
                     <td><%= l feedback.updated_at, format: :short %></td>
                     <td><%= feedback.course != nil ? link_to("#{feedback.name}: #{feedback.course.title}", feedback) : "#{feedback.name}: трудоустройство" %></td>
                     <td>
-                        <%= link_to 'Редактировать', edit_feedback_path(feedback), class: 'btn btn-xs btn-warning', style: 'margin-bottom: 7px' %><br>
-                        <%= link_to 'Удалить', "/feedbacks/#{feedback.id}?panel=root", method: :delete, data: { confirm: 'Уверены?' }, class: 'btn btn-xs btn-danger' %>
+                        <%= link_to 'Редактировать', edit_feedback_path(feedback), class: 'btn btn-xs btn-primary' %> 
+                        <%= link_to 'Опубликовать', "/feedbacks/#{feedback.id}/publish?panel=root", method: :delete, data: { confirm: 'Уверены?' }, class: 'btn btn-xs btn-success' if not feedback.published %>
+                        <%= link_to 'Снять с публикации', "/feedbacks/#{feedback.id}/unpublish?panel=root", method: :delete, data: { confirm: 'Уверены?' }, class: 'btn btn-xs btn-warning' if feedback.published %>
+                        <%= link_to 'Удалить', "/feedbacks/#{feedback.id}?panel=root", method: :delete, data: { confirm: 'Уверены?' }, class: 'btn btn-xs btn-danger' %>                        
                     </td>
                   </tr>
                 <% end %>

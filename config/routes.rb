@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
   resources :feedbacks
+  delete '/feedbacks/:id/publish', to: 'feedbacks#publish'
+  delete '/feedbacks/:id/unpublish', to: 'feedbacks#unpublish'
 
   resources :hot_offers
 
@@ -30,7 +32,7 @@ Rails.application.routes.draw do
   get "/user", to: redirect('/')
 
   #get '/signups', to: 'signups#create'
-  resources :signups, only:['new', 'create']
+  resources :signups, only:['new', 'create', 'index']
 
   resource 'control', controller: 'control_panel', only: ['root', 'list'] do
     get '' => 'control_panel#root', as: 'root'

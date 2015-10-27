@@ -58,7 +58,7 @@
     
     <div class="header_bottom container">
       <div class="row">
-        <div class="header_bottom__logoholder col-md-2">
+        <div class="header_bottom__logoholder col-md-12 col-lg-2 text-center">
           <a class="header_bottom__logoholder-logo pos-rel" href="/"></a>
           
           <button type="button" class="navbar-toggle collapsed visible-xs" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -69,7 +69,7 @@
           </button>
         </div>
           
-        <nav id="navbar" class="navbar-collapse collapse col-lg-8 col-lg-offset-2 col-md-9 col-md-offset-1">
+        <nav id="navbar" class="navbar-collapse collapse col-md-12 col-lg-10 pull-right">
           <ul class="header_bottom__menu list-unstyled">
             <li class="header_bottom__menu___item dropdown">
               <a class="header_bottom__menu___item-item pos-rel" href="/о-нас">О центре</a>
@@ -82,6 +82,13 @@
             </li>
             <li class="header_bottom__menu___item">
               <a class="header_bottom__menu___item-item pos-rel" href="/static_pages/5">Трудоустройство</a>
+            </li>
+            <li class="header_bottom__menu___item dropdown">
+              <a class="header_bottom__menu___item-item pos-rel" href="#">Отзывы</a>
+              <ul class="dropdown_menu list-unstyled">
+                <li class="dropdown_menu__item"><a class="dropdown_menu__item-link" href="<% feedbacks_path %>">Все отзывы</a></li>
+                <li class="dropdown_menu__item"><a class="dropdown_menu__item-link" href="<%= new_feedback_path %>">Написать отзыв</a></li>
+              </ul>
             </li>
             <li class="header_bottom__menu___item dropdown">
               <a class="header_bottom__menu___item-item pos-rel" href="#">Учащимся</a>
