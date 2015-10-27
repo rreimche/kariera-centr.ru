@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
 
-  resources :feedbacks
-  delete '/feedbacks/:id/publish', to: 'feedbacks#publish'
-  delete '/feedbacks/:id/unpublish', to: 'feedbacks#unpublish'
+  resources :feedbacks do
+    member do
+      delete 'publish'
+      delete 'unpublish'
+    end
+  end
+  #delete '/feedbacks/:id/publish', to: 'feedbacks#publish'
+  #delete '/feedbacks/:id/unpublish', to: 'feedbacks#unpublish'
 
   resources :hot_offers
 
