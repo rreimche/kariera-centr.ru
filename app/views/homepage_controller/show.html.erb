@@ -49,6 +49,38 @@
 	</div>
 </div>
 
+<!-- news & actions -->
+<div class="newsblock">		
+	<div class="container">
+		<div class="row">
+			<aside class="newsblock-left col-sm-5">
+				<h2>новости</h2>
+				<% @newslist.each do |news| %>
+					<div class="newsblock_item">
+						<span class="newsblock_item__link text-uppercase"><%= l news.created_at, format: :simpledate %></span>
+						<div class="newsblock_item__text"><a href="<%= news_path news %>"><%= news.title %></a></div>
+					</div>
+				<% end %>
+
+				<%= link_to 'Все новости', news_index_path, :class => 'newsblock_readmore' %>
+
+			</aside>
+			
+			<aside class="newsblock-right col-sm-5 col-sm-offset-1">
+				<h2>акции</h2>
+
+				<% @hot_offers.each do |offer| %>
+					<div class="newsblock_item">
+						<span class="newsblock_item__link text-uppercase"><%= l offer.created_at, format: :simpledate %></span>
+						<div class="newsblock_item__text"><%= raw offer.content %></div>
+					</div>
+				<% end %>
+			
+			</aside>
+		</div>
+	</div>
+</div>
+
 <!-- Advantages -->
 <div class="featureslist text-center">
 	<!--<div class="section-title text-center"><h2>Карьера – это:</h2></div>-->
@@ -95,38 +127,6 @@
 		<% end %>
 	
 </section>
-
-<!-- news & actions -->
-<div class="newsblock">		
-	<div class="container">
-		<div class="row">
-			<aside class="newsblock-left col-sm-5">
-				<h2>новости</h2>
-				<% @newslist.each do |news| %>
-					<div class="newsblock_item">
-						<span class="newsblock_item__link text-uppercase"><%= l news.created_at, format: :simpledate %></span>
-						<div class="newsblock_item__text"><a href="<%= news_path news %>"><%= news.title %></a></div>
-					</div>
-				<% end %>
-
-				<%= link_to 'Все новости', news_index_path, :class => 'newsblock_readmore' %>
-
-			</aside>
-			
-			<aside class="newsblock-right col-sm-5 col-sm-offset-1">
-				<h2>акции</h2>
-
-				<% @hot_offers.each do |offer| %>
-					<div class="newsblock_item">
-						<span class="newsblock_item__link text-uppercase"><%= l offer.created_at, format: :simpledate %></span>
-						<div class="newsblock_item__text"><%= raw offer.content %></div>
-					</div>
-				<% end %>
-			
-			</aside>
-		</div>
-	</div>
-</div>
 
 <!-- subscription -->
 
