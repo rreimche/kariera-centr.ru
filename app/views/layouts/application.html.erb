@@ -118,7 +118,7 @@
           <%= yield %>
          </div>
       <%  else %>
-        <h1 class="page_title image<%= rand(0).to_i %> text-center">
+        <h1 class="page_title image<%= rand(3).to_i %> text-center">
           <span id="title" class="col-md-6 col-md-offset-3"><%= content_for :title %></span>
           <% if content_for? :subtitle %>
             <br><span id="subtitle" class="col-md-6 col-md-offset-3"><%= content_for :subtitle %></span>
