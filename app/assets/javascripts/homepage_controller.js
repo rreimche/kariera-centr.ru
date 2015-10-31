@@ -4,7 +4,7 @@ $(document).ready(function(){
 		$('span#modal_course_title').html(course_title);
 	});
 	$('#container_signup input[type=submit]').click(function(){
-		yaCounter24396481.reachGoal('yaSignup');
+		//yaCounter24396481.reachGoal('yaSignup');
 	})
 });
 
