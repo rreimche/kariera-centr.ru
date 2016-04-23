@@ -4,7 +4,7 @@
 
 <!-- Courses -->
 <div class="courselist container">
-	<div class="section-title text-center"><h2>Актуальные курсы</h2></div>
+	<div class="section-title text-center"><h2><a href="<%= courses_path %>">Актуальные курсы</a></h2></div>
 	<div class="row">
 		<% @courses_next.each do |course| %>
 			<!-- a course -->
@@ -110,7 +110,7 @@
 <!-- comments -->
 <section class="comments container">
 	<div class="section-title text-center">
-		<h2>Выпускники о центре</h2>
+		<h2><a href="<%= feedbacks_path %>">Выпускники о центре</a></h2>
 	</div>
 	
 	
