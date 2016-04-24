@@ -1,0 +1,279 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"for",
+				"foreach	foreach …"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 181.0,
+		"last_filter": "push",
+		"selected_items":
+		[
+			[
+				"push",
+				"Git: Push"
+			],
+			[
+				"quick",
+				"Git: Quick Commit"
+			],
+			[
+				"branc",
+				"Git: Change Branch"
+			],
+			[
+				"qui",
+				"Git: Quick Commit"
+			],
+			[
+				"live",
+				"LiveReload: Enable/disable plug-ins"
+			],
+			[
+				"pack",
+				"Package Control: Remove Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"REPL py",
+				"SublimeREPL: Python - Sublime Text Console"
+			],
+			[
+				"REPL php",
+				"SublimeREPL: PHP"
+			],
+			[
+				"REPL ru",
+				"SublimeREPL: Ruby"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"git branch",
+				"Git: Change Branch"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"packa",
+				"Package Control: List Packages"
+			],
+			[
+				"lint",
+				"Package Control: Install Package"
+			],
+			[
+				"bra",
+				"Git: Change Branch"
+			]
+		],
+		"width": 340.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/rreimche/Sites/kariera-centr.ru/app/views/layouts/application.html.erb",
+		"/Users/rreimche/Sites/kariera-centr.ru/app/controllers/static_pages_controller.rb",
+		"/Users/rreimche/Sites/kariera-centr.ru/app/assets/javascripts/application.js",
+		"/Users/rreimche/Sites/kariera-centr.ru/app/assets/javascripts/blueimp.js",
+		"/Users/rreimche/Sites/kariera-centr.ru/app/controllers/concerns/common.rb",
+		"/Users/rreimche/Sites/kariera-centr.ru/app/views/static_pages/show.html.erb",
+		"/Users/rreimche/Sites/kariera-centr.ru/app/views/courses/show.html.erb",
+		"/Users/rreimche/Sites/kariera-centr.ru/app/controllers/courses_controller.rb",
+		"/Users/rreimche/Sites/kariera-centr.ru/app/assets/stylesheets/application.css.sass",
+		"/Users/rreimche/Sites/kariera-centr.ru/Gemfile",
+		"/Users/rreimche/Sites/kariera-centr.ru/app/views/homepage_controller/show.html.erb",
+		"/Users/rreimche/Sites/kariera-centr.ru/app/assets/stylesheets/static_pages.css.scss",
+		"/Users/rreimche/Sites/kariera-centr.ru/app/assets/stylesheets/inner.css.sass",
+		"/Users/rreimche/Sites/kariera-centr.ru/app/assets/stylesheets/courses.css.sass",
+		"/Users/rreimche/Library/Application Support/Sublime Text 3/Packages/User/Glue.sublime-settings",
+		"/Users/rreimche/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/rreimche/Library/Application Support/Sublime Text 3/Packages/MacTerminal/Default.sublime-keymap",
+		"/Users/rreimche/Library/Application Support/Sublime Text 3/Packages/Default/Default (OSX).sublime-keymap",
+		"/Users/rreimche/Sites/familyoffice.travel/index.php",
+		"/Users/rreimche/Sites/sps-security/wp-admin/css/about.css",
+		"/Users/rreimche/Library/Application Support/Sublime Text 3/Packages/User/Default ().sublime-keymap",
+		"/Users/rreimche/Library/Caches/Cleanup At Startup/Transmit/9EB0B8EE-EF48-4BC1-ABB0-7B32367CBC8D/FrachtAusgabe.php",
+		"/Users/rreimche/Library/Caches/Cleanup At Startup/Transmit/F573B1CB-A1C2-4606-9791-3E201AB44DF4/FrachtAusgabe.php",
+		"/Users/rreimche/Library/Caches/Cleanup At Startup/Transmit/FDB7C52D-6173-41C1-BBF2-C77123602C54/style.css",
+		"/Users/rreimche/Library/Caches/Cleanup At Startup/Transmit/552B1EC6-7559-4D96-A2E8-96BA0EEB6F12/index.php"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 95.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"h1",
+			"repeat-x",
+			"term",
+			"termina",
+			"anschauen",
+			"nav"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 102.0
+	},
+	"pinned_build_system": "",
+	"project": "Gemfile.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"application.html.",
+				"app/views/layouts/application.html.erb"
+			],
+			[
+				"gem",
+				"Gemfile"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 151.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

@@ -40,6 +40,8 @@ GEM
     autoprefixer-rails (5.1.8)
       execjs
       json
+    blueimp-gallery (2.11.0.1)
+      railties (>= 3.1.0)
     builder (3.2.2)
     capistrano (3.4.0)
       i18n
@@ -160,6 +162,7 @@ PLATFORMS
 
 DEPENDENCIES
   autoprefixer-rails
+  blueimp-gallery
   bootstrap-sass!
   capistrano-rails (~> 1.1.1)
   ckeditor
