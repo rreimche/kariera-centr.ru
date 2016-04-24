@@ -24,9 +24,16 @@ class CoursesController < ApplicationController
   # GET /courses/1
   # GET /courses/1.json
   def show
-    feedbacks = Feedback.where(course: @course, published: true)
+    if Feedback.where(course: @course, published: true).count < 3
+      feedbacks = Feedback.limit(5)
+      feedbacks_are_own = false
+    else
+      feedbacks = Feedback.where(course: @course, published: true)
+      feedbacks_are_own = true
+    end
+
     if feedbacks.size != 0
-      feedbacks = render_to_string partial: 'feedbacks', locals: {feedbacks: feedbacks}
+      feedbacks = render_to_string partial: 'feedbacks', locals: {feedbacks: feedbacks, feedbacks_are_own: feedbacks_are_own}
       @course.full_descr.sub! '[отзывы]', feedbacks
     end
   end
