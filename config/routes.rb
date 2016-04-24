@@ -48,7 +48,7 @@ Rails.application.routes.draw do
 
   resources :courses, except: ['index']
 
-  get '/news/feed' => 'news#feed'
+  get '/news/rss' => 'news#feed', format: 'rss'
   resources :news
 
   resources :static_pages, except: ['index']
