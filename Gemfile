@@ -47,6 +47,8 @@ gem 'autoprefixer-rails'
 
 gem 'blueimp-gallery'
 
+gem 'railroady'
+
 group :development do
   gem 'capistrano-rails', '~> 1.1.1'
 end
