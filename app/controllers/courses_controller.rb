@@ -2,13 +2,12 @@ class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
   http_basic_authenticate_with name: ENV['CP_USER'], password: ENV['CP_PASSWORD'], except: ['index', 'search', 'show']
 
-  # GET /courseslist
-  # GET /courses.json
-  def index
-    @courses = Course.all
-  end
+  # GET
+  # def index
+  #   @courses = Course.all
+  # end
 
-  # GET /ourcourses
+  # GET /courses
   def search
     parameters = params.permit(:titlepart)
     @searched = parameters[:titlepart]
@@ -22,7 +21,6 @@ class CoursesController < ApplicationController
   end
 
   # GET /courses/1
-  # GET /courses/1.json
   def show
     feedbacks = Feedback.where(course: @course, published: true)
     if feedbacks.size != 0
@@ -43,7 +41,6 @@ class CoursesController < ApplicationController
   end
 
   # POST /courses
-  # POST /courses.json
   def create
     @course = Course.new(course_params)
     @timegroups = Course.timegroups
@@ -58,7 +55,6 @@ class CoursesController < ApplicationController
   end
 
   # PATCH/PUT /courses/1
-  # PATCH/PUT /courses/1.json
   def update
     @timegroups = Course.timegroups
     respond_to do |format|
@@ -71,7 +67,6 @@ class CoursesController < ApplicationController
   end
 
   # DELETE /courses/1
-  # DELETE /courses/1.json
   def destroy
     @course.destroy
     respond_to do |format|
