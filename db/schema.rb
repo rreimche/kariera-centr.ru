@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151027151705) do
+ActiveRecord::Schema.define(version: 20160520121204) do
 
   create_table "ckeditor_assets", force: true do |t|
     t.string   "data_file_name",               null: false
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20151027151705) do
     t.float    "duration"
     t.integer  "advance_payment"
     t.integer  "monthly_payment"
+    t.boolean  "published",                   default: true
   end
 
   create_table "feedbacks", force: true do |t|

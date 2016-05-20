@@ -52,9 +52,8 @@
 	                <td><%= link_to strip_tags( @content.call(item) ), item %></td>
 	                <td>
 	                	<%= link_to 'Редактировать', @edit_path.call(item), class: 'btn btn-xs btn-primary' %>
-                        <%= link_to 'Опубликовать', "/feedbacks/#{item.id}/publish?panel=list", method: :delete, data: { confirm: 'Уверены?' }, class: 'btn btn-xs btn-success' if @content_type == 'feedbacks' and not item.published %>
-                        
-                        <%= link_to 'Снять с публикации', "/feedbacks/#{item.id}/unpublish?panel=list", method: :delete, data: { confirm: 'Уверены?' }, class: 'btn btn-xs btn-warning' if @content_type == 'feedbacks' and item.published %>
+                        <%= link_to 'Опубликовать', "/#{@content_type}/#{item.id}/publish?panel=list", method: :delete, data: { confirm: 'Уверены?' }, class: 'btn btn-xs btn-success' if @content_type.in? ['feedbacks', 'courses'] and item.published == false %>                        
+                        <%= link_to 'Снять с публикации', "/#{@content_type}/#{item.id}/unpublish?panel=list", method: :delete, data: { confirm: 'Уверены?' }, class: 'btn btn-xs btn-warning' if @content_type.in? ['feedbacks', 'courses'] and ( item.published == nil or item.published == true) %>
 	                	<%= link_to 'Удалить', "/#{@content_type}/#{item.id}?panel=list", method: :delete, data: { confirm: 'Уверены?' }, class: 'btn btn-xs btn-danger' %>
 	                </td>
 	              </tr>

@@ -57,6 +57,10 @@
     <%= f.label "Группа (время занятий)" %><br>
     <%= f.select :timegroup, options_for_select(@timegroups.collect { |s| [t(s[0]), s[0]] }, selected: @course.timegroup), {} , class: "form-control" %>
   </p>
+  <p class="field">
+    <%= f.label "Статус публикации" %><br>
+    <%= f.select :published, options_for_select({"Опубликовано" => true, "Не опубликовано" => false}, selected: (@course.published != nil) ? @course.published : true), {}, class: "form-control" %>
+  </p>
   <p class="actions">
     <%= f.submit action_name == 'new' ?  'Создать курс' : 'Редактировать курс' %>
   </p>

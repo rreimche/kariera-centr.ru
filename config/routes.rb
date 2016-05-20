@@ -46,6 +46,13 @@ Rails.application.routes.draw do
 
   get '/courses', to: 'courses#search'
 
+  resources :courses do 
+    member do
+      delete 'publish'
+      delete 'unpublish'
+    end    
+  end
+
   resources :courses, except: ['index']
 
   get '/news/feed' => 'news#feed'

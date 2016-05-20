@@ -1,3 +1,4 @@
+require 'pry'
 class ControlPanelController < ApplicationController
 
 	http_basic_authenticate_with name: ENV['CP_USER'], password: ENV['CP_PASSWORD']
@@ -6,14 +7,14 @@ class ControlPanelController < ApplicationController
     cookies[:is_admin] = { value: "true", expires: 6.months.from_now} if cookies[:is_admin].nil?
   	@news = News.order(created_at: :desc).limit(5)
     @hot_offers = HotOffer.order(created_at: :desc).limit(5)
-  	@courses = Course.where(start_date: (Time.now.midnight - 7.days)..(Time.now.midnight + 1.month)).order(:start_date)
+  	@courses = Course.where(start_date: (Time.now.midnight - 7.days)..(Time.now.midnight + 1.month), published:true).order(:start_date)
   	@pages = StaticPage.order(updated_at: :desc, created_at: :desc).limit(5)
     @feedbacks = Feedback.order(updated_at: :desc, created_at: :desc).limit(5)
   end
 
   def list
   	@content_type = params.permit(:content_type)[:content_type]
-
+    
   	redirect_to action: 'root' if @content_type.nil?
 
   	case @content_type

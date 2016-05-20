@@ -75,6 +75,7 @@ class CoursesControllerTest < ActionController::TestCase
         start_date: @course.start_date, 
         timegroup: @course.timegroup, 
         title: @course.title }
+    end
   end
 
   test "should not create course without full_price" do
