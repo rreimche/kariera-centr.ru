@@ -36,4 +36,8 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  # FileStorage for testing
+  # does not work correct, not enough will to dig in: http://stackoverflow.com/a/20850497
+  # Paperclip::Attachment.default_options[:path] = ':rails_root/test/data/paperclip/:class/:attachment/:id_partition/:filename'
 end

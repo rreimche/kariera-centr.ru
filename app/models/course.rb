@@ -8,6 +8,7 @@ class Course < ActiveRecord::Base
 	#validates :advance_payment, presence: :true
 	#validates :monthly_payment, presence: :true
 	validates :full_price, presence: true
+	validates_inclusion_of :published, :in => [true, false]
 	validates_attachment :featured_image, presence: true, 
 		content_type: { content_type: /\Aimage\/.*\Z/ },
 		size: { in: 0..3.megabytes }

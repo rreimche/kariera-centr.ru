@@ -5,7 +5,7 @@
           <h3 class="text-center search_results_notice"><%= "Вы искали: #{@searched}" if not @searched.nil? %></h3>
           <%= form_tag("/courses", method: 'get') do %>
             <%= label_tag :titlepart, 'Поиск по курсам: ' %>
-            <%= text_field_tag :titlepart %>
+            <%= text_field_tag :titlepart, @searched %>
             <%= submit_tag 'Искать' %>
           <% end %>
         </div>

@@ -74,6 +74,8 @@
 	                <td><%= link_to course.title, course %></td>
 	                <td>
 	                	<%= link_to 'Редактировать', edit_course_path(course), class: 'btn btn-xs btn-primary', style: 'margin-bottom: 7px' %><br>
+                        <%= link_to 'Опубликовать', "/courses/#{course.id}/publish?panel=root", method: :delete, data: { confirm: 'Уверены?' }, class: 'btn btn-xs btn-success' if not course.published %>
+                        <%= link_to 'Снять с публикации', "/courses/#{course.id}/unpublish?panel=root", method: :delete, data: { confirm: 'Уверены?' }, class: 'btn btn-xs btn-warning' if course.published %>
 	                	<%= link_to 'Удалить', "/courses/#{course.id}?panel=root", method: :delete, data: { confirm: 'Уверены?' }, class: 'btn btn-xs btn-danger' %>
 	                </td>
 	              </tr>

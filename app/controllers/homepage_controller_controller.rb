@@ -1,16 +1,17 @@
+require 'pry'
 class HomepageControllerController < ApplicationController
   def show
   	#@news = News.order(created_at: :desc).limit(7)
   	#@courses_next = Course.where(start_date: (Time.now.midnight - 7.days)..(Time.now.midnight+1.month)).order(:start_date)
-  	@num_courses = Course.count
+  	@num_courses = Course.where(published: true).count
   	@hot_offers = HotOffer.order(created_at: :desc).limit(7)
 
   	#select courses: 6 most recent or some most recent and some other
   	already_selected = []
-  	@courses_next = Course.where(start_date: (Time.now.midnight - 7.days)..(Time.now.midnight+1.month)).order(:start_date).limit(6)
+  	@courses_next = Course.where(start_date: (Time.now.midnight - 7.days)..(Time.now.midnight+1.month), published: true).order(:start_date).limit(6)
   	@courses_next.each { |course| already_selected.push course.id }
   	#select 6-@courses_next.count more courses which do have featured images
- 	  Course.where.not(id: already_selected, featured_image_file_name: nil).limit(6-@courses_next.count).each {|course| @courses_next.push course}
+ 	  Course.where(published: true).where.not(id: already_selected, featured_image_file_name: nil).limit(6-@courses_next.count).each {|course| @courses_next.push course}
 
     #select 4 feedbacks
     @feedbacks = Feedback.where(published: true).order(Rails.env.development? ? "RANDOM()" : "RAND()" ).limit(4)
