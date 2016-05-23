@@ -1,4 +1,3 @@
-require 'pry'
 class HomepageControllerController < ApplicationController
   def show
   	#@news = News.order(created_at: :desc).limit(7)
