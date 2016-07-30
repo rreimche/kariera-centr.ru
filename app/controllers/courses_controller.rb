@@ -14,7 +14,7 @@ class CoursesController < ApplicationController
 
     unless @searched.nil?
       #TODO is this here really working right?
-      @courses = Course.order(start_date: :desc).where("title LIKE ?", "%#{@searched}%")
+      @courses = Course.order(start_date: :desc).where(published: true).where("title LIKE ?", "%#{@searched}%")
     else
       @courses = Course.where(published: true).order(start_date: :desc)
     end
