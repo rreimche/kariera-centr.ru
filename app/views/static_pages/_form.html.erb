@@ -24,6 +24,21 @@
     <%= f.label "Содержание" %><br>
     <%= f.cktext_area :content, :ckeditor => {:language => 'ru'} %>
   </p>
+  <p>
+    Можно использовать следующие коды подстановки:<br>
+    <strong>[collapse heading="Заголовок"]Содержание[/collapse]</strong> – заменяется на разворачиваемый блок<br>
+    <strong>[accordion][/accordion]</strong> – используется вместе с несколькими collapse
+    для создания аккордионов (группы разворачивающихся блоков), например:<br>
+    <blockqoute style="display: block; padding-left: 1em;">
+      <strong>
+        [accordion]<br>
+        [collapse heading="Заголовок1"]Содержание1[/collapse]<br>
+        [collapse heading="Заголовок2"]Содержание2[/collapse]<br>
+        [collapse heading="Заголовок3"]Содержание3[/collapse]<br>
+        [/accordion]
+      </strong>  
+    </blockqoute>   
+  </p>
   <p class="actions">
     <%= f.submit action_name == 'new' ?  'Создать страницу' : 'Редактировать страницу' %>
   </p>

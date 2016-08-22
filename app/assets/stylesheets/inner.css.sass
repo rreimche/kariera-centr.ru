@@ -4,6 +4,8 @@ main
     padding-left: 6px
     margin-left: -11px
     text-align: left
+    &.panel-title
+      border-left: none
   h2
     border-color: #ef4e3a
   h3
@@ -16,3 +18,14 @@ main
     h2, h3, h4, h5
       border: 0px solid black
       text-align: center
+  .panel-group
+    >br
+      display: none
+      *line-height: 0
+    .panel
+      margin-top: 5px
+      &:first-of-type
+        margin-bottom: 0
+    
+
+

@@ -40,14 +40,16 @@ gem 'pry', group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'ckeditor'
-gem 'paperclip'
+
 gem 'bootstrap-sass', :git => 'https://github.com/twbs/bootstrap-sass.git', :branch => 'next'
 gem 'autoprefixer-rails'
 
+gem 'ckeditor'
+gem 'paperclip'
 gem 'blueimp-gallery'
-
 gem 'railroady'
+gem 'shortcode'
+gem 'bh', '~> 1.3'
 
 group :development do
   gem 'capistrano-rails', '~> 1.1.1'

@@ -33,6 +33,22 @@
     <%= f.label "Полное описание" %><br>
     <%= f.cktext_area :full_descr %>
   </p>
+  <p>
+    Можно использовать следующие коды подстановки:<br>
+    <strong>[отзывы]</strong> - заменяется на блок с отзывами<br>
+    <strong>[collapse heading="Заголовок"]Содержание[/collapse]</strong> – заменяется на разворачиваемый блок<br>
+    <strong>[accordion][/accordion]</strong> – используется вместе с несколькими collapse
+    для создания аккордионов (группы разворачивающихся блоков), например:<br>
+    <blockqoute style="display: block; padding-left: 1em;">
+      <strong>
+        [accordion]<br>
+        [collapse heading="Заголовок1"]Содержание1[/collapse]<br>
+        [collapse heading="Заголовок2"]Содержание2[/collapse]<br>
+        [collapse heading="Заголовок3"]Содержание3[/collapse]<br>
+        [/accordion]
+      </strong>  
+    </blockqoute> 
+  </p>
   <p class="field">
     <%= f.label "Дата начала" %><br>
     <%= f.date_select :start_date %>

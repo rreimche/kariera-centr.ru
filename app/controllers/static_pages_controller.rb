@@ -11,6 +11,7 @@ class StaticPagesController < ApplicationController
   # GET /static_pages/1
   # GET /static_pages/1.json
   def show
+    @static_page.content = Shortcode.process(@static_page.content)
   end
 
   # GET /static_pages/new

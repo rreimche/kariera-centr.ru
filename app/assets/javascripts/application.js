@@ -23,3 +23,20 @@
 //= require sidebar
 //= require_tree . 
 
+$('body').on('click.collapse-next.data-api', '[data-toggle=collapse-next]', function (e) {
+  var $target = $(this).parent().parent().next();
+  $target.collapse('toggle');
+  /*
+  $this = $(this);
+  $parent = $(this).parents('.accordion-wrapper');
+  if ( $parent.length != 0 ){
+  	var $panels = $parent.children('.panel');
+  	$panels.each(function(i, o){
+  		if( $(o).is($this.parent().parent().parent()) ){
+  			$(o).children('.panel-collapse').collapse('toggle');
+  		}
+  	});
+  }*/
+  //$target.data('collapse') ? $target.collapse('toggle') : $target.collapse()
+})
+

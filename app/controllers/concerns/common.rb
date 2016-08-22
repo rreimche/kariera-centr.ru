@@ -9,4 +9,8 @@ module Common
 		# wrap them with links and place instead of the "..."
 		# Then do the same for [галерея] ... [/галерея]
 	end
+
+	module ClassMethods
+		
+  	end
 end

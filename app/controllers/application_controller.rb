@@ -18,6 +18,12 @@ class ApplicationController < ActionController::Base
   	end
   } 
 
+  Shortcode.setup do |config|
+    config.block_tags = [:collapse, :accordion]
+    #config.self_closing_tags = [:gallery, :widget]
+    config.attribute_quote_type = '&quot;'
+  end
+
   def prepare_sidebar 
     @newslist = News.order(created_at: :desc).limit(7)
     @hot_offers = HotOffer.order(created_at: :desc).limit(7)
