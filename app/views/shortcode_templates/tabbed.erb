@@ -1,0 +1,16 @@
+<% require 'pry' 
+# binding.pry %> <div>
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <% (0..@attributes[:tabs].length-1).each do |i| %>
+    	<li role="presentation"><a href="#<%= @attributes[:tabs][i] %>" aria-controls="settings" role="tab" data-toggle="tab"><%= @attributes[:titles][i].downcase.capitalize %></a></li>
+    <% end %>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+  	<%= @content %>
+  </div>
+
+</div>
