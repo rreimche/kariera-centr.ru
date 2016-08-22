@@ -39,6 +39,8 @@ class CoursesController < ApplicationController
       feedbacks = render_to_string partial: 'feedbacks', locals: {feedbacks: feedbacks, feedbacks_are_own: feedbacks_are_own}
       @course.full_descr.sub! '[отзывы]', feedbacks
     end
+
+    @course.full_descr = Shortcode.process(@course.full_descr)
   end
 
   # GET /courses/new
