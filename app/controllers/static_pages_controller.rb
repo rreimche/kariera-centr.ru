@@ -11,7 +11,11 @@ class StaticPagesController < ApplicationController
   # GET /static_pages/1
   # GET /static_pages/1.json
   def show
-    @static_page.content = Shortcode.process(@static_page.content)
+    begin 
+      @static_page.content = Shortcode.process(@static_page.content)
+    rescue
+      @static_page.content = '<h1 class="text-danger bg-danger">КОДЫ ПОДСТАНОВКИ НЕ ОБРАБОТАНЫ: ОШИБКА В СИНТАКСИСЕ!!!</h1>' + @static_page.content
+    end
   end
 
   # GET /static_pages/new

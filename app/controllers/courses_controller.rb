@@ -39,8 +39,11 @@ class CoursesController < ApplicationController
       feedbacks = render_to_string partial: 'feedbacks', locals: {feedbacks: feedbacks, feedbacks_are_own: feedbacks_are_own}
       @course.full_descr.sub! '[отзывы]', feedbacks
     end
-
-    @course.full_descr = Shortcode.process(@course.full_descr)
+    begin 
+      @course.full_descr = Shortcode.process(@course.full_descr)
+      rescue
+      @course.full_descr = '<h1 class="text-danger bg-danger">КОДЫ ПОДСТАНОВКИ НЕ ОБРАБОТАНЫ: ОШИБКА В СИНТАКСИСЕ!!!</h1>' + @course.full_descr
+    end
   end
 
   # GET /courses/new
