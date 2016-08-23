@@ -35,6 +35,11 @@ class CoursesController < ApplicationController
     #  id = id.parameterize
     #  @course_ids[i] = id
     #end
+
+    @qtyPanels = 0
+    (0..ENV['COURSE_PANELS_QTY'].to_i).each do |i|
+      @qtyPanels = @qtyPanels + 1 if @course["panel#{i}_title"] != ""
+    end
     
 
     if Feedback.where(course: @course, published: true).count < 3
