@@ -1,8 +1,8 @@
 
 class ApplicationController < ActionController::Base
 
-  require "#{Rails.root}/lib/tabbedpresenter.rb"
-  require "#{Rails.root}/lib/tabpresenter.rb" 
+  #require "#{Rails.root}/lib/tabbedpresenter.rb"
+  #require "#{Rails.root}/lib/tabpresenter.rb" 
   #  http_basic_authenticate_with name: ENV['CP_USER'], password: ENV['CP_PASSWORD']
 
   # Prevent CSRF attacks by raising an exception.
@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
   	end
   } 
 
-  Shortcode.register_presenter(TabbedPresenter, TabPresenter)
+  #Shortcode.register_presenter(TabbedPresenter, TabPresenter)
 
   Shortcode.setup do |config|
     config.block_tags = [:collapse, :accordion] #, :tabbed, :tab, :pilled, :pill]
