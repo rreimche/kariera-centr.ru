@@ -1,6 +1,4 @@
 class TabbedPresenter
-	# require 'active_support/inflector'
-	require 'pry'
 
 	def self.for
 		[:tabbed, :pilled]
@@ -19,7 +17,6 @@ class TabbedPresenter
 		#prepare indexes of tabs
 		tabs = @attributes[:tabs].str
 		tabs.downcase!
-		# tabs = ActiveSupport::Inflector.transliterate(tabs)
 		tabs = Translit.convert(tabs, :english)
 		tabs = tabs.split(',')
 		tabs.map! { |tab| tab.parameterize }

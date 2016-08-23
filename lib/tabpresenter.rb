@@ -1,6 +1,4 @@
 class TabPresenter
-	# require 'active_support/inflector'
-	# require 'pry'
 	def self.for
 		[:tab, :pill]
 	end
@@ -16,10 +14,8 @@ class TabPresenter
 
 	def attributes
 		#prepare indexes for content panes
-		# binding.pry
 		index = @attributes[:for].str
 		index.downcase!
-		# index = ActiveSupport::Inflector.transliterate(index)
 		index = Translit.convert(index, :english)
 		index = index.parameterize
 
