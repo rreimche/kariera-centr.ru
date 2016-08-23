@@ -53,6 +53,9 @@ class CoursesController < ApplicationController
     if feedbacks.size != 0
       feedbacks = render_to_string partial: 'feedbacks', locals: {feedbacks: feedbacks, feedbacks_are_own: feedbacks_are_own}
       @course.full_descr.sub! '[отзывы]', feedbacks
+      (0...ENV['COURSE_PANELS_QTY'].to_i).each do |i|
+        @course["panel#{i}_content".to_sym].sub! '[отзывы]', feedbacks
+      end
     end
 
     begin 
