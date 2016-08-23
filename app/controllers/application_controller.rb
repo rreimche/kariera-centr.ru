@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
   Shortcode.register_presenter(TabbedPresenter, TabPresenter)
 
   Shortcode.setup do |config|
-    config.block_tags = [:collapse, :accordion, :tabbed, :tab, :pilled, :pill]
+    config.block_tags = [:collapse, :accordion] #, :tabbed, :tab, :pilled, :pill]
     #config.self_closing_tags = [:gallery, :widget]
     config.attribute_quote_type = '&quot;'
   end

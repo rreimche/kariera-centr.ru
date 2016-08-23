@@ -30,7 +30,7 @@
     <%= f.text_field :short_descr, maxlength: 144 %>
   </p>
 
-  <h3>Панели содержания</h3>
+  <h3>Панели</h3>
   <div class="panel-group" id="panels" role="tablist" aria-multiselectable="true">
   <% (0...ENV['COURSE_PANELS_QTY'].to_i).each do |i| %>
   	  <div class="panel panel-default">
@@ -58,7 +58,7 @@
   </div>
 
   <p class="field">
-    <h3><%= f.label "Полное описание" %></h3>
+    <h3><%= f.label "Содержание ниже панелей" %></h3>
     <%= f.cktext_area :full_descr %>
   </p>
   <p>
@@ -75,14 +75,15 @@
         [collapse heading="Заголовок3"]Содержание3[/collapse]<br>
         [/accordion]
       </strong>  
-    </blockqoute> <br>
+    </blockqoute> 
+    <span class="hidden"><br>
     Кроме этого, доступно разбиение содержания на панели (тэбы):<br>
     <strong>[tabbed tabs="Заголовок1,Заголовок2,Заголовок3"]<br>
     [tab for="Заголовок1"]Содержание1[/tab]<br>
     [tab for="Заголовок2"]Содержание2[/tab]<br>
     [tab for="Заголовок3"]Содержание3[/tab]<br>
     [/tabbed]</strong> – Заголовки разделов в tabs="..." нужно разделять запятыми, нельзя, чтобы они начинались с цифр. Как минимум в одном [tab] должно быть active="1". Вместо [tabbed tabs="..."][/tabbed] можно 
-    использовать <strong>[pilled tabs="..."][/pilled]</strong> для получения "кнопок" вместо тэбов.
+    использовать <strong>[pilled tabs="..."][/pilled]</strong> для получения "кнопок" вместо тэбов.</span>
   </p>
   <p class="field">
     <%= f.label "Дата начала" %><br>
