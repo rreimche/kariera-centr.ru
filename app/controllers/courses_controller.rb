@@ -37,7 +37,7 @@ class CoursesController < ApplicationController
     #end
 
     @qtyPanels = 0
-    (0..ENV['COURSE_PANELS_QTY'].to_i).each do |i|
+    (0...ENV['COURSE_PANELS_QTY'].to_i).each do |i|
       @qtyPanels = @qtyPanels + 1 if @course["panel#{i}_title"] != ""
     end
     
@@ -56,7 +56,11 @@ class CoursesController < ApplicationController
     end
 
     begin 
+      (0...ENV['COURSE_PANELS_QTY'].to_i).each do |i|
+        @course["panel#{i}_content".to_sym] = Shortcode.process(@course["panel#{i}_content".to_sym])
+      end
       @course.full_descr = Shortcode.process(@course.full_descr)
+      
       rescue
       @course.full_descr = '<h1 class="text-danger bg-danger">КОДЫ ПОДСТАНОВКИ НЕ ОБРАБОТАНЫ: ОШИБКА В СИНТАКСИСЕ!!!</h1>' + @course.full_descr
     end
