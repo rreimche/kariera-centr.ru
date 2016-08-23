@@ -38,8 +38,9 @@ class CoursesController < ApplicationController
 
     @qtyPanels = 0
     (0...ENV['COURSE_PANELS_QTY'].to_i).each do |i|
-      @qtyPanels = @qtyPanels + 1 if @course["panel#{i}_title"] != ""
+      @qtyPanels = @qtyPanels + 1 if ( @course["panel#{i}_title"] != "" and @course["panel#{i}_title"] != nil )
     end
+
     
 
     if Feedback.where(course: @course, published: true).count < 3
@@ -54,13 +55,17 @@ class CoursesController < ApplicationController
       feedbacks = render_to_string partial: 'feedbacks', locals: {feedbacks: feedbacks, feedbacks_are_own: feedbacks_are_own}
       @course.full_descr.sub! '[отзывы]', feedbacks
       (0...ENV['COURSE_PANELS_QTY'].to_i).each do |i|
-        @course["panel#{i}_content".to_sym].sub! '[отзывы]', feedbacks
+        if @course["panel#{i}_content".to_sym] != nil then
+          @course["panel#{i}_content".to_sym].sub! '[отзывы]', feedbacks
+        end
       end
     end
 
     begin 
       (0...ENV['COURSE_PANELS_QTY'].to_i).each do |i|
-        @course["panel#{i}_content".to_sym] = Shortcode.process(@course["panel#{i}_content".to_sym])
+        if  @course["panel#{i}_content".to_sym] != nil then
+          @course["panel#{i}_content".to_sym] = Shortcode.process(@course["panel#{i}_content".to_sym])
+        end
       end
       @course.full_descr = Shortcode.process(@course.full_descr)
       
