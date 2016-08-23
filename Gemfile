@@ -50,6 +50,7 @@ gem 'blueimp-gallery'
 gem 'railroady'
 gem 'shortcode'
 gem 'bh', '~> 1.3'
+gem 'translit'
 
 group :development do
   gem 'capistrano-rails', '~> 1.1.1'

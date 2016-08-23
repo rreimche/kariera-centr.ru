@@ -37,7 +37,13 @@
         [collapse heading="Заголовок3"]Содержание3[/collapse]<br>
         [/accordion]
       </strong>  
-    </blockqoute>   
+    </blockqoute>
+    <strong>[tabbed tabs="Заголовок1,Заголовок2,Заголовок3"]<br>
+    [tab for="Заголовок1"]Содержание1[/tab]<br>
+    [tab for="Заголовок2"]Содержание2[/tab]<br>
+    [tab for="Заголовок3"]Содержание3[/tab]<br>
+    [/tabbed]</strong> – навигация тэбами. Заголовки разделов в tabs="..." нужно разделять запятыми, нельзя, чтобы они начинались с цифер. Вместо [tabbed tabs="..."][/tabbed] можно 
+    использовать <strong>[pilled tabs="..."][/pilled]</strong> для получения "кнопок" вместо тэбов.  
   </p>
   <p class="actions">
     <%= f.submit action_name == 'new' ?  'Создать страницу' : 'Редактировать страницу' %>

@@ -1,8 +1,8 @@
 class TabPresenter
-	require 'active_support/inflector'
+	# require 'active_support/inflector'
 	# require 'pry'
 	def self.for
-		:tab
+		[:tab, :pill]
 	end
 
 	def initialize(attributes, content, additional_attributes)
@@ -19,7 +19,9 @@ class TabPresenter
 		# binding.pry
 		index = @attributes[:for].str
 		index.downcase!
-		index = ActiveSupport::Inflector.transliterate(index)
+		# index = ActiveSupport::Inflector.transliterate(index)
+		index = Translit.convert(index, :english)
+		index = index.parameterize
 
 		@attributes[:for] = index
 		@attributes # i'm not sure if I need this here...

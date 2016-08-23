@@ -1,7 +1,7 @@
 <div>
 
   <!-- Nav tabs -->
-  <ul class="nav nav-tabs" role="tablist">
+  <ul class="nav nav-pills" role="tablist">
     <% (0..@attributes[:tabs].length-1).each do |i| %>
     	<li role="presentation"><a href="#<%= @attributes[:tabs][i] %>" aria-controls="<%= @attributes[:tabs][i] %>" role="tab" data-toggle="tab"><%= @attributes[:titles][i].downcase.capitalize %></a></li>
     <% end %>

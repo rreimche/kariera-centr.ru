@@ -1,8 +1,9 @@
 class TabbedPresenter
-	require 'active_support/inflector'
-	
+	# require 'active_support/inflector'
+	require 'pry'
+
 	def self.for
-		:tabbed
+		[:tabbed, :pilled]
 	end
 
 	def initialize(attributes, content, additional_attributes)
@@ -18,8 +19,10 @@ class TabbedPresenter
 		#prepare indexes of tabs
 		tabs = @attributes[:tabs].str
 		tabs.downcase!
-		tabs = ActiveSupport::Inflector.transliterate(tabs)
+		# tabs = ActiveSupport::Inflector.transliterate(tabs)
+		tabs = Translit.convert(tabs, :english)
 		tabs = tabs.split(',')
+		tabs.map! { |tab| tab.parameterize }
 
 		#prepare titles of tabs
 		titles = @attributes[:tabs].str
