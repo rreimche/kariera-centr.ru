@@ -5,6 +5,22 @@
   </div>
 </div>
 <div class="row">
+  <div class="col-xs-12">     
+    <ul class="nav nav-pills" role="tablist">
+	    <% (0...ENV['COURSE_PANELS_QTY'].to_i).each do |i| %>
+	    	<% next if @course["panel#{i}_title"] == ""  %>
+	    	<li role="presentation" class="<%= "active" if i == 0 %> "><a href="#<%= "panel#{i}" %>" aria-controls="<%= "panel#{i}" %>" role="tab" data-toggle="tab"><%= @course["panel#{i}_title".to_sym] %></a></li>
+	    <% end %>
+    </ul>
+    <div class="tab-content">
+   	  <% (0...ENV['COURSE_PANELS_QTY'].to_i).each do |i| %>
+   	  	<% next if @course["panel#{i}_title"] == ""  %>
+   	  	<div role="tabpanel" class="tab-pane fade <%= "active in" if i == 0 %> " id="<%= "panel#{i}" %>"><%= raw @course["panel#{i}_content".to_sym] %></div>
+   	  <% end %>
+    </div>
+  </div>
+</div>
+<div class="row">
   <div class="col-xs-12"> 
     <%= raw @course.full_descr %>
   </div>

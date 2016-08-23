@@ -12,4 +12,7 @@ class Course < ActiveRecord::Base
 	validates_attachment :featured_image, presence: true, 
 		content_type: { content_type: /\Aimage\/.*\Z/ },
 		size: { in: 0..3.megabytes }
+	(0...ENV['COURSE_PANELS_QTY'].to_i).each do |i|
+		validates "panel#{i}_title".to_sym, length: { maximum: 255 }
+	end
 end

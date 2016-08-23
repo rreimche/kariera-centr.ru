@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160520121204) do
+ActiveRecord::Schema.define(version: 20160823150525) do
 
   create_table "ckeditor_assets", force: true do |t|
     t.string   "data_file_name",               null: false
@@ -46,6 +46,22 @@ ActiveRecord::Schema.define(version: 20160520121204) do
     t.integer  "advance_payment"
     t.integer  "monthly_payment"
     t.boolean  "published",                   default: true
+    t.string   "panel0_title"
+    t.text     "panel0_content"
+    t.string   "panel1_title"
+    t.text     "panel1_content"
+    t.string   "panel2_title"
+    t.text     "panel2_content"
+    t.string   "panel3_title"
+    t.text     "panel3_content"
+    t.string   "panel4_title"
+    t.text     "panel4_content"
+    t.string   "panel5_title"
+    t.text     "panel5_content"
+    t.string   "panel6_title"
+    t.text     "panel6_content"
+    t.string   "panel7_title"
+    t.text     "panel7_content"
   end
 
   create_table "feedbacks", force: true do |t|

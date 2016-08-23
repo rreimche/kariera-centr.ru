@@ -27,6 +27,16 @@ class CoursesController < ApplicationController
       # return 404
     end
 
+    # prepare ids for panels
+    #(0...ENV['COURSE_PANELS_QTY'].to_i).each do |i|
+    #  id = @course["panel#{i}_title".to_sym]
+    #  id.downcase!
+    #  id = Translit.convert(id, :english)
+    #  id = id.parameterize
+    #  @course_ids[i] = id
+    #end
+    
+
     if Feedback.where(course: @course, published: true).count < 3
       feedbacks = Feedback.limit(5)
       feedbacks_are_own = false
@@ -39,6 +49,7 @@ class CoursesController < ApplicationController
       feedbacks = render_to_string partial: 'feedbacks', locals: {feedbacks: feedbacks, feedbacks_are_own: feedbacks_are_own}
       @course.full_descr.sub! '[отзывы]', feedbacks
     end
+
     begin 
       @course.full_descr = Shortcode.process(@course.full_descr)
       rescue
@@ -132,7 +143,19 @@ class CoursesController < ApplicationController
       if action_name == search
         params.permit('titlepart')
       else
-        params.require(:course).permit(:title, :featured_image, :short_descr, :full_descr, :start_date, :duration, :full_price, :advance_payment, :monthly_payment, :timegroup, :published)
+        params.require(:course).permit(:title, 
+          :featured_image, :short_descr, :full_descr, 
+          :start_date, :duration, :full_price, 
+          :advance_payment, :monthly_payment, 
+          :timegroup, :published,
+          :panel0_title, :panel0_content,
+          :panel1_title, :panel1_content,
+          :panel2_title, :panel2_content,
+          :panel3_title, :panel3_content,
+          :panel4_title, :panel4_content,
+          :panel5_title, :panel5_content,
+          :panel6_title, :panel6_content,
+          :panel7_title, :panel7_content)
       end
     end
 
