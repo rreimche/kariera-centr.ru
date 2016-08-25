@@ -15,4 +15,7 @@ class Course < ActiveRecord::Base
 	(0...ENV['COURSE_PANELS_QTY'].to_i).each do |i|
 		validates "panel#{i}_title".to_sym, length: { maximum: 255 }
 	end
+	(0...ENV['COURSE_CURRICULUMPARTS_QTY'].to_i).each do |i|
+  		validates "curriculum#{i}_title".to_sym, length: { maximum: 255 }
+  	end
 end

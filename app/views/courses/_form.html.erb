@@ -36,12 +36,12 @@
   	  <div class="panel panel-default">
   	    <div class="panel-heading" role="tab" id="heading<%= i %>">
   	      <h4 class="panel-title" style="text-align:left">
-  	        <a role="button" data-toggle="collapse" data-parent="#panels" href="#collapse<%= i %>" aria-expanded="<%= (i==0) ? 'true' : 'false' %>" aria-controls="collapse<%= i %>">
+  	        <a role="button" data-toggle="collapse" data-parent="#panels" href="#collapse<%= i %>" aria-expanded="false" aria-controls="collapse<%= i %>">
   	          Панель <%= i+1 %>
   	        </a>
   	      </h4>
   	    </div>
-  	    <div id="collapse<%= i %>" class="panel-collapse collapse <%= 'in' if i == 0 %>"" role="tabpanel" aria-labelledby="heading<%= i %>">
+  	    <div id="collapse<%= i %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<%= i %>">
   	      <div class="panel-body">
   	        <p>
 	  	        <%= f.label "Заголовок" %><br>
@@ -85,6 +85,36 @@
     [/tabbed]</strong> – Заголовки разделов в tabs="..." нужно разделять запятыми, нельзя, чтобы они начинались с цифр. Как минимум в одном [tab] должно быть active="1". Вместо [tabbed tabs="..."][/tabbed] можно 
     использовать <strong>[pilled tabs="..."][/pilled]</strong> для получения "кнопок" вместо тэбов.</span>
   </p>
+    
+    <h3>Программа курса</h3>
+    <div class="panel-group" id="curriculum" role="tablist" aria-multiselectable="true">
+    <% (0...ENV['COURSE_CURRICULUMPARTS_QTY'].to_i).each do |i| %>
+    	  <div class="panel panel-default">
+    	    <div class="panel-heading" role="tab" id="curriculum_heading<%= i %>">
+    	      <h4 class="panel-title" style="text-align:left">
+    	        <a role="button" data-toggle="collapse" data-parent="#curriculum" href="#curriculum_collapse<%= i %>" aria-expanded="false" aria-controls="curriculum_collapse<%= i %>">
+    	          Раздел <%= i+1 %>
+    	        </a>
+    	      </h4>
+    	    </div>
+    	    <div id="curriculum_collapse<%= i %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="curriculum_heading<%= i %>">
+    	      <div class="panel-body">
+    	        <p>
+  	  	        <%= f.label "Заголовок" %><br>
+  	  	        <%= f.text_field "curriculum#{i}_title", maxlength: 255 %>
+  	  	    	</p>
+    	        <p>
+  	  	        <%= f.label "Содержание" %><br>
+  	  	        <%= f.cktext_area "curriculum#{i}_content" %>
+    	        </p>
+    	      </div>
+    	    </div>
+    	  </div>
+    <% end %>
+    </div>
+
+  
+
   <p class="field">
     <%= f.label "Дата начала" %><br>
     <%= f.date_select :start_date %>

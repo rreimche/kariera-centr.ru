@@ -27,20 +27,15 @@ class CoursesController < ApplicationController
       # return 404
     end
 
-    # prepare ids for panels
-    #(0...ENV['COURSE_PANELS_QTY'].to_i).each do |i|
-    #  id = @course["panel#{i}_title".to_sym]
-    #  id.downcase!
-    #  id = Translit.convert(id, :english)
-    #  id = id.parameterize
-    #  @course_ids[i] = id
-    #end
-
     @qtyPanels = 0
     (0...ENV['COURSE_PANELS_QTY'].to_i).each do |i|
       @qtyPanels = @qtyPanels + 1 if ( @course["panel#{i}_title"] != "" and @course["panel#{i}_title"] != nil )
     end
 
+    @qtyCurriculum = 0
+    (0...ENV['COURSE_CURRICULUMPARTS_QTY'].to_i).each do |i|
+      @qtyCurriculum = @qtyCurriculum + 1 if ( @course["curriculum#{i}_title"] != "" and @course["curriculum#{i}_title"] != nil )
+    end
     
 
     if Feedback.where(course: @course, published: true).count < 3
@@ -53,10 +48,20 @@ class CoursesController < ApplicationController
 
     if feedbacks.size != 0
       feedbacks = render_to_string partial: 'feedbacks', locals: {feedbacks: feedbacks, feedbacks_are_own: feedbacks_are_own}
+      curriculum = render_to_string partial: 'curriculum'
+      
       @course.full_descr.sub! '[отзывы]', feedbacks
+      @course.full_descr.sub! '[программа]', curriculum
+      
       (0...ENV['COURSE_PANELS_QTY'].to_i).each do |i|
         if @course["panel#{i}_content".to_sym] != nil then
           @course["panel#{i}_content".to_sym].sub! '[отзывы]', feedbacks
+          @course["panel#{i}_content".to_sym].sub! '[программа]', curriculum
+        end
+      end
+      (0...ENV['COURSE_CURRICULUMPARTS_QTY'].to_i).each do |i|
+        if @course["curriculum#{i}_content".to_sym] != nil then
+          @course["curriculum#{i}_content".to_sym].sub! '[отзывы]', feedbacks
         end
       end
     end
@@ -67,10 +72,15 @@ class CoursesController < ApplicationController
           @course["panel#{i}_content".to_sym] = Shortcode.process(@course["panel#{i}_content".to_sym])
         end
       end
+      (0...ENV['COURSE_CURRICULUMPARTS_QTY'].to_i).each do |i|
+        if  @course["curriculum#{i}_content".to_sym] != nil then
+          @course["curriculum#{i}_content".to_sym] = Shortcode.process(@course["curriculum#{i}_content".to_sym])
+        end
+      end
       @course.full_descr = Shortcode.process(@course.full_descr)
       
       rescue
-      @course.full_descr = '<h1 class="text-danger bg-danger">КОДЫ ПОДСТАНОВКИ НЕ ОБРАБОТАНЫ: ОШИБКА В СИНТАКСИСЕ!!!</h1>' + @course.full_descr
+      @course.full_descr = '<h1 class="text-danger bg-danger">КОДЫ ПОДСТАНОВКИ НЕ ОБРАБОТАНЫ: ОШИБКА!!!</h1>' + @course.full_descr
     end
   end
 
@@ -160,19 +170,23 @@ class CoursesController < ApplicationController
       if action_name == search
         params.permit('titlepart')
       else
-        params.require(:course).permit(:title, 
+        to_permit = [:title, 
           :featured_image, :short_descr, :full_descr, 
           :start_date, :duration, :full_price, 
           :advance_payment, :monthly_payment, 
-          :timegroup, :published,
-          :panel0_title, :panel0_content,
-          :panel1_title, :panel1_content,
-          :panel2_title, :panel2_content,
-          :panel3_title, :panel3_content,
-          :panel4_title, :panel4_content,
-          :panel5_title, :panel5_content,
-          :panel6_title, :panel6_content,
-          :panel7_title, :panel7_content)
+          :timegroup, :published]
+
+          (0...ENV['COURSE_PANELS_QTY'].to_i).each do |i|
+            to_permit.push "panel#{i}_title".to_sym
+            to_permit.push "panel#{i}_content".to_sym
+          end
+
+          (0...ENV['COURSE_CURRICULUMPARTS_QTY'].to_i).each do |i|
+              to_permit.push "curriculum#{i}_title".to_sym
+              to_permit.push "curriculum#{i}_content".to_sym
+          end
+
+        params.require(:course).permit(to_permit)
       end
     end
 

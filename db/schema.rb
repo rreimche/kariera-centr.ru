@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160823150525) do
+ActiveRecord::Schema.define(version: 20160825102051) do
 
   create_table "ckeditor_assets", force: true do |t|
     t.string   "data_file_name",               null: false
@@ -62,6 +62,36 @@ ActiveRecord::Schema.define(version: 20160823150525) do
     t.text     "panel6_content"
     t.string   "panel7_title"
     t.text     "panel7_content"
+    t.string   "curriculum0_title"
+    t.text     "curriculum0_content"
+    t.string   "curriculum1_title"
+    t.text     "curriculum1_content"
+    t.string   "curriculum2_title"
+    t.text     "curriculum2_content"
+    t.string   "curriculum3_title"
+    t.text     "curriculum3_content"
+    t.string   "curriculum4_title"
+    t.text     "curriculum4_content"
+    t.string   "curriculum5_title"
+    t.text     "curriculum5_content"
+    t.string   "curriculum6_title"
+    t.text     "curriculum6_content"
+    t.string   "curriculum7_title"
+    t.text     "curriculum7_content"
+    t.string   "curriculum8_title"
+    t.text     "curriculum8_content"
+    t.string   "curriculum9_title"
+    t.text     "curriculum9_content"
+    t.string   "curriculum10_title"
+    t.text     "curriculum10_content"
+    t.string   "curriculum11_title"
+    t.text     "curriculum11_content"
+    t.string   "curriculum12_title"
+    t.text     "curriculum12_content"
+    t.string   "curriculum13_title"
+    t.text     "curriculum13_content"
+    t.string   "curriculum14_title"
+    t.text     "curriculum14_content"
   end
 
   create_table "feedbacks", force: true do |t|

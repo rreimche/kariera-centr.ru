@@ -1,0 +1,20 @@
+<% if @qtyCurriculum > 0 then %>    
+		<div class="panel-group" id="curriculum" role="tablist" aria-multiselectable="true">
+		    <% (0...@qtyCurriculum).each do |i| %>
+		    	  <div class="panel panel-info">
+		    	    <div class="panel-heading" role="tab" id="curriculum_heading<%= i %>">
+		    	      <h4 class="panel-title" style="text-align:left">
+		    	        <a role="button" data-toggle="collapse" data-parent="#curriculum" href="#curriculum_collapse<%= i %>" aria-expanded="false" aria-controls="curriculum_collapse<%= i %>">
+		    	          <%= @course["curriculum#{i}_title"] %>
+		    	        </a>
+		    	      </h4>
+		    	    </div>
+		    	    <div id="curriculum_collapse<%= i %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="curriculum_heading<%= i %>">
+		    	      <div class="panel-body">
+		    	       <%= raw @course["curriculum#{i}_content"] %>
+		    	      </div>
+		    	    </div>
+		    	  </div>
+		    <% end %>
+		</div>
+<% end %>
