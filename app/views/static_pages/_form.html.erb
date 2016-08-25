@@ -24,7 +24,7 @@
     <%= f.label "Содержание" %><br>
     <%= f.cktext_area :content, :ckeditor => {:language => 'ru'} %>
   </p>
-  <p>
+  <p class="hidden">
     Можно использовать следующие коды подстановки:<br>
     <strong>[collapse heading="Заголовок"]Содержание[/collapse]</strong> – заменяется на разворачиваемый блок<br>
     <strong>[accordion][/accordion]</strong> – используется вместе с несколькими collapse

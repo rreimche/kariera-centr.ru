@@ -31,6 +31,9 @@
   </p>
 
   <h3>Панели</h3>
+
+  <p>В Панелях и в содержании ниже панелей можно использовать код подставновки <strong>[отзывы]</strong>.</p>
+
   <div class="panel-group" id="panels" role="tablist" aria-multiselectable="true">
   <% (0...ENV['COURSE_PANELS_QTY'].to_i).each do |i| %>
   	  <div class="panel panel-default">
@@ -61,10 +64,9 @@
     <h3><%= f.label "Содержание ниже панелей" %></h3>
     <%= f.cktext_area :full_descr %>
   </p>
-  <p>
+  <p class="hidden">
     Можно использовать следующие коды подстановки:<br>
-    <strong>[отзывы]</strong> - заменяется на блок с отзывами<br>
-    <strong>[collapse heading="Заголовок"]Содержание[/collapse]</strong> – заменяется на разворачиваемый блок<br>
+    <span class="hidden"><strong>[collapse heading="Заголовок"]Содержание[/collapse]</strong> – заменяется на разворачиваемый блок<br>
     <strong>[accordion][/accordion]</strong> – используется вместе с несколькими collapse
     для создания аккордионов (группы разворачивающихся блоков), например:<br>
     <blockqoute style="display: block; padding-left: 1em;">
@@ -76,7 +78,7 @@
         [/accordion]
       </strong>  
     </blockqoute> 
-    <span class="hidden"><br>
+    <br>
     Кроме этого, доступно разбиение содержания на панели (тэбы):<br>
     <strong>[tabbed tabs="Заголовок1,Заголовок2,Заголовок3"]<br>
     [tab for="Заголовок1"]Содержание1[/tab]<br>
@@ -87,6 +89,7 @@
   </p>
     
     <h3>Программа курса</h3>
+    <p> После заполнения программы, в поле содержания для одной из панелей или для текста ниже панелей нужно поставить код подстановки <strong>[программа]</strong>.
     <div class="panel-group" id="curriculum" role="tablist" aria-multiselectable="true">
     <% (0...ENV['COURSE_CURRICULUMPARTS_QTY'].to_i).each do |i| %>
     	  <div class="panel panel-default">
