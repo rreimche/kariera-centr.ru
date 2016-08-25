@@ -23,11 +23,11 @@ class ApplicationController < ActionController::Base
 
   #Shortcode.register_presenter(TabbedPresenter, TabPresenter)
 
-  # Shortcode.setup do |config|
-  #   config.block_tags = [:collapse, :accordion] #, :tabbed, :tab, :pilled, :pill]
-  #   #config.self_closing_tags = [:gallery, :widget]
-  #   config.attribute_quote_type = '&quot;'
-  # end
+  Shortcode.setup do |config|
+    config.block_tags = [:collapse, :accordion] #, :tabbed, :tab, :pilled, :pill]
+    #config.self_closing_tags = [:gallery, :widget]
+    config.attribute_quote_type = '&quot;'
+  end
 
   def prepare_sidebar 
     @newslist = News.order(created_at: :desc).limit(7)
