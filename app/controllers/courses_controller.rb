@@ -23,15 +23,16 @@ class CoursesController < ApplicationController
 
   # GET /courses/1
   def show
-    if @course.published == false
-      # return 404
+
+    if @course.published == false or @course.published == nil
+      render_404
     end
 
     @qtyPanels = 0
     (0...ENV['COURSE_PANELS_QTY'].to_i).each do |i|
       @qtyPanels = @qtyPanels + 1 if ( @course["panel#{i}_title"] != "" and @course["panel#{i}_title"] != nil )
     end
-
+    
     @qtyCurriculum = 0
     (0...ENV['COURSE_CURRICULUMPARTS_QTY'].to_i).each do |i|
       @qtyCurriculum = @qtyCurriculum + 1 if ( @course["curriculum#{i}_title"] != "" and @course["curriculum#{i}_title"] != nil )

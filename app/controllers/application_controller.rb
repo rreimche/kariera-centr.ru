@@ -34,4 +34,9 @@ class ApplicationController < ActionController::Base
     @hot_offers = HotOffer.order(created_at: :desc).limit(7)
     @courses_next = Course.where(start_date: (Time.now.midnight - 7.days)..(Time.now.midnight+1.month), published: true).order(:start_date)
   end
+
+
+  def render_404
+    render :file => "#{Rails.root}/public/404.html",  :status => 404
+  end
 end

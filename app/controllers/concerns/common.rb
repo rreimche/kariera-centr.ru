@@ -10,6 +10,8 @@ module Common
 		# Then do the same for [галерея] ... [/галерея]
 	end
 
+	
+
 	module ClassMethods
 		
   	end
