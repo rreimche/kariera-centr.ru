@@ -48,7 +48,7 @@ gem 'ckeditor'
 gem 'paperclip'
 gem 'blueimp-gallery'
 gem 'railroady'
-gem 'shortcode'
+# gem 'shortcode'
 gem 'bh', '~> 1.3'
 gem 'translit'
 

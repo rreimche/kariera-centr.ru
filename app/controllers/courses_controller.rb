@@ -66,22 +66,22 @@ class CoursesController < ApplicationController
       end
     end
 
-    begin 
-      (0...ENV['COURSE_PANELS_QTY'].to_i).each do |i|
-        if  @course["panel#{i}_content".to_sym] != nil then
-          @course["panel#{i}_content".to_sym] = Shortcode.process(@course["panel#{i}_content".to_sym])
-        end
-      end
-      # (0...ENV['COURSE_CURRICULUMPARTS_QTY'].to_i).each do |i|
-      #   if  @course["curriculum#{i}_content".to_sym] != nil then
-      #     @course["curriculum#{i}_content".to_sym] = Shortcode.process(@course["curriculum#{i}_content".to_sym])
-      #   end
-      # end
-      @course.full_descr = Shortcode.process(@course.full_descr)
+    # begin 
+    #   (0...ENV['COURSE_PANELS_QTY'].to_i).each do |i|
+    #     if  @course["panel#{i}_content".to_sym] != nil then
+    #       @course["panel#{i}_content".to_sym] = Shortcode.process(@course["panel#{i}_content".to_sym])
+    #     end
+    #   end
+    #   # (0...ENV['COURSE_CURRICULUMPARTS_QTY'].to_i).each do |i|
+    #   #   if  @course["curriculum#{i}_content".to_sym] != nil then
+    #   #     @course["curriculum#{i}_content".to_sym] = Shortcode.process(@course["curriculum#{i}_content".to_sym])
+    #   #   end
+    #   # end
+    #   @course.full_descr = Shortcode.process(@course.full_descr)
       
-      rescue
-      @course.full_descr = '<h1 class="text-danger bg-danger">КОДЫ ПОДСТАНОВКИ НЕ ОБРАБОТАНЫ: ОШИБКА!!!</h1>' + @course.full_descr
-    end
+    #   rescue
+    #   @course.full_descr = '<h1 class="text-danger bg-danger">КОДЫ ПОДСТАНОВКИ НЕ ОБРАБОТАНЫ: ОШИБКА!!!</h1>' + @course.full_descr
+    # end
   end
 
   # GET /courses/new
