@@ -39,7 +39,7 @@ class CoursesController < ApplicationController
     
 
     if Feedback.where(course: @course, published: true).count < 3
-      feedbacks = Feedback.limit(5).order(created_at: :desc)
+      feedbacks = Feedback.where(published: true).limit(5).order(created_at: :desc)
       feedbacks_are_own = false
     else
       feedbacks = Feedback.where(course: @course, published: true).order(created_at: :desc)
