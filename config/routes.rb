@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  match "/404" => "errors#error404", via: [ :get, :post, :patch, :delete ]
+
   resources :feedbacks do
     member do
       delete 'publish'

@@ -25,7 +25,7 @@ class CoursesController < ApplicationController
   def show
 
     if @course.published == false or @course.published == nil
-      render_404
+      redurect_to "/404"
     end
 
     @qtyPanels = 0
