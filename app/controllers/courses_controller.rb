@@ -25,7 +25,7 @@ class CoursesController < ApplicationController
   def show
 
     if @course.published == false or @course.published == nil
-      redirect_to "/404"
+      throw ActionController::RecordNotFound
     end
 
     @qtyPanels = 0
