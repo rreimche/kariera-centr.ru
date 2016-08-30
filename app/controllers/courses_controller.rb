@@ -25,7 +25,7 @@ class CoursesController < ApplicationController
   def show
 
     if @course.published == false or @course.published == nil
-      raise ActionController::RecordNotFound
+      raise ActiveRecord::RecordNotFound
     end
 
     @qtyPanels = 0
