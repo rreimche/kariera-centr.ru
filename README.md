@@ -6,5 +6,5 @@ A simple rails app for one of my former clients. The client is a local education
 - Feedbacks (Testimonials).
 - Backend-Administration written from scratch to fit this project.
 
-The client is no more on the market and they have grante me the allowance to publish the code.
+The client is no more on the market and they have granted me the permission to publish the code.
 
