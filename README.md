@@ -6,5 +6,5 @@ A simple rails app for one of my former clients. The client is a local education
 - Feedbacks (Testimonials).
 - Backend-Administration written from scratch to fit this project.
 
-The client is no more on the market and they have granted me the permission to publish the code. Because the app is no more used I do not pay attention to the "found security vulnerability" aler box that gihub shows here.
+The client is no more on the market and they have granted me the permission to publish the code. Because the app is no more used and, apparently, will not be, I do not pay attention to the "found security vulnerability" aler box that gihub shows here.
 
